@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>编程珠玑-错误的二分查找算法（上） - 科文路</title><link rel="manifest" href="/kewenlu/manifest.json"><meta name="application-name" content="科文路"><meta name="msapplication-TileImage" content="/images/favicon.ico"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="科文路"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="编程珠玑-错误的二分查找算法（上） 源自《编程珠玑》第 2 版第 4 章，《编写正确的程序》      （上）部分主要介绍二分查找算法原理以及一些编程理念，（下）部分介绍该算法的一个经典错误"><meta property="og:type" content="blog"><meta property="og:title" content="编程珠玑-错误的二分查找算法（上）"><meta property="og:url" content="https://xlindo.com/kewenlu/posts/7a9954cb/"><meta property="og:site_name" content="科文路"><meta property="og:description" content="编程珠玑-错误的二分查找算法（上） 源自《编程珠玑》第 2 版第 4 章，《编写正确的程序》      （上）部分主要介绍二分查找算法原理以及一些编程理念，（下）部分介绍该算法的一个经典错误"><meta property="og:locale" content="zh_CN"><meta property="og:image" content="https://xlindo.com/kewenlu/images/2021/20211225.jpg"><meta property="article:published_time" content="2021-12-25T12:22:11.000Z"><meta property="article:modified_time" content="2021-12-25T13:57:35.845Z"><meta property="article:author" content="xlindo"><meta property="article:tag" content="科技"><meta property="article:tag" content="编程"><meta property="twitter:card" content="summary"><meta property="twitter:image" content="/kewenlu/images/2021/20211225.jpg"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://xlindo.com/kewenlu/posts/7a9954cb/"},"headline":"编程珠玑-错误的二分查找算法（上）","image":["https://xlindo.com/kewenlu/images/2021/20211225.jpg"],"datePublished":"2021-12-25T12:22:11.000Z","dateModified":"2021-12-25T13:57:35.845Z","author":{"@type":"Person","name":"xlindo"},"publisher":{"@type":"Organization","name":"科文路","logo":{"@type":"ImageObject","url":"https://xlindo.com/images/favicon.ico"}},"description":"编程珠玑-错误的二分查找算法（上） 源自《编程珠玑》第 2 版第 4 章，《编写正确的程序》      （上）部分主要介绍二分查找算法原理以及一些编程理念，（下）部分介绍该算法的一个经典错误"}</script><link rel="canonical" href="https://xlindo.com/kewenlu/posts/7a9954cb/"><link rel="icon" href="/kewenlu/images/favicon.ico"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.loli.net/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link rel="stylesheet" href="/kewenlu/css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><!--!--><script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" defer></script><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css"><!--!--><!--!--><!--!--><style>.pace{-webkit-pointer-events:none;pointer-events:none;-webkit-user-select:none;-moz-user-select:none;user-select:none}.pace-inactive{display:none}.pace .pace-progress{background:#3273dc;position:fixed;z-index:2000;top:0;right:100%;width:100%;height:2px}</style><script src="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/pace.min.js"></script><!--!--><!--!--><meta name="generator" content="Hexo 5.4.0"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/kewenlu/"><img src="/kewenlu/images/favicon.ico" alt="科文路" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/kewenlu/">Home</a><a class="navbar-item" href="/kewenlu/archives">Archives</a><a class="navbar-item" href="/kewenlu/tags">Tags</a><a class="navbar-item" href="/kewenlu/about">About</a></div><div class="navbar-end"><a class="navbar-item search" title="搜索" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2021-12-25T12:22:11.000Z" title="2021-12-25 8:22:11 ├F10: PM┤">2021-12-25</time>发表</span><span class="level-item"><time dateTime="2021-12-25T13:57:35.845Z" title="2021-12-25 9:57:35 ├F10: PM┤">2021-12-25</time>更新</span><span class="level-item"><a class="link-muted" href="/kewenlu/categories/%E7%A7%91%E6%8A%80/">科技</a></span><span class="level-item">7 分钟读完 (大约1115个字)</span><span class="level-item" id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv">0</span>次访问</span></div></div><h1 class="title is-3 is-size-4-mobile">编程珠玑-错误的二分查找算法（上）</h1><div class="content"><h1 id="编程珠玑-错误的二分查找算法（上）"><a href="#编程珠玑-错误的二分查找算法（上）" class="headerlink" title="编程珠玑-错误的二分查找算法（上）"></a>编程珠玑-错误的二分查找算法（上）</h1><blockquote>
+<p>源自《编程珠玑》第 2 版第 4 章，《编写正确的程序》   </p>
+</blockquote>
+<blockquote>
+<p>（上）部分主要介绍二分查找算法原理以及一些编程理念，（下）部分介绍该算法的一个经典错误</p>
+</blockquote>
+<span id="more"></span>
+<h2 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h2><p>在计算机科学中，二分查找算法（binary search algorithm），也称折半搜索算法（英语：half-interval search algorithm），是一种在有序数组中查找某一特定元素的搜索算法。其时间复杂度为 O(log n)，应用很广，应是每个程序员随手就应该能写出的高效算法。</p>
+<p>注意，该算法理应能应用于数、字符等任何可排序类型。</p>
+<p>二分查找表面上看起来是一个递归的过程：</p>
+<ul>
+<li><strong>（重复过程）</strong> 比较目标值（<code>t</code>）是否等于当前序列的中间位置（<code>m</code>）的值(<code>m_val</code>)<ul>
+<li><code>t == m_val</code>，如果两者相等，返回索引<code>m</code>，查找完成</li>
+<li><code>t &gt; m_val</code>，如果目标值较大，则<code>t</code>可能存在于<code>m</code>的右侧，在<code>m</code>的右侧重复查找过程</li>
+<li><code>t &lt; m_val</code>，如果目标值较小，则<code>t</code>可能存在于<code>m</code>的左侧，在<code>m</code>的左侧重复查找过程</li>
+</ul>
+</li>
+<li>如果<code>m</code>的左侧或右侧已经没有值，则返回<code>-1</code>，表示没有找到</li>
+</ul>
+<p>如下图所示，需要在序列中查找是否值为 4 的索引（答案为 3）。假设第一个值（1）的索引为 1：</p>
+<ul>
+<li>先看中间位置，中间位置索引为 5、值为 7。目标值较小，在左侧重复查找过程</li>
+<li>左侧（索引1~索引4）的中间位置，中间位置索引为 2、值为 3。目标值较大，在右侧重复查找过程</li>
+<li>右侧（索引3~索引4）的中间位置，中间位置索引为3、值为 4。两者相等，返回索引 3，查找完成</li>
+</ul>
+<p><img src="/kewenlu/images/2021/20211225.jpg" alt="binary_search"></p>
+<p>下面是维基百科上的定义，其也阐述了算法的底层逻辑。看一看，顺便学学英语。</p>
+<p>In computer science, binary search, also known as half-interval search, logarithmic search, or binary chop, is a search algorithm that finds the position of a target value within a sorted array. </p>
+<p><strong>Binary search compares the target value to the middle element of the array.</strong> </p>
+<ul>
+<li>If they are not equal, the half in which the target cannot lie is eliminated and the search continues on the remaining half, again taking the middle element to compare to the target value, and repeating this until the target value is found. </li>
+<li>If the search ends with the remaining half being empty, the target is not in the array.</li>
+</ul>
+<p>到这里应该就可以设计程序了吧！不过在编码之前，先固化一些姿势。</p>
+<h2 id="编程之前"><a href="#编程之前" class="headerlink" title="编程之前"></a>编程之前</h2><p>要想编写正确的程序，最好在之前做好三个准备工作：</p>
+<ul>
+<li><strong>把问题定义好。</strong> 如何把一个问题转化为本专业的问题，这里是程序设计问题，是非常重要的专业技能。</li>
+<li><strong>算法设计。</strong> 本文即是在搜索算法中选择了二分查找。</li>
+<li><strong>数据结构选择。</strong> 可以参考上一章<a href="https://xlindo.com/kewenlu/posts/5e4dda24/">《编程珠玑-从数据出发改善程序》</a></li>
+</ul>
+<h2 id="程序设计"><a href="#程序设计" class="headerlink" title="程序设计"></a>程序设计</h2><p>以 Python 为例，从算法原理出发，这个程序可能是写成这个样子的（循环版本）</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">binary_search</span>(<span class="params">arr, t</span>):</span></span><br><span class="line">    l = <span class="number">0</span></span><br><span class="line">    r = <span class="built_in">len</span>(arr) - <span class="number">1</span></span><br><span class="line">    <span class="keyword">while</span> l &lt;= r:</span><br><span class="line">        m = <span class="built_in">int</span>((r + l) / <span class="number">2</span>)  <span class="comment"># 取整</span></span><br><span class="line">        <span class="keyword">if</span> arr[m] &lt; t:</span><br><span class="line">            l = m + <span class="number">1</span>   <span class="comment"># 将搜索范围调整为 m 右侧</span></span><br><span class="line">        <span class="keyword">elif</span> arr[m] &gt; t:</span><br><span class="line">            r = m - <span class="number">1</span>   <span class="comment"># 将搜索范围调整为 m 左侧 </span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">return</span> m    <span class="comment"># 找到</span></span><br><span class="line">    <span class="keyword">return</span> -<span class="number">1</span>   <span class="comment"># 没有找到</span></span><br></pre></td></tr></table></figure>
+
+<p>在图中所示的序列</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">arr = [<span class="number">1</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">10</span>, <span class="number">13</span>, <span class="number">14</span>]</span><br></pre></td></tr></table></figure>
+
+<p>中查找元素 <code>4</code> 的索引</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(binary_search(arr, <span class="number">4</span>))</span><br><span class="line"><span class="comment"># 2</span></span><br></pre></td></tr></table></figure>
+
+<p>程序将打印 <code>2</code>，由于 Python 序列以 <code>0</code> 为首元素索引，所以答案索引 <code>2</code>、即第三个值，没有问题。</p>
+<p>所以到这里程序设计完成了吗？正确了吗？</p>
+<p><strong>这个 1946 年就被提出的算法，直到 1962 年才被修正成真正没有错误的二分搜索程序。</strong></p>
+<blockquote>
+<p>1988年开展的一项研究显示，20本教科书里只有5本正确实现了二分搜索。</p>
+</blockquote>
+<p>先消化消化，下一篇文章继续说。</p>
+<h2 id="作业"><a href="#作业" class="headerlink" title="作业"></a>作业</h2><p>将上文的循环版本的二分搜索改成递归版本。</p>
+</div><div class="article-licensing box"><div class="licensing-title"><p>编程珠玑-错误的二分查找算法（上）</p><p><a href="https://xlindo.com/kewenlu/posts/7a9954cb/">https://xlindo.com/kewenlu/posts/7a9954cb/</a></p></div><div class="licensing-meta level is-mobile"><div class="level-left"><div class="level-item is-narrow"><div><h6>作者</h6><p>xlindo</p></div></div><div class="level-item is-narrow"><div><h6>发布于</h6><p>2021-12-25</p></div></div><div class="level-item is-narrow"><div><h6>更新于</h6><p>2021-12-25</p></div></div><div class="level-item is-narrow"><div><h6>许可协议</h6><p><a class="icons" rel="noopener" target="_blank" title="Creative Commons" href="https://creativecommons.org/"><i class="icon fab fa-creative-commons"></i></a><a class="icons" rel="noopener" target="_blank" title="Attribution" href="https://creativecommons.org/licenses/by/4.0/"><i class="icon fab fa-creative-commons-by"></i></a><a class="icons" rel="noopener" target="_blank" title="Noncommercial" href="https://creativecommons.org/licenses/by-nc/4.0/"><i class="icon fab fa-creative-commons-nc"></i></a></p></div></div></div></div></div><div class="article-tags is-size-7 mb-4"><span class="mr-2">#</span><a class="link-muted mr-2" rel="tag" href="/kewenlu/tags/%E7%A7%91%E6%8A%80/">科技</a><a class="link-muted mr-2" rel="tag" href="/kewenlu/tags/%E7%BC%96%E7%A8%8B/">编程</a></div><!--!--></article></div><!--!--><nav class="post-navigation mt-4 level is-mobile"><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/kewenlu/posts/693f8ac5/"><span class="level-item">买房了，断供了</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><!--!--></div><div class="column column-left is-4-tablet is-4-desktop is-4-widescreen  order-1"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar" src="/kewenlu/images/qrcode.jpg" alt="科文路"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">科文路</p><p class="is-size-6 is-block">微信公众号&quot;科文路&quot;的存档</p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">文章</p><a href="/kewenlu/archives"><p class="title">12</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">分类</p><a href="/kewenlu/categories"><p class="title">2</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">标签</p><a href="/kewenlu/tags"><p class="title">10</p></a></div></div></nav></div></div><!--!--><div class="card widget" data-type="categories"><div class="card-content"><div class="menu"><h3 class="menu-label">分类</h3><ul class="menu-list"><li><a class="level is-mobile" href="/kewenlu/categories/%E4%BA%BA%E6%96%87/"><span class="level-start"><span class="level-item">人文</span></span><span class="level-end"><span class="level-item tag">7</span></span></a></li><li><a class="level is-mobile" href="/kewenlu/categories/%E7%A7%91%E6%8A%80/"><span class="level-start"><span class="level-item">科技</span></span><span class="level-end"><span class="level-item tag">5</span></span></a></li></ul></div></div></div><div class="card widget" data-type="recent-posts"><div class="card-content"><h3 class="menu-label">最新文章</h3><article class="media"><div class="media-content"><p class="date"><time dateTime="2021-12-25T12:22:11.000Z">2021-12-25</time></p><p class="title"><a href="/kewenlu/posts/7a9954cb/">编程珠玑-错误的二分查找算法（上）</a></p><p class="categories"><a href="/kewenlu/categories/%E7%A7%91%E6%8A%80/">科技</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2021-12-24T13:24:33.000Z">2021-12-24</time></p><p class="title"><a href="/kewenlu/posts/693f8ac5/">买房了，断供了</a></p><p class="categories"><a href="/kewenlu/categories/%E4%BA%BA%E6%96%87/">人文</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2021-12-23T12:27:44.000Z">2021-12-23</time></p><p class="title"><a href="/kewenlu/posts/bc69e40/">书影，豆瓣发布2021年度榜单</a></p><p class="categories"><a href="/kewenlu/categories/%E4%BA%BA%E6%96%87/">人文</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2021-12-22T12:17:39.000Z">2021-12-22</time></p><p class="title"><a href="/kewenlu/posts/5e4dda24/">编程珠玑-从数据出发改善程序</a></p><p class="categories"><a href="/kewenlu/categories/%E7%A7%91%E6%8A%80/">科技</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2021-12-21T13:39:01.000Z">2021-12-21</time></p><p class="title"><a href="/kewenlu/posts/9e6bf2f6/">李靓蕾、王力宏离婚事件时间线整理</a></p><p class="categories"><a href="/kewenlu/categories/%E4%BA%BA%E6%96%87/">人文</a></p></div></article></div></div><div class="card widget" data-type="archives"><div class="card-content"><div class="menu"><h3 class="menu-label">归档</h3><ul class="menu-list"><li><a class="level is-mobile" href="/kewenlu/archives/2021/12/"><span class="level-start"><span class="level-item">十二月 2021</span></span><span class="level-end"><span class="level-item tag">12</span></span></a></li></ul></div></div></div><div class="card widget" data-type="tags"><div class="card-content"><div class="menu"><h3 class="menu-label">标签</h3><div class="field is-grouped is-grouped-multiline"><div class="control"><a class="tags has-addons" href="/kewenlu/tags/Linux/"><span class="tag">Linux</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/kewenlu/tags/%E4%BA%BA%E6%96%87/"><span class="tag">人文</span><span class="tag">7</span></a></div><div class="control"><a class="tags has-addons" href="/kewenlu/tags/%E5%A8%B1%E4%B9%90/"><span class="tag">娱乐</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/kewenlu/tags/%E5%BC%80%E6%BA%90/"><span class="tag">开源</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/kewenlu/tags/%E6%97%85%E6%B8%B8/"><span class="tag">旅游</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/kewenlu/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"><span class="tag">机器学习</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/kewenlu/tags/%E6%B0%91%E7%94%9F/"><span class="tag">民生</span><span class="tag">3</span></a></div><div class="control"><a class="tags has-addons" href="/kewenlu/tags/%E7%A4%BE%E4%BC%9A/"><span class="tag">社会</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/kewenlu/tags/%E7%A7%91%E6%8A%80/"><span class="tag">科技</span><span class="tag">5</span></a></div><div class="control"><a class="tags has-addons" href="/kewenlu/tags/%E7%BC%96%E7%A8%8B/"><span class="tag">编程</span><span class="tag">2</span></a></div></div></div></div></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/kewenlu/"><img src="/kewenlu/images/favicon.ico" alt="科文路" height="28"></a><p class="is-size-7"><span>&copy; 2021 xlindo</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a><br><span id="busuanzi_container_site_uv">共<span id="busuanzi_value_site_uv">0</span>个访客</span></p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a></p></div></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("zh-CN");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script src="/kewenlu/js/column.js"></script><script src="/kewenlu/js/animation.js"></script><a id="back-to-top" title="回到顶端" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="/kewenlu/js/back_to_top.js" defer></script><!--!--><!--!--><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.js" defer></script><script>window.addEventListener("load", () => {
+      window.cookieconsent.initialise({
+        type: "info",
+        theme: "edgeless",
+        static: false,
+        position: "bottom-left",
+        content: {
+          message: "此网站使用Cookie来改善您的体验。",
+          dismiss: "知道了！",
+          allow: "允许使用Cookie",
+          deny: "拒绝",
+          link: "了解更多",
+          policy: "Cookie政策",
+          href: "https://www.cookiesandyou.com/",
+        },
+        palette: {
+          popup: {
+            background: "#edeff5",
+            text: "#838391"
+          },
+          button: {
+            background: "#4b81e8"
+          },
+        },
+      });
+    });</script><script src="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/js/lightgallery.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><!--!--><script type="text/x-mathjax-config">MathJax.Hub.Config({
+            'HTML-CSS': {
+                matchFontHeight: false
+            },
+            SVG: {
+                matchFontHeight: false
+            },
+            CommonHTML: {
+                matchFontHeight: false
+            },
+            tex2jax: {
+                inlineMath: [
+                    ['$','$'],
+                    ['\\(','\\)']
+                ]
+            }
+        });</script><script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.9/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script><!--!--><!--!--><!--!--><script src="/kewenlu/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="想要查找什么..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script src="/kewenlu/js/insight.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/kewenlu/content.json"}, {"hint":"想要查找什么...","untitled":"(无标题)","posts":"文章","pages":"页面","categories":"分类","tags":"标签"});
+        });</script></body></html>
