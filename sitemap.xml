@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://xlindo.com/kewenlu/posts/4bb1a7b1/</loc>
+    
+    <lastmod>2022-01-05</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://xlindo.com/kewenlu/posts/d67bd80f/</loc>
     
     <lastmod>2022-01-05</lastmod>
@@ -298,6 +307,13 @@
   
   <url>
     <loc>https://xlindo.com/kewenlu/tags/Linux/</loc>
+    <lastmod>2022-01-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://xlindo.com/kewenlu/tags/%E7%94%B5%E5%BD%B1/</loc>
     <lastmod>2022-01-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
