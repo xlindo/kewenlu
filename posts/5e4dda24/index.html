@@ -5,7 +5,6 @@
 <h2 id="引子"><a href="#引子" class="headerlink" title="引子"></a>引子</h2><p>为了统计 500 个变量各自出现的频次，你编写了下面这段代码，被同事笑死：</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (k == <span class="number">1</span>) c001++;</span><br><span class="line"><span class="keyword">if</span> (k == <span class="number">2</span>) c002++;</span><br><span class="line"><span class="comment">// if (k == ...</span></span><br><span class="line"><span class="keyword">if</span> (k == <span class="number">500</span>) c500++;</span><br></pre></td></tr></table></figure>
 <span id="more"></span>
-
 <p>同事说，“你是不知道有数组这个东西嘛？用一个含有 500 个元素的数组，你这个代码可以从 500 行减到 10 行以内！”</p>
 <p>其实这就是章节标题的含义——利用合理的数据结构、类型去思考程序的设计，将有可能获得诸多益处：</p>
 <ul>
@@ -34,8 +33,8 @@
 <p>编写一个解决第 23 种情况的程序比较困难；编写一个通用的程序，然后令 $n=23$ 可能更简单</p>
 </blockquote>
 <p>$k$ 阶常系数线性递归定义的级数为：</p>
-<p>$$<br>a_n = c_1 a_{n-1} + c_2 a_{n-2} + \cdots + c_k a_{n-k} + c_{k+1}<br>$$</p>
-<p>其中，$c_1, \cdots, c_{k+1}$ 为实数。</p>
+<script type="math/tex; mode=display">
+a_n = c_1 a_{n-1} + c_2 a_{n-2} + \cdots + c_k a_{n-k} + c_{k+1}</script><p>其中，$c_1, \cdots, c_{k+1}$ 为实数。</p>
 <p>编写程序，输入 $k, a_1, \cdots, a_k, c_1, \cdots, c_{k+1}, m$，输出 $a_1, \cdots, a_m$。</p>
 <blockquote>
 <p>不用数组又如何实现？</p>
