@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://xlindo.com/kewenlu/posts/5400ca50/</loc>
+    
+    <lastmod>2022-01-20</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://xlindo.com/kewenlu/posts/34e94530/</loc>
     
     <lastmod>2022-01-19</lastmod>
@@ -418,6 +427,13 @@
   </url>
   
   <url>
+    <loc>https://xlindo.com/kewenlu/tags/%E7%A4%BE%E4%BC%9A/</loc>
+    <lastmod>2022-01-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://xlindo.com/kewenlu/tags/%E7%A7%91%E6%96%87%E8%B7%AF/</loc>
     <lastmod>2022-01-20</lastmod>
     <changefreq>weekly</changefreq>
@@ -433,13 +449,6 @@
   
   <url>
     <loc>https://xlindo.com/kewenlu/tags/C/</loc>
-    <lastmod>2022-01-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://xlindo.com/kewenlu/tags/%E7%A4%BE%E4%BC%9A/</loc>
     <lastmod>2022-01-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
