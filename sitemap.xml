@@ -389,6 +389,20 @@
 
   
   <url>
+    <loc>https://xlindo.com/kewenlu/tags/%E7%A7%91%E6%8A%80/</loc>
+    <lastmod>2022-01-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://xlindo.com/kewenlu/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/</loc>
+    <lastmod>2022-01-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://xlindo.com/kewenlu/tags/%E4%BA%BA%E6%96%87/</loc>
     <lastmod>2022-01-22</lastmod>
     <changefreq>weekly</changefreq>
@@ -404,41 +418,6 @@
   
   <url>
     <loc>https://xlindo.com/kewenlu/tags/%E5%9B%BD%E9%99%85/</loc>
-    <lastmod>2022-01-22</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://xlindo.com/kewenlu/tags/%E7%A7%91%E6%8A%80/</loc>
-    <lastmod>2022-01-22</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://xlindo.com/kewenlu/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/</loc>
-    <lastmod>2022-01-22</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://xlindo.com/kewenlu/tags/%E7%BB%8F%E9%AA%8C/</loc>
-    <lastmod>2022-01-22</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://xlindo.com/kewenlu/tags/%E5%BC%80%E6%BA%90/</loc>
-    <lastmod>2022-01-22</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://xlindo.com/kewenlu/tags/%E5%B7%A5%E5%85%B7/</loc>
     <lastmod>2022-01-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -557,6 +536,13 @@
   </url>
   
   <url>
+    <loc>https://xlindo.com/kewenlu/tags/%E5%BC%80%E6%BA%90/</loc>
+    <lastmod>2022-01-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://xlindo.com/kewenlu/tags/%E6%95%99%E8%82%B2/</loc>
     <lastmod>2022-01-22</lastmod>
     <changefreq>weekly</changefreq>
@@ -570,17 +556,31 @@
     <priority>0.2</priority>
   </url>
   
-
-  
   <url>
-    <loc>https://xlindo.com/kewenlu/categories/%E4%BA%BA%E6%96%87/</loc>
+    <loc>https://xlindo.com/kewenlu/tags/%E5%B7%A5%E5%85%B7/</loc>
     <lastmod>2022-01-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
+    <loc>https://xlindo.com/kewenlu/tags/%E7%BB%8F%E9%AA%8C/</loc>
+    <lastmod>2022-01-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+
+  
+  <url>
     <loc>https://xlindo.com/kewenlu/categories/%E7%A7%91%E6%8A%80/</loc>
+    <lastmod>2022-01-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://xlindo.com/kewenlu/categories/%E4%BA%BA%E6%96%87/</loc>
     <lastmod>2022-01-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
