@@ -797,6 +797,13 @@
   </url>
   
   <url>
+    <loc>https://xlindo.com/kewenlu/tags/%E7%99%BE%E7%A7%91/</loc>
+    <lastmod>2022-03-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://xlindo.com/kewenlu/tags/%E7%A7%91%E6%8A%80/</loc>
     <lastmod>2022-03-09</lastmod>
     <changefreq>weekly</changefreq>
@@ -805,13 +812,6 @@
   
   <url>
     <loc>https://xlindo.com/kewenlu/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/</loc>
-    <lastmod>2022-03-09</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://xlindo.com/kewenlu/tags/%E7%99%BE%E7%A7%91/</loc>
     <lastmod>2022-03-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -832,6 +832,13 @@
   </url>
   
   <url>
+    <loc>https://xlindo.com/kewenlu/tags/RISC-V/</loc>
+    <lastmod>2022-03-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://xlindo.com/kewenlu/tags/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/</loc>
     <lastmod>2022-03-09</lastmod>
     <changefreq>weekly</changefreq>
@@ -840,13 +847,6 @@
   
   <url>
     <loc>https://xlindo.com/kewenlu/tags/GPGPU/</loc>
-    <lastmod>2022-03-09</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://xlindo.com/kewenlu/tags/RISC-V/</loc>
     <lastmod>2022-03-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -867,14 +867,14 @@
   </url>
   
   <url>
-    <loc>https://xlindo.com/kewenlu/tags/IC/</loc>
+    <loc>https://xlindo.com/kewenlu/tags/%E5%A4%87%E6%9F%A5%E6%89%8B%E5%86%8C/</loc>
     <lastmod>2022-03-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://xlindo.com/kewenlu/tags/%E5%A4%87%E6%9F%A5%E6%89%8B%E5%86%8C/</loc>
+    <loc>https://xlindo.com/kewenlu/tags/IC/</loc>
     <lastmod>2022-03-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
