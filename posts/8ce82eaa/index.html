@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>特征值与奇异值 - 科文路</title><link rel="manifest" href="/kewenlu/manifest.json"><meta name="application-name" content="科文路"><meta name="msapplication-TileImage" content="/images/favicon.ico"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="科文路"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="文章来自微信公众号“科文路”，欢迎关注、互动。转发须注明出处。  在统计学习方法中，我们会经常使用到特征值和奇异值，本文对其背后的特定意义做一个梳理。"><meta property="og:type" content="blog"><meta property="og:title" content="特征值与奇异值"><meta property="og:url" content="https://xlindo.com/kewenlu/posts/8ce82eaa/"><meta property="og:site_name" content="科文路"><meta property="og:description" content="文章来自微信公众号“科文路”，欢迎关注、互动。转发须注明出处。  在统计学习方法中，我们会经常使用到特征值和奇异值，本文对其背后的特定意义做一个梳理。"><meta property="og:locale" content="en_US"><meta property="og:image" content="https://xlindo.com/kewenlu/img/og_image.png"><meta property="article:published_time" content="2022-02-23T12:58:13.000Z"><meta property="article:modified_time" content="2023-05-08T22:11:17.679Z"><meta property="article:author" content="xlindo"><meta property="article:tag" content="科技"><meta property="article:tag" content="备查手册"><meta property="article:tag" content="数学与统计"><meta property="twitter:card" content="summary"><meta property="twitter:image:src" content="https://xlindo.com/kewenlu/img/og_image.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://xlindo.com/kewenlu/posts/8ce82eaa/"},"headline":"特征值与奇异值","image":["https://xlindo.com/kewenlu/img/og_image.png"],"datePublished":"2022-02-23T12:58:13.000Z","dateModified":"2023-05-08T22:11:17.679Z","author":{"@type":"Person","name":"xlindo"},"publisher":{"@type":"Organization","name":"科文路","logo":{"@type":"ImageObject","url":"https://xlindo.com/images/favicon.ico"}},"description":"文章来自微信公众号“科文路”，欢迎关注、互动。转发须注明出处。  在统计学习方法中，我们会经常使用到特征值和奇异值，本文对其背后的特定意义做一个梳理。"}</script><link rel="canonical" href="https://xlindo.com/kewenlu/posts/8ce82eaa/"><link rel="icon" href="/kewenlu/images/favicon.ico"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.0.0/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.loli.net/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link rel="stylesheet" href="/kewenlu/css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><meta name="msvalidate.01" content="043B69617A5E44A2F7CD99A00708FFF3"><script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" defer></script><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css"><!--!--><!--!--><!--!--><style>.pace{-webkit-pointer-events:none;pointer-events:none;-webkit-user-select:none;-moz-user-select:none;user-select:none}.pace-inactive{display:none}.pace .pace-progress{background:#3273dc;position:fixed;z-index:2000;top:0;right:100%;width:100%;height:2px}</style><script src="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/pace.min.js"></script><!--!--><!--!--><!-- hexo injector head_end start --><script>
+  (function () {
+      function switchTab() {
+          if (!location.hash) {
+            return;
+          }
+
+          const id = '#' + CSS.escape(location.hash.substring(1));
+          const $tabMenu = document.querySelector(`.tabs a[href="${id}"]`);
+          if (!$tabMenu) {
+            return;
+          }
+
+          const $tabMenuContainer = $tabMenu.parentElement.parentElement;
+          Array.from($tabMenuContainer.children).forEach($menu => $menu.classList.remove('is-active'));
+          Array.from($tabMenuContainer.querySelectorAll('a'))
+              .map($menu => document.getElementById($menu.getAttribute("href").substring(1)))
+              .forEach($content => $content.classList.add('is-hidden'));
+
+          if ($tabMenu) {
+              $tabMenu.parentElement.classList.add('is-active');
+          }
+          const $activeTab = document.querySelector(id);
+          if ($activeTab) {
+              $activeTab.classList.remove('is-hidden');
+          }
+      }
+      switchTab();
+      window.addEventListener('hashchange', switchTab, false);
+  })();
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/kewenlu/"><img src="/kewenlu/images/favicon.ico" alt="科文路" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/kewenlu/">Home</a><a class="navbar-item" href="/kewenlu/archives">Archives</a><a class="navbar-item" href="/kewenlu/tags">Tags</a><a class="navbar-item" href="/kewenlu/about">About</a></div><div class="navbar-end"><a class="navbar-item is-hidden-tablet catalogue" title="Catalogue" href="javascript:;"><i class="fas fa-list-ul"></i></a><a class="navbar-item search" title="Search" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2022-02-23T12:58:13.000Z" title="2/23/2022, 8:58:13 PM">2022-02-23</time></span><span class="level-item">Updated&nbsp;<time dateTime="2023-05-08T22:11:17.679Z" title="5/9/2023, 6:11:17 AM">2023-05-09</time></span><span class="level-item"><a class="link-muted" href="/kewenlu/categories/%E7%A7%91%E6%8A%80/">科技</a></span><span class="level-item">8 minutes read (About 1229 words)</span><span class="level-item" id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv">0</span>&nbsp;visits</span></div></div><h1 class="title is-3 is-size-4-mobile">特征值与奇异值</h1><div class="content"><blockquote>
+<p>文章来自微信公众号“科文路”，欢迎关注、互动。转发须注明出处。</p>
+</blockquote>
+<p>在统计学习方法中，我们会经常使用到特征值和奇异值，本文对其背后的特定意义做一个梳理。</p>
+<span id="more"></span>
+
+<h2 id="0-我能想到的适用或有益理解的场景"><a href="#0-我能想到的适用或有益理解的场景" class="headerlink" title="0 我能想到的适用或有益理解的场景"></a>0 我能想到的适用或有益理解的场景</h2><ul>
+<li>OLS 最小二乘法</li>
+<li>PCA分析<ul>
+<li>数据压缩</li>
+</ul>
+</li>
+<li>Fisher information matrix<ul>
+<li>矩阵条件数</li>
+</ul>
+</li>
+</ul>
+<h2 id="1-特征值与特征向量"><a href="#1-特征值与特征向量" class="headerlink" title="1 特征值与特征向量"></a>1 特征值与特征向量</h2><blockquote>
+<p>Wikipedia: In linear algebra, an eigenvector or characteristic vector of a linear transformation is a non-zero vector that changes by only a scalar factor when that linear transformation is applied to it. </p>
+</blockquote>
+<h3 id="1-1-定义"><a href="#1-1-定义" class="headerlink" title="1.1 定义"></a>1.1 定义</h3><p>首先，看这个定义，</p>
+<p>$$A v&#x3D;\lambda v$$</p>
+<p>其中$\lambda$是特征值(eigenvalue)，$v$为特征向量。</p>
+<p>其实这个公式就可以说明很多特点：</p>
+<ul>
+<li>$A$为(作用)<strong>方阵</strong>；</li>
+<li>$v$是$A$的特征向量；</li>
+<li>$\lambda$是$A$的特征值，为纯量，表示为<strong>对角阵</strong>。</li>
+</ul>
+<p>让我们根据这个式子展开想象：</p>
+<p>矩阵的乘法都是线性变换，式子想说明，<strong>特征向量在$A$的作用下进行线性变换，效果是特征向量的$\lambda$倍伸缩</strong>。注意：</p>
+<ul>
+<li>并不是所有向量都能被$A$给伸缩，只有$v$中的向量（特征向量）能被其伸缩；</li>
+<li>伸缩的尺度$\lambda$体现$A$的变换能力。</li>
+</ul>
+<blockquote>
+<p>援引维基百科就是“在数学上，特别是线性代数中，对于一个给定的方阵$A$，它的特征向量（eigenvector，也译固有向量或本征向量）$v$经过这个线性变换之后，得到的新向量仍然与原来的$v$保持在同一条直线上，但其长度或方向也许会改变”。这个方向是正负那个方向，不是小旋转。</p>
+</blockquote>
+<p>这样的话，如果我们知道了一个方阵的特征值和特征向量，就知道了这个方阵的<strong>线性变换能力</strong>。</p>
+<p>放到应用场景中就是，我们通过特征值就能掌握当前数据在对应方向上的变换能力。所以某些场景中，我们选取较大的特征值们来代表原数据的变换能力，例如：PCA分析、数据压缩。</p>
+<h3 id="1-2-计算"><a href="#1-2-计算" class="headerlink" title="1.2 计算"></a>1.2 计算</h3><p>那么，怎么得到特征值和特征向量呢？</p>
+<ul>
+<li><p>Matlab：<code>scipy.linalg.eig()</code>提供类似下面Matlab函数的计算。</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">%matlab</span></span><br><span class="line"></span><br><span class="line">[V,D] = eig(A) </span><br><span class="line"></span><br><span class="line"><span class="comment">% returns diagonal matrix D of eigenvalues and matrix V </span></span><br><span class="line"><span class="comment">% whose columns are the corresponding right eigenvectors,</span></span><br><span class="line"><span class="comment">% so that A*V = V*D.</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>手算特征值： 除了考试，请使用计算机，写出来仅供娱乐。</p>
+</li>
+</ul>
+<p>$$\begin{aligned}(\mathbf{A}-\lambda \mathbf{I}) \mathbf{x} &amp;&#x3D;0 \  det(\mathbf{A}-\lambda \mathbf{I}) &amp;&#x3D;0 \end{aligned}$$</p>
+<h2 id="2-奇异值和奇异值分解"><a href="#2-奇异值和奇异值分解" class="headerlink" title="2 奇异值和奇异值分解"></a>2 奇异值和奇异值分解</h2><p>奇异值与上文中的特征值相对应。特征值固然方便使用，但其对<strong>原矩阵为方阵</strong>的限制为实际情况下所难得的。自然，我们就需要一种更一般化的特征提取方式，这里的特征我们叫<strong>奇异值(singular value)<strong>，而这种方式正是</strong>奇异值分解(singular-value decomposition (SVD))<strong>。所以，</strong>该分解和结果的意义与特征值类似</strong>，但拓展了适用范围。</p>
+<h3 id="2-1-定义"><a href="#2-1-定义" class="headerlink" title="2.1 定义"></a>2.1 定义</h3><p>$$M&#x3D;U \Sigma V^{*}$$</p>
+<ul>
+<li>$M$： $m\times n$矩阵；</li>
+<li>$U$： $m\times m$ 酉矩阵(unitary matrix)；</li>
+<li>$\Sigma$： $m\times n$ 的对角阵，对角元素非负(<strong>奇异值</strong>)；</li>
+<li>$V^{*}$： $n\times n$ 酉矩阵，是$V$的转置。</li>
+</ul>
+<p><strong>需要注意的是，奇异值分解结果并不唯一。</strong></p>
+<h3 id="2-2-与特征值分解的关系"><a href="#2-2-与特征值分解的关系" class="headerlink" title="2.2 与特征值分解的关系"></a>2.2 与特征值分解的关系</h3><p>除开适用范围，我们可以将特征值分解看成SVD的一个特例。而更深层的联系是在于[引自维基百科]，对于$M&#x3D;U \Sigma V^{*}$：</p>
+<ul>
+<li>$U$的列是$M$正交输出基向量，是$MM^T$的特征向量；</li>
+<li>$\Sigma$是$M^TM,MM^T$的特征值的非负平方根；</li>
+<li>$V$的列是$M$正交输入基向量，是$M^T M$的特征向量。</li>
+</ul>
+<p>随手验证感受一下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">from</span> scipy <span class="keyword">import</span> linalg</span><br><span class="line"></span><br><span class="line">M = np.array([[<span class="number">1</span>,<span class="number">0</span>,<span class="number">3</span>,<span class="number">1</span>], [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">2</span>], [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>]])</span><br><span class="line">U,S,V = linalg.svd(M)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;U=&#x27;</span>,U,<span class="string">&#x27;\n\nS=&#x27;</span>,s,<span class="string">&#x27;\n\nV=&#x27;</span>,V.T)</span><br></pre></td></tr></table></figure>
+
+<pre><code>U= [[-0.38925572  0.85502491  0.34265491]
+ [-0.56511886  0.07208746 -0.82185404]
+ [-0.7274068  -0.51355215  0.45513025]] 
+
+S= [4.71147949 1.3423714 ] 
+
+V= [[-2.27634931e-01  2.17876780e-01 -2.66842116e-02 -9.48683298e-01]
+ [-3.49895643e-01 -4.65155494e-01 -8.13144148e-01 -2.37643771e-16]
+ [-6.82904792e-01  6.53630339e-01 -8.00526349e-02  3.16227766e-01]
+ [-5.99496807e-01 -5.55812428e-01  5.75913294e-01 -1.66533454e-16]]
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">linalg.eig(M.dot(M.T))</span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>(array([54.58348639+0.j,  3.60292832+0.j,  0.81358529+0.j]),
+ array([[-0.38925572, -0.85502491,  0.34265491],
+        [-0.56511886, -0.07208746, -0.82185404],
+        [-0.7274068 ,  0.51355215,  0.45513025]]))
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">S ** <span class="number">2</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>array([54.58348639,  3.60292832,  0.81358529])
+</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">linalg.eig(M.T.dot(M))</span><br></pre></td></tr></table></figure>
+
+
+
+
+<pre><code>(array([5.45834864e+01+0.j, 3.60292832e+00+0.j, 7.98251465e-16+0.j,
+        8.13585293e-01+0.j]),
+ array([[ 2.27634931e-01,  2.17876780e-01,  9.48683298e-01,
+         -2.66842116e-02],
+        [ 3.49895643e-01, -4.65155494e-01,  2.02012103e-17,
+         -8.13144148e-01],
+        [ 6.82904792e-01,  6.53630339e-01, -3.16227766e-01,
+         -8.00526349e-02],
+        [ 5.99496807e-01, -5.55812428e-01,  1.84126527e-17,
+          5.75913294e-01]]))
+</code></pre>
+<p><strong>我们从中需要知道的是，这些结果是和$M^TM$或$MM^T$有关系的。</strong></p>
+<blockquote>
+<p>这些性质我在Fisher information matrix中用到了一点点。</p>
+</blockquote>
+<h3 id="2-3-计算"><a href="#2-3-计算" class="headerlink" title="2.3 计算"></a>2.3 计算</h3><ul>
+<li><p>Matlab</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[U,S,V] = svd(A)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Python</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">U,s,Vh = scipy.linalg.svd(A)</span><br></pre></td></tr></table></figure></li>
+</ul>
+<p><strong>都看到这儿了，不如关注每日推送的“科文路”、互动起来~</strong></p>
+</div><div class="article-licensing box"><div class="licensing-title"><p>特征值与奇异值</p><p><a href="https://xlindo.com/kewenlu/posts/8ce82eaa/">https://xlindo.com/kewenlu/posts/8ce82eaa/</a></p></div><div class="licensing-meta level is-mobile"><div class="level-left"><div class="level-item is-narrow"><div><h6>Author</h6><p>xlindo</p></div></div><div class="level-item is-narrow"><div><h6>Posted on</h6><p>2022-02-23</p></div></div><div class="level-item is-narrow"><div><h6>Updated on</h6><p>2023-05-09</p></div></div><div class="level-item is-narrow"><div><h6>Licensed under</h6><p><a class="icons" rel="noopener" target="_blank" title="Creative Commons" href="https://creativecommons.org/"><i class="icon fab fa-creative-commons"></i></a><a class="icons" rel="noopener" target="_blank" title="Attribution" href="https://creativecommons.org/licenses/by/4.0/"><i class="icon fab fa-creative-commons-by"></i></a><a class="icons" rel="noopener" target="_blank" title="Noncommercial" href="https://creativecommons.org/licenses/by-nc/4.0/"><i class="icon fab fa-creative-commons-nc"></i></a></p></div></div></div></div></div><div class="article-tags is-size-7 mb-4"><span class="mr-2">#</span><a class="link-muted mr-2" rel="tag" href="/kewenlu/tags/%E7%A7%91%E6%8A%80/">科技</a><a class="link-muted mr-2" rel="tag" href="/kewenlu/tags/%E5%A4%87%E6%9F%A5%E6%89%8B%E5%86%8C/">备查手册</a><a class="link-muted mr-2" rel="tag" href="/kewenlu/tags/%E6%95%B0%E5%AD%A6%E4%B8%8E%E7%BB%9F%E8%AE%A1/">数学与统计</a></div><!--!--></article></div><!--!--><nav class="post-navigation mt-4 level is-mobile"><div class="level-start"><a class="article-nav-prev level level-item link-muted" href="/kewenlu/posts/ae00cd1c/"><i class="level-item fas fa-chevron-left"></i><span class="level-item">荐歌：唯一（告五人）</span></a></div><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/kewenlu/posts/bac43ee9/"><span class="level-item">秒懂PID效果</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><div class="card"><div class="card-content"><h3 class="title is-5">Comments</h3><div id="SOHUCS" sid="posts/8ce82eaa/"></div><script charset="utf-8" src="https://changyan.sohu.com/upload/changyan.js"></script><script>window.changyan.api.config({appid: 'cyvmJmMgc',conf: 'e37a55ecf6df7ba6217b8997f4dcd9ab'});</script></div></div></div><div class="column column-left is-4-tablet is-4-desktop is-4-widescreen  order-1"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar" src="/kewenlu/images/avatar-512x512.png" alt="科文路"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">科文路</p><p class="is-size-6 is-block">微信公众号&quot;科文路&quot;的存档</p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">Posts</p><a href="/kewenlu/archives"><p class="title">469</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Categories</p><a href="/kewenlu/categories"><p class="title">3</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Tags</p><a href="/kewenlu/tags"><p class="title">80</p></a></div></div></nav></div></div><div class="card widget" id="toc" data-type="toc"><div class="card-content"><div class="menu"><h3 class="menu-label">Catalogue</h3><ul class="menu-list"><li><a class="level is-mobile" href="#0-我能想到的适用或有益理解的场景"><span class="level-left"><span class="level-item">1</span><span class="level-item">0 我能想到的适用或有益理解的场景</span></span></a></li><li><a class="level is-mobile" href="#1-特征值与特征向量"><span class="level-left"><span class="level-item">2</span><span class="level-item">1 特征值与特征向量</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#1-1-定义"><span class="level-left"><span class="level-item">2.1</span><span class="level-item">1.1 定义</span></span></a></li><li><a class="level is-mobile" href="#1-2-计算"><span class="level-left"><span class="level-item">2.2</span><span class="level-item">1.2 计算</span></span></a></li></ul></li><li><a class="level is-mobile" href="#2-奇异值和奇异值分解"><span class="level-left"><span class="level-item">3</span><span class="level-item">2 奇异值和奇异值分解</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#2-1-定义"><span class="level-left"><span class="level-item">3.1</span><span class="level-item">2.1 定义</span></span></a></li><li><a class="level is-mobile" href="#2-2-与特征值分解的关系"><span class="level-left"><span class="level-item">3.2</span><span class="level-item">2.2 与特征值分解的关系</span></span></a></li><li><a class="level is-mobile" href="#2-3-计算"><span class="level-left"><span class="level-item">3.3</span><span class="level-item">2.3 计算</span></span></a></li></ul></li></ul></div></div><style>#toc .menu-list > li > a.is-active + .menu-list { display: block; }#toc .menu-list > li > a + .menu-list { display: none; }</style><script src="/kewenlu/js/toc.js" defer></script></div><div class="card widget" data-type="categories"><div class="card-content"><div class="menu"><h3 class="menu-label">Categories</h3><ul class="menu-list"><li><a class="level is-mobile" href="/kewenlu/categories/%E4%BA%BA%E6%96%87/"><span class="level-start"><span class="level-item">人文</span></span><span class="level-end"><span class="level-item tag">315</span></span></a></li><li><a class="level is-mobile" href="/kewenlu/categories/%E7%A7%91%E6%8A%80/"><span class="level-start"><span class="level-item">科技</span></span><span class="level-end"><span class="level-item tag">145</span></span></a></li><li><a class="level is-mobile" href="/kewenlu/categories/%E7%A7%91%E6%96%87%E8%B7%AF/"><span class="level-start"><span class="level-item">科文路</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li></ul></div></div></div><div class="card widget" data-type="recent-posts"><div class="card-content"><h3 class="menu-label">Recents</h3><article class="media"><div class="media-content"><p class="date"><time dateTime="2023-05-09T14:47:11.000Z">2023-05-09</time></p><p class="title"><a href="/kewenlu/posts/cad6d486/">图灵奖：唐纳德·尔文·克努斯（高德纳，1974）</a></p><p class="categories"><a href="/kewenlu/categories/%E7%A7%91%E6%8A%80/">科技</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2023-05-08T14:06:25.000Z">2023-05-08</time></p><p class="title"><a href="/kewenlu/posts/207c4c58/">科技：哪些工作可能被AI取代？</a></p><p class="categories"><a href="/kewenlu/categories/%E7%A7%91%E6%8A%80/">科技</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2023-05-07T14:13:41.000Z">2023-05-07</time></p><p class="title"><a href="/kewenlu/posts/d724d92d/">2023：一周速览，18</a></p><p class="categories"><a href="/kewenlu/categories/%E4%BA%BA%E6%96%87/">人文</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2023-05-05T14:02:11.000Z">2023-05-05</time></p><p class="title"><a href="/kewenlu/posts/55b71ee6/">荐歌：蜀道难（张杰）</a></p><p class="categories"><a href="/kewenlu/categories/%E4%BA%BA%E6%96%87/">人文</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2023-05-04T15:15:07.000Z">2023-05-04</time></p><p class="title"><a href="/kewenlu/posts/797d9d82/">GNN：抽象数据类型，图（1）</a></p><p class="categories"><a href="/kewenlu/categories/%E7%A7%91%E6%8A%80/">科技</a></p></div></article></div></div><div class="card widget" data-type="archives"><div class="card-content"><div class="menu"><h3 class="menu-label">Archives</h3><ul class="menu-list"><li><a class="level is-mobile" href="/kewenlu/archives/2023/"><span class="level-start"><span class="level-item">2023</span></span><span class="level-end"><span class="level-item tag">98</span></span></a></li><li><a class="level is-mobile" href="/kewenlu/archives/2022/"><span class="level-start"><span class="level-item">2022</span></span><span class="level-end"><span class="level-item tag">353</span></span></a></li><li><a class="level is-mobile" href="/kewenlu/archives/2021/"><span class="level-start"><span class="level-item">2021</span></span><span class="level-end"><span class="level-item tag">18</span></span></a></li></ul></div></div></div><div class="card widget" data-type="tags"><div class="card-content"><div class="menu"><h3 class="menu-label">Tags</h3><div class="field is-grouped is-grouped-multiline"><div class="control"><a class="tags has-addons" href="/kewenlu/tags/AI/"><span class="tag">AI</span><span class="tag">34</span></a></div><div class="control"><a class="tags has-addons" href="/kewenlu/tags/C/"><span class="tag">C++</span><span class="tag">2</span></a></div><div class="control"><a class="tags has-addons" href="/kewenlu/tags/GNN/"><span class="tag">GNN</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/kewenlu/tags/GPGPU/"><span class="tag">GPGPU</span><span class="tag">3</span></a></div><div class="control"><a class="tags has-addons" href="/kewenlu/tags/IC/"><span class="tag">IC</span><span class="tag">3</span></a></div><div class="control"><a class="tags has-addons" href="/kewenlu/tags/LLVM/"><span class="tag">LLVM</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/kewenlu/tags/MLIR/"><span class="tag">MLIR</span><span class="tag">20</span></a></div><div class="control"><a class="tags has-addons" href="/kewenlu/tags/MobileNets/"><span class="tag">MobileNets</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/kewenlu/tags/Quora/"><span class="tag">Quora</span><span class="tag">2</span></a></div><div class="control"><a class="tags has-addons" href="/kewenlu/tags/RISC-V/"><span class="tag">RISC-V</span><span class="tag">2</span></a></div><div class="control"><a class="tags has-addons" href="/kewenlu/tags/python/"><span class="tag">python</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/kewenlu/tags/%E4%B8%80%E5%91%A8%E9%80%9F%E8%A7%88/"><span class="tag">一周速览</span><span class="tag">40</span></a></div><div class="control"><a class="tags has-addons" href="/kewenlu/tags/%E4%B8%96%E7%95%8C%E6%9D%AF/"><span class="tag">世界杯</span><span class="tag">5</span></a></div><div class="control"><a class="tags has-addons" href="/kewenlu/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/"><span class="tag">人工智能</span><span class="tag">6</span></a></div><div class="control"><a class="tags has-addons" href="/kewenlu/tags/%E4%BA%BA%E6%96%87/"><span class="tag">人文</span><span class="tag">317</span></a></div><div class="control"><a class="tags has-addons" href="/kewenlu/tags/%E4%BD%93%E8%82%B2/"><span class="tag">体育</span><span class="tag">9</span></a></div><div class="control"><a class="tags has-addons" href="/kewenlu/tags/%E5%81%A5%E5%BA%B7/"><span class="tag">健康</span><span class="tag">2</span></a></div><div class="control"><a class="tags has-addons" href="/kewenlu/tags/%E5%8A%A0%E9%80%9F/"><span class="tag">加速</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/kewenlu/tags/%E5%8D%9A%E7%89%A9/"><span class="tag">博物</span><span class="tag">2</span></a></div><div class="control"><a class="tags has-addons" href="/kewenlu/tags/%E5%8E%86%E5%8F%B2/"><span class="tag">历史</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/kewenlu/tags/%E5%90%8D%E4%BD%9C/"><span class="tag">名作</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/kewenlu/tags/%E5%9B%BE%E7%81%B5%E5%A5%96/"><span class="tag">图灵奖</span><span class="tag">11</span></a></div><div class="control"><a class="tags has-addons" href="/kewenlu/tags/%E5%A4%87%E6%9F%A5%E6%89%8B%E5%86%8C/"><span class="tag">备查手册</span><span class="tag">13</span></a></div><div class="control"><a class="tags has-addons" href="/kewenlu/tags/%E5%A4%A9%E6%96%87/"><span class="tag">天文</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/kewenlu/tags/%E5%AD%A6%E4%B9%A0/"><span class="tag">学习</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/kewenlu/tags/%E5%B0%AC%E8%81%8A/"><span class="tag">尬聊</span><span class="tag">12</span></a></div><div class="control"><a class="tags has-addons" href="/kewenlu/tags/%E5%B1%95%E8%A7%88/"><span class="tag">展览</span><span class="tag">2</span></a></div><div class="control"><a class="tags has-addons" href="/kewenlu/tags/%E5%B7%A5%E4%BD%9C/"><span class="tag">工作</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/kewenlu/tags/%E5%B7%A5%E5%85%B7/"><span class="tag">工具</span><span class="tag">9</span></a></div><div class="control"><a class="tags has-addons" href="/kewenlu/tags/%E5%B9%B4%E5%BA%A6/"><span class="tag">年度</span><span class="tag">7</span></a></div><div class="control"><a class="tags has-addons" href="/kewenlu/tags/%E5%BC%80%E6%BA%90/"><span class="tag">开源</span><span class="tag">2</span></a></div><div class="control"><a class="tags has-addons" href="/kewenlu/tags/%E6%8A%A5%E5%91%8A/"><span class="tag">报告</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/kewenlu/tags/%E6%8E%A7%E5%88%B6/"><span class="tag">控制</span><span class="tag">2</span></a></div><div class="control"><a class="tags has-addons" href="/kewenlu/tags/%E6%95%99%E8%82%B2/"><span class="tag">教育</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/kewenlu/tags/%E6%95%B0%E5%AD%A6/"><span class="tag">数学</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/kewenlu/tags/%E6%95%B0%E5%AD%A6%E4%B8%8E%E7%BB%9F%E8%AE%A1/"><span class="tag">数学与统计</span><span class="tag">8</span></a></div><div class="control"><a class="tags has-addons" href="/kewenlu/tags/%E6%95%B0%E7%A0%81/"><span class="tag">数码</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/kewenlu/tags/%E6%96%87%E5%AD%A6/"><span class="tag">文学</span><span class="tag">2</span></a></div><div class="control"><a class="tags has-addons" href="/kewenlu/tags/%E6%96%87%E7%89%A9/"><span class="tag">文物</span><span class="tag">29</span></a></div><div class="control"><a class="tags has-addons" href="/kewenlu/tags/%E6%97%85%E6%B8%B8/"><span class="tag">旅游</span><span class="tag">2</span></a></div><div class="control"><a class="tags has-addons" href="/kewenlu/tags/%E6%97%85%E8%A1%8C/"><span class="tag">旅行</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/kewenlu/tags/%E6%97%B6%E4%BA%8B/"><span class="tag">时事</span><span class="tag">96</span></a></div><div class="control"><a class="tags has-addons" href="/kewenlu/tags/%E6%97%B6%E9%97%B4%E5%BA%8F%E5%88%97%E5%88%86%E6%9E%90/"><span class="tag">时间序列分析</span><span class="tag">4</span></a></div><div class="control"><a class="tags has-addons" href="/kewenlu/tags/%E6%97%B6%E9%A2%91%E5%88%86%E6%9E%90/"><span class="tag">时频分析</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/kewenlu/tags/%E6%98%8E%E6%98%9F/"><span class="tag">明星</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/kewenlu/tags/%E6%B2%A1%E7%94%A8%E7%99%BE%E7%A7%91/"><span class="tag">没用百科</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/kewenlu/tags/%E6%B5%B7%E5%A4%96/"><span class="tag">海外</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/kewenlu/tags/%E7%94%9F%E6%B4%BB/"><span class="tag">生活</span><span class="tag">21</span></a></div><div class="control"><a class="tags has-addons" href="/kewenlu/tags/%E7%94%9F%E7%89%A9/"><span class="tag">生物</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/kewenlu/tags/%E7%94%B5%E5%BD%B1/"><span class="tag">电影</span><span class="tag">12</span></a></div><div class="control"><a class="tags has-addons" href="/kewenlu/tags/%E7%99%BE%E7%A7%91/"><span class="tag">百科</span><span class="tag">12</span></a></div><div class="control"><a class="tags has-addons" href="/kewenlu/tags/%E7%9C%81%E9%A6%86%E4%B9%8B%E5%AE%9D/"><span class="tag">省馆之宝</span><span class="tag">29</span></a></div><div class="control"><a class="tags has-addons" href="/kewenlu/tags/%E7%9F%A5%E4%B9%8E/"><span class="tag">知乎</span><span class="tag">3</span></a></div><div class="control"><a class="tags has-addons" href="/kewenlu/tags/%E7%A7%91%E6%8A%80/"><span class="tag">科技</span><span class="tag">146</span></a></div><div class="control"><a class="tags has-addons" href="/kewenlu/tags/%E7%A7%91%E6%96%87%E8%B7%AF/"><span class="tag">科文路</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/kewenlu/tags/%E7%A7%91%E6%99%AE/"><span class="tag">科普</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/kewenlu/tags/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/"><span class="tag">程序设计</span><span class="tag">7</span></a></div><div class="control"><a class="tags has-addons" href="/kewenlu/tags/%E7%B2%97%E7%95%A5%E4%BC%B0%E7%AE%97%E6%8A%80%E5%B7%A7/"><span class="tag">粗略估算技巧</span><span class="tag">4</span></a></div><div class="control"><a class="tags has-addons" href="/kewenlu/tags/%E7%BB%8F%E9%AA%8C/"><span class="tag">经验</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/kewenlu/tags/%E7%BB%BC%E8%89%BA/"><span class="tag">综艺</span><span class="tag">2</span></a></div><div class="control"><a class="tags has-addons" href="/kewenlu/tags/%E7%BC%96%E7%A8%8B/"><span class="tag">编程</span><span class="tag">7</span></a></div><div class="control"><a class="tags has-addons" href="/kewenlu/tags/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/"><span class="tag">编译原理</span><span class="tag">2</span></a></div><div class="control"><a class="tags has-addons" href="/kewenlu/tags/%E7%BC%96%E8%AF%91%E5%99%A8/"><span class="tag">编译器</span><span class="tag">3</span></a></div><div class="control"><a class="tags has-addons" href="/kewenlu/tags/%E8%80%81%E5%A4%96/"><span class="tag">老外</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/kewenlu/tags/%E8%82%A1%E5%B8%82/"><span class="tag">股市</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/kewenlu/tags/%E8%87%AA%E5%8A%A8%E9%A9%BE%E9%A9%B6/"><span class="tag">自动驾驶</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/kewenlu/tags/%E8%88%AA%E5%A4%A9/"><span class="tag">航天</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/kewenlu/tags/%E8%89%BA%E6%9C%AF/"><span class="tag">艺术</span><span class="tag">3</span></a></div><div class="control"><a class="tags has-addons" href="/kewenlu/tags/%E8%8D%90%E6%96%87/"><span class="tag">荐文</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/kewenlu/tags/%E8%8D%90%E6%AD%8C/"><span class="tag">荐歌</span><span class="tag">55</span></a></div><div class="control"><a class="tags has-addons" href="/kewenlu/tags/%E8%A2%AB%E6%9F%A5%E6%89%8B%E5%86%8C/"><span class="tag">被查手册</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/kewenlu/tags/%E8%A7%86%E8%A7%92/"><span class="tag">视角</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/kewenlu/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/"><span class="tag">计算机</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/kewenlu/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E4%B8%8E%E8%AE%BE%E8%AE%A1/"><span class="tag">计算机组成与设计</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/kewenlu/tags/%E8%AF%AD%E6%96%87/"><span class="tag">语文</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/kewenlu/tags/%E8%B6%B3%E7%90%83/"><span class="tag">足球</span><span class="tag">3</span></a></div><div class="control"><a class="tags has-addons" href="/kewenlu/tags/%E8%BF%90%E5%8A%A8/"><span class="tag">运动</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/kewenlu/tags/%E9%80%9B%E7%9F%A5%E4%B9%8E/"><span class="tag">逛知乎</span><span class="tag">40</span></a></div><div class="control"><a class="tags has-addons" href="/kewenlu/tags/%E9%97%B2%E8%81%8A/"><span class="tag">闲聊</span><span class="tag">13</span></a></div><div class="control"><a class="tags has-addons" href="/kewenlu/tags/%E9%9F%B3%E4%B9%90/"><span class="tag">音乐</span><span class="tag">6</span></a></div></div></div></div></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/kewenlu/"><img src="/kewenlu/images/favicon.ico" alt="科文路" height="28"></a><p class="is-size-7"><span>&copy; 2023 xlindo</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a><br><span id="busuanzi_container_site_uv">Visited by <span id="busuanzi_value_site_uv">0</span> users</span></p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Noncommercial" href="https://creativecommons.org/licenses/by-nc/4.0/"><i class="fab fa-creative-commons-nc"></i></a></p></div></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("en");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script src="/kewenlu/js/column.js"></script><script src="/kewenlu/js/animation.js"></script><a id="back-to-top" title="Back to top" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="/kewenlu/js/back_to_top.js" defer></script><!--!--><!--!--><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.js" defer></script><script>window.addEventListener("load", () => {
+      window.cookieconsent.initialise({
+        type: "info",
+        theme: "edgeless",
+        static: false,
+        position: "bottom-left",
+        content: {
+          message: "This website uses cookies to improve your experience.",
+          dismiss: "Got it!",
+          allow: "Allow cookies",
+          deny: "Decline",
+          link: "Learn more",
+          policy: "Cookie Policy",
+          href: "https://www.cookiesandyou.com/",
+        },
+        palette: {
+          popup: {
+            background: "#edeff5",
+            text: "#838391"
+          },
+          button: {
+            background: "#4b81e8"
+          },
+        },
+      });
+    });</script><script src="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/js/lightgallery.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><!--!--><script type="text/x-mathjax-config">MathJax.Hub.Config({
+            'HTML-CSS': {
+                matchFontHeight: false
+            },
+            SVG: {
+                matchFontHeight: false
+            },
+            CommonHTML: {
+                matchFontHeight: false
+            },
+            tex2jax: {
+                inlineMath: [
+                    ['$','$'],
+                    ['\\(','\\)']
+                ]
+            }
+        });</script><script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.9/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script><!--!--><!--!--><!--!--><script src="/kewenlu/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="Type something..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script src="/kewenlu/js/insight.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/kewenlu/content.json"}, {"hint":"Type something...","untitled":"(Untitled)","posts":"Posts","pages":"Pages","categories":"Categories","tags":"Tags"});
+        });</script></body></html>

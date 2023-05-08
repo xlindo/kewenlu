@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>MLIR：编译器基础架构重定义 - 科文路</title><link rel="manifest" href="/kewenlu/manifest.json"><meta name="application-name" content="科文路"><meta name="msapplication-TileImage" content="/images/favicon.ico"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="科文路"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="文章来自微信公众号“科文路”，欢迎关注、互动。转发须注明出处。   原文地址：吴建明wujianming, MLIR: 编译器基础架构重定义  MLIR: 编译器基础架构重定义MLIR（多级中间表示）是语言（如 C）或库（如 TensorFlow）与编译器后端（如 LLVM）之间的中间表示 (IR) 系统。允许不同语言的不同编译器堆栈之间的代码重用以及其他性能和可用性优势。"><meta property="og:type" content="blog"><meta property="og:title" content="MLIR：编译器基础架构重定义"><meta property="og:url" content="https://xlindo.com/kewenlu/posts/467350b4/"><meta property="og:site_name" content="科文路"><meta property="og:description" content="文章来自微信公众号“科文路”，欢迎关注、互动。转发须注明出处。   原文地址：吴建明wujianming, MLIR: 编译器基础架构重定义  MLIR: 编译器基础架构重定义MLIR（多级中间表示）是语言（如 C）或库（如 TensorFlow）与编译器后端（如 LLVM）之间的中间表示 (IR) 系统。允许不同语言的不同编译器堆栈之间的代码重用以及其他性能和可用性优势。"><meta property="og:locale" content="en_US"><meta property="og:image" content="https://xlindo.com/kewenlu/kewenlu/images/2022/202204011.jpg"><meta property="og:image" content="https://xlindo.com/kewenlu/kewenlu/images/2022/202204012.jpg"><meta property="og:image" content="https://xlindo.com/kewenlu/kewenlu/images/2022/202204013.jpg"><meta property="og:image" content="https://xlindo.com/kewenlu/kewenlu/images/2022/202204014.jpg"><meta property="article:published_time" content="2022-04-01T12:48:23.000Z"><meta property="article:modified_time" content="2023-05-08T22:10:18.029Z"><meta property="article:author" content="xlindo"><meta property="article:tag" content="科技"><meta property="article:tag" content="编译器"><meta property="twitter:card" content="summary"><meta property="twitter:image:src" content="https://xlindo.com/kewenlu/kewenlu/images/2022/202204011.jpg"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://xlindo.com/kewenlu/posts/467350b4/"},"headline":"MLIR：编译器基础架构重定义","image":["https://xlindo.com/kewenlu/kewenlu/images/2022/202204011.jpg","https://xlindo.com/kewenlu/kewenlu/images/2022/202204012.jpg","https://xlindo.com/kewenlu/kewenlu/images/2022/202204013.jpg","https://xlindo.com/kewenlu/kewenlu/images/2022/202204014.jpg"],"datePublished":"2022-04-01T12:48:23.000Z","dateModified":"2023-05-08T22:10:18.029Z","author":{"@type":"Person","name":"xlindo"},"publisher":{"@type":"Organization","name":"科文路","logo":{"@type":"ImageObject","url":"https://xlindo.com/images/favicon.ico"}},"description":"文章来自微信公众号“科文路”，欢迎关注、互动。转发须注明出处。   原文地址：吴建明wujianming, MLIR: 编译器基础架构重定义  MLIR: 编译器基础架构重定义MLIR（多级中间表示）是语言（如 C）或库（如 TensorFlow）与编译器后端（如 LLVM）之间的中间表示 (IR) 系统。允许不同语言的不同编译器堆栈之间的代码重用以及其他性能和可用性优势。"}</script><link rel="canonical" href="https://xlindo.com/kewenlu/posts/467350b4/"><link rel="icon" href="/kewenlu/images/favicon.ico"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.0.0/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.loli.net/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link rel="stylesheet" href="/kewenlu/css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><meta name="msvalidate.01" content="043B69617A5E44A2F7CD99A00708FFF3"><script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" defer></script><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css"><!--!--><!--!--><!--!--><style>.pace{-webkit-pointer-events:none;pointer-events:none;-webkit-user-select:none;-moz-user-select:none;user-select:none}.pace-inactive{display:none}.pace .pace-progress{background:#3273dc;position:fixed;z-index:2000;top:0;right:100%;width:100%;height:2px}</style><script src="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/pace.min.js"></script><!--!--><!--!--><!-- hexo injector head_end start --><script>
+  (function () {
+      function switchTab() {
+          if (!location.hash) {
+            return;
+          }
+
+          const id = '#' + CSS.escape(location.hash.substring(1));
+          const $tabMenu = document.querySelector(`.tabs a[href="${id}"]`);
+          if (!$tabMenu) {
+            return;
+          }
+
+          const $tabMenuContainer = $tabMenu.parentElement.parentElement;
+          Array.from($tabMenuContainer.children).forEach($menu => $menu.classList.remove('is-active'));
+          Array.from($tabMenuContainer.querySelectorAll('a'))
+              .map($menu => document.getElementById($menu.getAttribute("href").substring(1)))
+              .forEach($content => $content.classList.add('is-hidden'));
+
+          if ($tabMenu) {
+              $tabMenu.parentElement.classList.add('is-active');
+          }
+          const $activeTab = document.querySelector(id);
+          if ($activeTab) {
+              $activeTab.classList.remove('is-hidden');
+          }
+      }
+      switchTab();
+      window.addEventListener('hashchange', switchTab, false);
+  })();
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/kewenlu/"><img src="/kewenlu/images/favicon.ico" alt="科文路" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/kewenlu/">Home</a><a class="navbar-item" href="/kewenlu/archives">Archives</a><a class="navbar-item" href="/kewenlu/tags">Tags</a><a class="navbar-item" href="/kewenlu/about">About</a></div><div class="navbar-end"><a class="navbar-item is-hidden-tablet catalogue" title="Catalogue" href="javascript:;"><i class="fas fa-list-ul"></i></a><a class="navbar-item search" title="Search" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2022-04-01T12:48:23.000Z" title="4/1/2022, 8:48:23 PM">2022-04-01</time></span><span class="level-item">Updated&nbsp;<time dateTime="2023-05-08T22:10:18.029Z" title="5/9/2023, 6:10:18 AM">2023-05-09</time></span><span class="level-item"><a class="link-muted" href="/kewenlu/categories/%E7%A7%91%E6%8A%80/">科技</a></span><span class="level-item">17 minutes read (About 2546 words)</span><span class="level-item" id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv">0</span>&nbsp;visits</span></div></div><h1 class="title is-3 is-size-4-mobile">MLIR：编译器基础架构重定义</h1><div class="content"><blockquote>
+<p>文章来自微信公众号“科文路”，欢迎关注、互动。转发须注明出处。</p>
+</blockquote>
+<blockquote>
+<p>原文地址：<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/379063169">吴建明wujianming, MLIR: 编译器基础架构重定义</a></p>
+</blockquote>
+<h1 id="MLIR-编译器基础架构重定义"><a href="#MLIR-编译器基础架构重定义" class="headerlink" title="MLIR: 编译器基础架构重定义"></a>MLIR: 编译器基础架构重定义</h1><p>MLIR（多级中间表示）是语言（如 C）或库（如 TensorFlow）与编译器后端（如 LLVM）之间的中间表示 (IR) 系统。允许不同语言的不同编译器堆栈之间的代码重用以及其他性能和可用性优势。</p>
+<span id="more"></span>
+
+
+<p>MLIR 由 Google 开发为一个开源项目，主要是为了改进 TensorFlow 在不同后端的支持，但通常可用于任何语言。</p>
+<h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>要了解 MLIR 的适用范围，需要简要概述 C、Java 和 Swift 等常用语言的编译器基础架构，然后继续介绍 TensorFlow 的编译器基础架构。这样，MLIR 的原理和可交付成果的想法就很清楚了。</p>
+<p>编译器架构情况：</p>
+<p><img src="/kewenlu/kewenlu/images/2022/202204011.jpg" alt="编译器"></p>
+<p>从 C 的编译器基础结构开始。C 编译器接收 C 代码，转换为抽象语法树 (AST)，然后将其转换为 LLVM IR。AST 是一种树数据结构，其中节点表示算子等代码组件，叶节点表示数据。例如，像 <code>a+b</code> 这样的代码语句的抽象语法树如下：</p>
+<p><img src="/kewenlu/kewenlu/images/2022/202204012.jpg" alt="AST for a+b"></p>
+<p>随后，抽象语法树被转换为 LLVM IR（中间表示）。LLVM 是一种编译器基础架构，可将 LLVM IR 转换为机器代码。LLVM 是一种常用工具，是最流行的语言（如 C、C++、JAVA、Swift 等）的一部分。</p>
+<p>所以，C 代码的流程如下：</p>
+<ul>
+<li>C 代码由 C 编译器（如 GCC）转换为 Clang AST</li>
+<li>Clang AST 通过 C 编译器（如 GCC）转换为 LLVM IR</li>
+<li>LLVM IR 由 LLVM 转换为机器码</li>
+</ul>
+<p>C 的这种编译策略存在一些问题，例如：</p>
+<ul>
+<li>在 AST 中，将代码语句链接到代码行号或源代码的信息丢失了，因为 AST 无法存储此类信息。导致无法指向源代码的错误。一个常见的例子是，当发生 segmentation fault 时，错误信息并没有说明是源代码中的哪一行导致了这个问题。</li>
+<li>由于 C 代码直接转换为 AST，不会进行特定于语言的优化。事实上，如果开发了 C 库，则在此流程中无法在编译器期间进行特定于库的优化。</li>
+</ul>
+<p><strong>Java 和 Swift 等语言采用了不同的方法来解决这个问题。</strong></p>
+<p>Java 是第一个解决这个问题成功的语言。Java 的方法是将 Java 代码转换为 Java 字节码 (JavaBC)，是 Java 的内部表示。正是在这种表示进行了 Java 特定和库特定的优化。在此之后，Java BC 被转换为 LLVM IR，后者被 LLVM 转换为机器代码。因此，Java 的方法是避免创建 AST，是任何程序的通用表示，因此创建了自己的格式，不仅解决了 C 的问题，而且使 Java 成为第一个独立于平台的语言。</p>
+<p>Java 方法的一个问题是变得非常复杂，需要深入了解 LLVM 才能充分利用。这将现有资源发挥到极致，以获得最佳优化。</p>
+<p>其它语言复制 Java 的技术是一个问题，所以后来，Swift 提出了自己的方法，并被广泛采用。</p>
+<p>Swift 代码被转换为 AST，其中 Swift 特定表示被转换为 Swift 的内部表示。正是在这一点上，所有语言特定的优化都完成了。随后，Swift IR 被转换为 LLVM IR，后者被 LLVM 获取并转换为机器代码。</p>
+<p>这是一种相对简单的方法，解决了所有 C 的原始问题。在功能上，与 Java 的方法相同。Swift 的方法变得非常流行，并被改编成 Rust 等新语言。</p>
+<p>此时的主要问题，每当创建一种新语言时，必须再次进行所有优化，例如程序流程优化、数据结构优化等（以前的语言已经完成）。唯一不同的是语言特定的优化。LLVM 负责机器级优化。因此，必须为每种语言再次创建整个管道。</p>
+<p>如果仔细观察，语言仅在操作抽象和内部语言特定优化方面有所不同。为了帮助创建新的语言和库，Google TensorFlow 团队决定创建 MLIR（多级中间表示）。</p>
+<h2 id="MLIR-提出"><a href="#MLIR-提出" class="headerlink" title="MLIR 提出"></a>MLIR 提出</h2><p><strong>实际上，这个问题是在 TensorFlow 中遇到的，谷歌并没有专门为 TF 解决这个问题，而是决定一劳永逸地修复编译器基础架构。</strong></p>
+<p>TensorFlow 的编译器基础架构：</p>
+<p><img src="/kewenlu/kewenlu/images/2022/202204013.jpg" alt="TensorFlow"></p>
+<p>流程如下：</p>
+<ul>
+<li>可以使用 API 之一（如 C++ 或 Python）来编写 TensorFlow 代码</li>
+<li>TensorFlow 代码被转换为 TF 图，Gappler（TensorFlow 中的一个模块）进行图级优化，包括几个机器学习特定的优化，如算子融合。</li>
+<li>在此之后，TF 图被转换为其后端之一（替代 LLVM）的众多内部表示 (IR) 之一。</li>
+<li>TensorFlow 有许多后端，如 XLA（用于 TPU）、TF Lite（用于移动设备）等</li>
+</ul>
+<p>问题是对于每个路径（如 XLA 和 TF Lite），开发人员必须重新实现所有优化，并且大多数优化是通用的，但代码重用是不可能的。这个问题将通过 MLIR 解决。</p>
+<p>因此，MLIR 的流程如下图所示：</p>
+<p><img src="/kewenlu/kewenlu/images/2022/202204014.jpg" alt="MLIR"></p>
+<p>概括：</p>
+<ul>
+<li>不同语言的相同编译器基础结构，不可重用</li>
+<li>类似于 Swift 和其他语言中的编译器基础结构</li>
+<li>tensorflow 支持许多具有不同 IR 的后端，无需代码重用</li>
+<li>目的是增加代码重用以快速适应新的硬件后端</li>
+<li>中间 IR 用于捕获数据流信息并应用优化、比 LLVM 更好的源代码跟踪、灵活的设计、重用 LLVM 进行机器代码生成</li>
+</ul>
+<h2 id="使用-MLIR-的优势"><a href="#使用-MLIR-的优势" class="headerlink" title="使用 MLIR 的优势"></a>使用 MLIR 的优势</h2><ul>
+<li>默认情况下源代码位置跟踪</li>
+<li>默认情况下，所有功能都在多核上运行（使用 OpenMP）</li>
+<li>更好地重用编译器堆栈的代码（用于新库和硬件），重用其它语言完成的优化</li>
+<li>通过开发 CIL IR 为 C 提供更好的编译器堆栈</li>
+<li>对于 TensorFlow，一条路径中的优化可以在其它路径中重用，从而实现大量代码重用。</li>
+</ul>
+<h2 id="内部关键思想"><a href="#内部关键思想" class="headerlink" title="内部关键思想"></a>内部关键思想</h2><p>MLIR 的主要思想是：</p>
+<ul>
+<li>没有预定义的类型或指令。这允许开发人员自定义数据类型和指令抽象</li>
+<li>没有预定义的操作</li>
+<li>MLIR 中的基本对象是一种方言 dialects，从实现的角度可以认为是一个类</li>
+<li>需要定义指向 C++ 代码的方言 dialects，方言 dialects 就像自定义语言的类</li>
+<li>方言 dialects 有 3 部分：函数名、输入参数列表、输出参数列表</li>
+<li>对于每种方言 dialects，默认功能如类型检查、映射到 LLVM IR</li>
+<li>MLIR 默认支持线性代数运算，例如方言 dialects 之间的类型检查</li>
+<li>语言被转换为带有方言 dialects 的形式</li>
+<li>在这种形式（方言 dialects 集）上，执行优化</li>
+<li>经过各种级别的 lowering，方言 dialects 可以直接转换为 LLVM IR</li>
+<li>在 MLIR 中更好地使用 OpenMP，所有信息都可用</li>
+<li>默认情况下，所有功能都在所有内核上运行（更好的系统使用）</li>
+<li>（优于 LLVM）每个操作数都有一个源代码内存地址属性，直接指向发生错误的源代码行</li>
+<li>将使用 XLA 基础架构进行性能分析和剖析。</li>
+</ul>
+<h2 id="应用"><a href="#应用" class="headerlink" title="应用"></a>应用</h2><p>MLIR 用于改进 TensorFlow 编译器基础架构：</p>
+<h3 id="1-通过源代码跟踪改进-TF-Lite-的生成"><a href="#1-通过源代码跟踪改进-TF-Lite-的生成" class="headerlink" title="1. 通过源代码跟踪改进 TF Lite 的生成"></a>1. 通过源代码跟踪改进 TF Lite 的生成</h3><p>编译流程如下：</p>
+<ul>
+<li>TF 代码</li>
+<li>方言 dialects</li>
+<li>验证 &#x2F; 优化</li>
+<li>用于 tf lite 后端的 tf lite 方言 dialects</li>
+</ul>
+<h3 id="2-使用-MLIR-更改-XLA-HLO-的路径"><a href="#2-使用-MLIR-更改-XLA-HLO-的路径" class="headerlink" title="2. 使用 MLIR 更改 XLA HLO 的路径"></a>2. 使用 MLIR 更改 XLA HLO 的路径</h3><p>编译流程如下：</p>
+<ul>
+<li>tf</li>
+<li>方言 dialects</li>
+<li>验证 &#x2F; 优化</li>
+<li>xla 方言 dialects</li>
+<li>xla 后端</li>
+</ul>
+<p>它将重用来自 TF Lite 路径的一些组件</p>
+<h3 id="3-使用-MLIR-支持新的编译器后端"><a href="#3-使用-MLIR-支持新的编译器后端" class="headerlink" title="3. 使用 MLIR 支持新的编译器后端"></a>3. 使用 MLIR 支持新的编译器后端</h3><p>当一个新平台 P 出现并且它有一个新的后端 B 时，然后转换 TensorFlow 代码通过使用 TF Lite 和 XLA 的现有代码，转换为现有的方言 dialects&#x2F;IR。接下来，需要编写一个新的方言 dialects 集 &#x2F; IR（针对平台进行自定义优化）和转换代码，转换为平台后端编译器所需的 IR。</p>
+<p>MLIR 的使用使该过程更易于管理和快速。</p>
+<h2 id="其它应用"><a href="#其它应用" class="headerlink" title="其它应用"></a>其它应用</h2><p>MLIR 是一种通用工具，可用于其它目的，例如：</p>
+<ul>
+<li>通过 MLIR 插入新的 IR 来解决 C 和 C++ 代码的问题</li>
+<li>新语言可以直接使用使用 MLIR 的现有语言的优化，因此开发新语言将变得容易和快速。</li>
+<li>一旦使用 MLIR 的系统实施，一组编译技术的创新可以被多个组轻松使用</li>
+</ul>
+<p>简而言之，LLVM 极大地创新了编译器生态系统，但现在 MLIR 通过利用 LLVM 的最佳部分实现更简单、更高效的编译器生态系统，从而进入了下一阶段。</p>
+<p><strong>都看到这儿了，不如关注每日推送的“科文路”、互动起来~</strong></p>
+</div><div class="article-licensing box"><div class="licensing-title"><p>MLIR：编译器基础架构重定义</p><p><a href="https://xlindo.com/kewenlu/posts/467350b4/">https://xlindo.com/kewenlu/posts/467350b4/</a></p></div><div class="licensing-meta level is-mobile"><div class="level-left"><div class="level-item is-narrow"><div><h6>Author</h6><p>xlindo</p></div></div><div class="level-item is-narrow"><div><h6>Posted on</h6><p>2022-04-01</p></div></div><div class="level-item is-narrow"><div><h6>Updated on</h6><p>2023-05-09</p></div></div><div class="level-item is-narrow"><div><h6>Licensed under</h6><p><a class="icons" rel="noopener" target="_blank" title="Creative Commons" href="https://creativecommons.org/"><i class="icon fab fa-creative-commons"></i></a><a class="icons" rel="noopener" target="_blank" title="Attribution" href="https://creativecommons.org/licenses/by/4.0/"><i class="icon fab fa-creative-commons-by"></i></a><a class="icons" rel="noopener" target="_blank" title="Noncommercial" href="https://creativecommons.org/licenses/by-nc/4.0/"><i class="icon fab fa-creative-commons-nc"></i></a></p></div></div></div></div></div><div class="article-tags is-size-7 mb-4"><span class="mr-2">#</span><a class="link-muted mr-2" rel="tag" href="/kewenlu/tags/%E7%A7%91%E6%8A%80/">科技</a><a class="link-muted mr-2" rel="tag" href="/kewenlu/tags/%E7%BC%96%E8%AF%91%E5%99%A8/">编译器</a></div><!--!--></article></div><!--!--><nav class="post-navigation mt-4 level is-mobile"><div class="level-start"><a class="article-nav-prev level level-item link-muted" href="/kewenlu/posts/9ddfa5b6/"><i class="level-item fas fa-chevron-left"></i><span class="level-item">荐歌：带我去找夜生活（告五人）</span></a></div><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/kewenlu/posts/c1596b21/"><span class="level-item">LLVM的Intrinsics函数及其实现</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><div class="card"><div class="card-content"><h3 class="title is-5">Comments</h3><div id="SOHUCS" sid="posts/467350b4/"></div><script charset="utf-8" src="https://changyan.sohu.com/upload/changyan.js"></script><script>window.changyan.api.config({appid: 'cyvmJmMgc',conf: 'e37a55ecf6df7ba6217b8997f4dcd9ab'});</script></div></div></div><div class="column column-left is-4-tablet is-4-desktop is-4-widescreen  order-1"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar" src="/kewenlu/images/avatar-512x512.png" alt="科文路"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">科文路</p><p class="is-size-6 is-block">微信公众号&quot;科文路&quot;的存档</p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">Posts</p><a href="/kewenlu/archives"><p class="title">469</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Categories</p><a href="/kewenlu/categories"><p class="title">3</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Tags</p><a href="/kewenlu/tags"><p class="title">80</p></a></div></div></nav></div></div><div class="card widget" id="toc" data-type="toc"><div class="card-content"><div class="menu"><h3 class="menu-label">Catalogue</h3><ul class="menu-list"><li><a class="level is-mobile" href="#MLIR-编译器基础架构重定义"><span class="level-left"><span class="level-item">1</span><span class="level-item">MLIR: 编译器基础架构重定义</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#背景"><span class="level-left"><span class="level-item">1.1</span><span class="level-item">背景</span></span></a></li><li><a class="level is-mobile" href="#MLIR-提出"><span class="level-left"><span class="level-item">1.2</span><span class="level-item">MLIR 提出</span></span></a></li><li><a class="level is-mobile" href="#使用-MLIR-的优势"><span class="level-left"><span class="level-item">1.3</span><span class="level-item">使用 MLIR 的优势</span></span></a></li><li><a class="level is-mobile" href="#内部关键思想"><span class="level-left"><span class="level-item">1.4</span><span class="level-item">内部关键思想</span></span></a></li><li><a class="level is-mobile" href="#应用"><span class="level-left"><span class="level-item">1.5</span><span class="level-item">应用</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#1-通过源代码跟踪改进-TF-Lite-的生成"><span class="level-left"><span class="level-item">1.5.1</span><span class="level-item">1. 通过源代码跟踪改进 TF Lite 的生成</span></span></a></li><li><a class="level is-mobile" href="#2-使用-MLIR-更改-XLA-HLO-的路径"><span class="level-left"><span class="level-item">1.5.2</span><span class="level-item">2. 使用 MLIR 更改 XLA HLO 的路径</span></span></a></li><li><a class="level is-mobile" href="#3-使用-MLIR-支持新的编译器后端"><span class="level-left"><span class="level-item">1.5.3</span><span class="level-item">3. 使用 MLIR 支持新的编译器后端</span></span></a></li></ul></li><li><a class="level is-mobile" href="#其它应用"><span class="level-left"><span class="level-item">1.6</span><span class="level-item">其它应用</span></span></a></li></ul></li></ul></div></div><style>#toc .menu-list > li > a.is-active + .menu-list { display: block; }#toc .menu-list > li > a + .menu-list { display: none; }</style><script src="/kewenlu/js/toc.js" defer></script></div><div class="card widget" data-type="categories"><div class="card-content"><div class="menu"><h3 class="menu-label">Categories</h3><ul class="menu-list"><li><a class="level is-mobile" href="/kewenlu/categories/%E4%BA%BA%E6%96%87/"><span class="level-start"><span class="level-item">人文</span></span><span class="level-end"><span class="level-item tag">315</span></span></a></li><li><a class="level is-mobile" href="/kewenlu/categories/%E7%A7%91%E6%8A%80/"><span class="level-start"><span class="level-item">科技</span></span><span class="level-end"><span class="level-item tag">145</span></span></a></li><li><a class="level is-mobile" href="/kewenlu/categories/%E7%A7%91%E6%96%87%E8%B7%AF/"><span class="level-start"><span class="level-item">科文路</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li></ul></div></div></div><div class="card widget" data-type="recent-posts"><div class="card-content"><h3 class="menu-label">Recents</h3><article class="media"><div class="media-content"><p class="date"><time dateTime="2023-05-09T14:47:11.000Z">2023-05-09</time></p><p class="title"><a href="/kewenlu/posts/cad6d486/">图灵奖：唐纳德·尔文·克努斯（高德纳，1974）</a></p><p class="categories"><a href="/kewenlu/categories/%E7%A7%91%E6%8A%80/">科技</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2023-05-08T14:06:25.000Z">2023-05-08</time></p><p class="title"><a href="/kewenlu/posts/207c4c58/">科技：哪些工作可能被AI取代？</a></p><p class="categories"><a href="/kewenlu/categories/%E7%A7%91%E6%8A%80/">科技</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2023-05-07T14:13:41.000Z">2023-05-07</time></p><p class="title"><a href="/kewenlu/posts/d724d92d/">2023：一周速览，18</a></p><p class="categories"><a href="/kewenlu/categories/%E4%BA%BA%E6%96%87/">人文</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2023-05-05T14:02:11.000Z">2023-05-05</time></p><p class="title"><a href="/kewenlu/posts/55b71ee6/">荐歌：蜀道难（张杰）</a></p><p class="categories"><a href="/kewenlu/categories/%E4%BA%BA%E6%96%87/">人文</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2023-05-04T15:15:07.000Z">2023-05-04</time></p><p class="title"><a href="/kewenlu/posts/797d9d82/">GNN：抽象数据类型，图（1）</a></p><p class="categories"><a href="/kewenlu/categories/%E7%A7%91%E6%8A%80/">科技</a></p></div></article></div></div><div class="card widget" data-type="archives"><div class="card-content"><div class="menu"><h3 class="menu-label">Archives</h3><ul class="menu-list"><li><a class="level is-mobile" href="/kewenlu/archives/2023/"><span class="level-start"><span class="level-item">2023</span></span><span class="level-end"><span class="level-item tag">98</span></span></a></li><li><a class="level is-mobile" href="/kewenlu/archives/2022/"><span class="level-start"><span class="level-item">2022</span></span><span class="level-end"><span class="level-item tag">353</span></span></a></li><li><a class="level is-mobile" href="/kewenlu/archives/2021/"><span class="level-start"><span class="level-item">2021</span></span><span class="level-end"><span class="level-item tag">18</span></span></a></li></ul></div></div></div><div class="card widget" data-type="tags"><div class="card-content"><div class="menu"><h3 class="menu-label">Tags</h3><div class="field is-grouped is-grouped-multiline"><div class="control"><a class="tags has-addons" href="/kewenlu/tags/AI/"><span class="tag">AI</span><span class="tag">34</span></a></div><div class="control"><a class="tags has-addons" href="/kewenlu/tags/C/"><span class="tag">C++</span><span class="tag">2</span></a></div><div class="control"><a class="tags has-addons" href="/kewenlu/tags/GNN/"><span class="tag">GNN</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/kewenlu/tags/GPGPU/"><span class="tag">GPGPU</span><span class="tag">3</span></a></div><div class="control"><a class="tags has-addons" href="/kewenlu/tags/IC/"><span class="tag">IC</span><span class="tag">3</span></a></div><div class="control"><a class="tags has-addons" href="/kewenlu/tags/LLVM/"><span class="tag">LLVM</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/kewenlu/tags/MLIR/"><span class="tag">MLIR</span><span class="tag">20</span></a></div><div class="control"><a class="tags has-addons" href="/kewenlu/tags/MobileNets/"><span class="tag">MobileNets</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/kewenlu/tags/Quora/"><span class="tag">Quora</span><span class="tag">2</span></a></div><div class="control"><a class="tags has-addons" href="/kewenlu/tags/RISC-V/"><span class="tag">RISC-V</span><span class="tag">2</span></a></div><div class="control"><a class="tags has-addons" href="/kewenlu/tags/python/"><span class="tag">python</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/kewenlu/tags/%E4%B8%80%E5%91%A8%E9%80%9F%E8%A7%88/"><span class="tag">一周速览</span><span class="tag">40</span></a></div><div class="control"><a class="tags has-addons" href="/kewenlu/tags/%E4%B8%96%E7%95%8C%E6%9D%AF/"><span class="tag">世界杯</span><span class="tag">5</span></a></div><div class="control"><a class="tags has-addons" href="/kewenlu/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/"><span class="tag">人工智能</span><span class="tag">6</span></a></div><div class="control"><a class="tags has-addons" href="/kewenlu/tags/%E4%BA%BA%E6%96%87/"><span class="tag">人文</span><span class="tag">317</span></a></div><div class="control"><a class="tags has-addons" href="/kewenlu/tags/%E4%BD%93%E8%82%B2/"><span class="tag">体育</span><span class="tag">9</span></a></div><div class="control"><a class="tags has-addons" href="/kewenlu/tags/%E5%81%A5%E5%BA%B7/"><span class="tag">健康</span><span class="tag">2</span></a></div><div class="control"><a class="tags has-addons" href="/kewenlu/tags/%E5%8A%A0%E9%80%9F/"><span class="tag">加速</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/kewenlu/tags/%E5%8D%9A%E7%89%A9/"><span class="tag">博物</span><span class="tag">2</span></a></div><div class="control"><a class="tags has-addons" href="/kewenlu/tags/%E5%8E%86%E5%8F%B2/"><span class="tag">历史</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/kewenlu/tags/%E5%90%8D%E4%BD%9C/"><span class="tag">名作</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/kewenlu/tags/%E5%9B%BE%E7%81%B5%E5%A5%96/"><span class="tag">图灵奖</span><span class="tag">11</span></a></div><div class="control"><a class="tags has-addons" href="/kewenlu/tags/%E5%A4%87%E6%9F%A5%E6%89%8B%E5%86%8C/"><span class="tag">备查手册</span><span class="tag">13</span></a></div><div class="control"><a class="tags has-addons" href="/kewenlu/tags/%E5%A4%A9%E6%96%87/"><span class="tag">天文</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/kewenlu/tags/%E5%AD%A6%E4%B9%A0/"><span class="tag">学习</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/kewenlu/tags/%E5%B0%AC%E8%81%8A/"><span class="tag">尬聊</span><span class="tag">12</span></a></div><div class="control"><a class="tags has-addons" href="/kewenlu/tags/%E5%B1%95%E8%A7%88/"><span class="tag">展览</span><span class="tag">2</span></a></div><div class="control"><a class="tags has-addons" href="/kewenlu/tags/%E5%B7%A5%E4%BD%9C/"><span class="tag">工作</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/kewenlu/tags/%E5%B7%A5%E5%85%B7/"><span class="tag">工具</span><span class="tag">9</span></a></div><div class="control"><a class="tags has-addons" href="/kewenlu/tags/%E5%B9%B4%E5%BA%A6/"><span class="tag">年度</span><span class="tag">7</span></a></div><div class="control"><a class="tags has-addons" href="/kewenlu/tags/%E5%BC%80%E6%BA%90/"><span class="tag">开源</span><span class="tag">2</span></a></div><div class="control"><a class="tags has-addons" href="/kewenlu/tags/%E6%8A%A5%E5%91%8A/"><span class="tag">报告</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/kewenlu/tags/%E6%8E%A7%E5%88%B6/"><span class="tag">控制</span><span class="tag">2</span></a></div><div class="control"><a class="tags has-addons" href="/kewenlu/tags/%E6%95%99%E8%82%B2/"><span class="tag">教育</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/kewenlu/tags/%E6%95%B0%E5%AD%A6/"><span class="tag">数学</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/kewenlu/tags/%E6%95%B0%E5%AD%A6%E4%B8%8E%E7%BB%9F%E8%AE%A1/"><span class="tag">数学与统计</span><span class="tag">8</span></a></div><div class="control"><a class="tags has-addons" href="/kewenlu/tags/%E6%95%B0%E7%A0%81/"><span class="tag">数码</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/kewenlu/tags/%E6%96%87%E5%AD%A6/"><span class="tag">文学</span><span class="tag">2</span></a></div><div class="control"><a class="tags has-addons" href="/kewenlu/tags/%E6%96%87%E7%89%A9/"><span class="tag">文物</span><span class="tag">29</span></a></div><div class="control"><a class="tags has-addons" href="/kewenlu/tags/%E6%97%85%E6%B8%B8/"><span class="tag">旅游</span><span class="tag">2</span></a></div><div class="control"><a class="tags has-addons" href="/kewenlu/tags/%E6%97%85%E8%A1%8C/"><span class="tag">旅行</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/kewenlu/tags/%E6%97%B6%E4%BA%8B/"><span class="tag">时事</span><span class="tag">96</span></a></div><div class="control"><a class="tags has-addons" href="/kewenlu/tags/%E6%97%B6%E9%97%B4%E5%BA%8F%E5%88%97%E5%88%86%E6%9E%90/"><span class="tag">时间序列分析</span><span class="tag">4</span></a></div><div class="control"><a class="tags has-addons" href="/kewenlu/tags/%E6%97%B6%E9%A2%91%E5%88%86%E6%9E%90/"><span class="tag">时频分析</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/kewenlu/tags/%E6%98%8E%E6%98%9F/"><span class="tag">明星</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/kewenlu/tags/%E6%B2%A1%E7%94%A8%E7%99%BE%E7%A7%91/"><span class="tag">没用百科</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/kewenlu/tags/%E6%B5%B7%E5%A4%96/"><span class="tag">海外</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/kewenlu/tags/%E7%94%9F%E6%B4%BB/"><span class="tag">生活</span><span class="tag">21</span></a></div><div class="control"><a class="tags has-addons" href="/kewenlu/tags/%E7%94%9F%E7%89%A9/"><span class="tag">生物</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/kewenlu/tags/%E7%94%B5%E5%BD%B1/"><span class="tag">电影</span><span class="tag">12</span></a></div><div class="control"><a class="tags has-addons" href="/kewenlu/tags/%E7%99%BE%E7%A7%91/"><span class="tag">百科</span><span class="tag">12</span></a></div><div class="control"><a class="tags has-addons" href="/kewenlu/tags/%E7%9C%81%E9%A6%86%E4%B9%8B%E5%AE%9D/"><span class="tag">省馆之宝</span><span class="tag">29</span></a></div><div class="control"><a class="tags has-addons" href="/kewenlu/tags/%E7%9F%A5%E4%B9%8E/"><span class="tag">知乎</span><span class="tag">3</span></a></div><div class="control"><a class="tags has-addons" href="/kewenlu/tags/%E7%A7%91%E6%8A%80/"><span class="tag">科技</span><span class="tag">146</span></a></div><div class="control"><a class="tags has-addons" href="/kewenlu/tags/%E7%A7%91%E6%96%87%E8%B7%AF/"><span class="tag">科文路</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/kewenlu/tags/%E7%A7%91%E6%99%AE/"><span class="tag">科普</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/kewenlu/tags/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/"><span class="tag">程序设计</span><span class="tag">7</span></a></div><div class="control"><a class="tags has-addons" href="/kewenlu/tags/%E7%B2%97%E7%95%A5%E4%BC%B0%E7%AE%97%E6%8A%80%E5%B7%A7/"><span class="tag">粗略估算技巧</span><span class="tag">4</span></a></div><div class="control"><a class="tags has-addons" href="/kewenlu/tags/%E7%BB%8F%E9%AA%8C/"><span class="tag">经验</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/kewenlu/tags/%E7%BB%BC%E8%89%BA/"><span class="tag">综艺</span><span class="tag">2</span></a></div><div class="control"><a class="tags has-addons" href="/kewenlu/tags/%E7%BC%96%E7%A8%8B/"><span class="tag">编程</span><span class="tag">7</span></a></div><div class="control"><a class="tags has-addons" href="/kewenlu/tags/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/"><span class="tag">编译原理</span><span class="tag">2</span></a></div><div class="control"><a class="tags has-addons" href="/kewenlu/tags/%E7%BC%96%E8%AF%91%E5%99%A8/"><span class="tag">编译器</span><span class="tag">3</span></a></div><div class="control"><a class="tags has-addons" href="/kewenlu/tags/%E8%80%81%E5%A4%96/"><span class="tag">老外</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/kewenlu/tags/%E8%82%A1%E5%B8%82/"><span class="tag">股市</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/kewenlu/tags/%E8%87%AA%E5%8A%A8%E9%A9%BE%E9%A9%B6/"><span class="tag">自动驾驶</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/kewenlu/tags/%E8%88%AA%E5%A4%A9/"><span class="tag">航天</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/kewenlu/tags/%E8%89%BA%E6%9C%AF/"><span class="tag">艺术</span><span class="tag">3</span></a></div><div class="control"><a class="tags has-addons" href="/kewenlu/tags/%E8%8D%90%E6%96%87/"><span class="tag">荐文</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/kewenlu/tags/%E8%8D%90%E6%AD%8C/"><span class="tag">荐歌</span><span class="tag">55</span></a></div><div class="control"><a class="tags has-addons" href="/kewenlu/tags/%E8%A2%AB%E6%9F%A5%E6%89%8B%E5%86%8C/"><span class="tag">被查手册</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/kewenlu/tags/%E8%A7%86%E8%A7%92/"><span class="tag">视角</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/kewenlu/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/"><span class="tag">计算机</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/kewenlu/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E4%B8%8E%E8%AE%BE%E8%AE%A1/"><span class="tag">计算机组成与设计</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/kewenlu/tags/%E8%AF%AD%E6%96%87/"><span class="tag">语文</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/kewenlu/tags/%E8%B6%B3%E7%90%83/"><span class="tag">足球</span><span class="tag">3</span></a></div><div class="control"><a class="tags has-addons" href="/kewenlu/tags/%E8%BF%90%E5%8A%A8/"><span class="tag">运动</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/kewenlu/tags/%E9%80%9B%E7%9F%A5%E4%B9%8E/"><span class="tag">逛知乎</span><span class="tag">40</span></a></div><div class="control"><a class="tags has-addons" href="/kewenlu/tags/%E9%97%B2%E8%81%8A/"><span class="tag">闲聊</span><span class="tag">13</span></a></div><div class="control"><a class="tags has-addons" href="/kewenlu/tags/%E9%9F%B3%E4%B9%90/"><span class="tag">音乐</span><span class="tag">6</span></a></div></div></div></div></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/kewenlu/"><img src="/kewenlu/images/favicon.ico" alt="科文路" height="28"></a><p class="is-size-7"><span>&copy; 2023 xlindo</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a><br><span id="busuanzi_container_site_uv">Visited by <span id="busuanzi_value_site_uv">0</span> users</span></p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Noncommercial" href="https://creativecommons.org/licenses/by-nc/4.0/"><i class="fab fa-creative-commons-nc"></i></a></p></div></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("en");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script src="/kewenlu/js/column.js"></script><script src="/kewenlu/js/animation.js"></script><a id="back-to-top" title="Back to top" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="/kewenlu/js/back_to_top.js" defer></script><!--!--><!--!--><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.js" defer></script><script>window.addEventListener("load", () => {
+      window.cookieconsent.initialise({
+        type: "info",
+        theme: "edgeless",
+        static: false,
+        position: "bottom-left",
+        content: {
+          message: "This website uses cookies to improve your experience.",
+          dismiss: "Got it!",
+          allow: "Allow cookies",
+          deny: "Decline",
+          link: "Learn more",
+          policy: "Cookie Policy",
+          href: "https://www.cookiesandyou.com/",
+        },
+        palette: {
+          popup: {
+            background: "#edeff5",
+            text: "#838391"
+          },
+          button: {
+            background: "#4b81e8"
+          },
+        },
+      });
+    });</script><script src="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/js/lightgallery.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><!--!--><script type="text/x-mathjax-config">MathJax.Hub.Config({
+            'HTML-CSS': {
+                matchFontHeight: false
+            },
+            SVG: {
+                matchFontHeight: false
+            },
+            CommonHTML: {
+                matchFontHeight: false
+            },
+            tex2jax: {
+                inlineMath: [
+                    ['$','$'],
+                    ['\\(','\\)']
+                ]
+            }
+        });</script><script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.9/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script><!--!--><!--!--><!--!--><script src="/kewenlu/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="Type something..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script src="/kewenlu/js/insight.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/kewenlu/content.json"}, {"hint":"Type something...","untitled":"(Untitled)","posts":"Posts","pages":"Pages","categories":"Categories","tags":"Tags"});
+        });</script></body></html>
