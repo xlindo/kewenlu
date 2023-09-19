@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>图灵奖：肯·汤普逊（1983） - 科文路</title><link rel="manifest" href="/kewenlu/manifest.json"><meta name="application-name" content="科文路"><meta name="msapplication-TileImage" content="/images/favicon.ico"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="科文路"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="图灵奖是计算机界最负盛名的奖项，有“计算机界诺贝尔奖”之称。”图灵奖”系列将介绍历届获奖者。每周二更新，本文为第 22 期。图灵奖：肯·汤普逊（1983）   文章来自微信公众号“科文路”，欢迎关注、互动。转发须注明出处。   本文来自 wiki:Ken Thompson，翻译基于 谷歌翻译.    所有程序员都知道的 K&amp;amp;R  肯尼思·莱恩·汤普森（Kenneth Lane Thomp"><meta property="og:type" content="blog"><meta property="og:title" content="图灵奖：肯·汤普逊（1983）"><meta property="og:url" content="https://xlindo.com/kewenlu/posts/278b050c/"><meta property="og:site_name" content="科文路"><meta property="og:description" content="图灵奖是计算机界最负盛名的奖项，有“计算机界诺贝尔奖”之称。”图灵奖”系列将介绍历届获奖者。每周二更新，本文为第 22 期。图灵奖：肯·汤普逊（1983）   文章来自微信公众号“科文路”，欢迎关注、互动。转发须注明出处。   本文来自 wiki:Ken Thompson，翻译基于 谷歌翻译.    所有程序员都知道的 K&amp;amp;R  肯尼思·莱恩·汤普森（Kenneth Lane Thomp"><meta property="og:locale" content="en_US"><meta property="og:image" content="https://xlindo.com/kewenlu/images/turing_award/Ken_Thompson.jpg"><meta property="article:published_time" content="2023-09-19T02:45:17.000Z"><meta property="article:modified_time" content="2023-09-19T02:45:38.685Z"><meta property="article:author" content="xlindo"><meta property="article:tag" content="科技"><meta property="article:tag" content="图灵奖"><meta property="twitter:card" content="summary"><meta property="twitter:image:src" content="https://xlindo.com/kewenlu/images/turing_award/Ken_Thompson.jpg"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://xlindo.com/kewenlu/posts/278b050c/"},"headline":"图灵奖：肯·汤普逊（1983）","image":["https://xlindo.com/kewenlu/images/turing_award/Ken_Thompson.jpg"],"datePublished":"2023-09-19T02:45:17.000Z","dateModified":"2023-09-19T02:45:38.685Z","author":{"@type":"Person","name":"xlindo"},"publisher":{"@type":"Organization","name":"科文路","logo":{"@type":"ImageObject","url":"https://xlindo.com/images/favicon.ico"}},"description":"图灵奖是计算机界最负盛名的奖项，有“计算机界诺贝尔奖”之称。”图灵奖”系列将介绍历届获奖者。每周二更新，本文为第 22 期。图灵奖：肯·汤普逊（1983）   文章来自微信公众号“科文路”，欢迎关注、互动。转发须注明出处。   本文来自 wiki:Ken Thompson，翻译基于 谷歌翻译.    所有程序员都知道的 K&amp;R  肯尼思·莱恩·汤普森（Kenneth Lane Thomp"}</script><link rel="canonical" href="https://xlindo.com/kewenlu/posts/278b050c/"><link rel="icon" href="/kewenlu/images/favicon.ico"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.0.0/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.loli.net/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link rel="stylesheet" href="/kewenlu/css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><meta name="msvalidate.01" content="043B69617A5E44A2F7CD99A00708FFF3"><script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" defer></script><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css"><!--!--><!--!--><!--!--><style>.pace{-webkit-pointer-events:none;pointer-events:none;-webkit-user-select:none;-moz-user-select:none;user-select:none}.pace-inactive{display:none}.pace .pace-progress{background:#3273dc;position:fixed;z-index:2000;top:0;right:100%;width:100%;height:2px}</style><script src="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/pace.min.js"></script><!--!--><!--!--><!-- hexo injector head_end start --><script>
+  (function () {
+      function switchTab() {
+          if (!location.hash) {
+            return;
+          }
+
+          const id = '#' + CSS.escape(location.hash.substring(1));
+          const $tabMenu = document.querySelector(`.tabs a[href="${id}"]`);
+          if (!$tabMenu) {
+            return;
+          }
+
+          const $tabMenuContainer = $tabMenu.parentElement.parentElement;
+          Array.from($tabMenuContainer.children).forEach($menu => $menu.classList.remove('is-active'));
+          Array.from($tabMenuContainer.querySelectorAll('a'))
+              .map($menu => document.getElementById($menu.getAttribute("href").substring(1)))
+              .forEach($content => $content.classList.add('is-hidden'));
+
+          if ($tabMenu) {
+              $tabMenu.parentElement.classList.add('is-active');
+          }
+          const $activeTab = document.querySelector(id);
+          if ($activeTab) {
+              $activeTab.classList.remove('is-hidden');
+          }
+      }
+      switchTab();
+      window.addEventListener('hashchange', switchTab, false);
+  })();
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/kewenlu/"><img src="/kewenlu/images/favicon.ico" alt="科文路" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/kewenlu/">Home</a><a class="navbar-item" href="/kewenlu/archives">Archives</a><a class="navbar-item" href="/kewenlu/tags">Tags</a><a class="navbar-item" href="/kewenlu/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="2022" href="https://xlindo.com/kewenlu2022"><i class="/images/favicon.ico"></i></a><a class="navbar-item is-hidden-tablet catalogue" title="Catalogue" href="javascript:;"><i class="fas fa-list-ul"></i></a><a class="navbar-item search" title="Search" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2023-09-19T02:45:17.000Z" title="9/19/2023, 10:45:17 AM">2023-09-19</time></span><span class="level-item">Updated&nbsp;<time dateTime="2023-09-19T02:45:38.685Z" title="9/19/2023, 10:45:38 AM">2023-09-19</time></span><span class="level-item"><a class="link-muted" href="/kewenlu/categories/%E7%A7%91%E6%8A%80/">科技</a></span><span class="level-item">6 minutes read (About 928 words)</span><span class="level-item" id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv">0</span>&nbsp;visits</span></div></div><h1 class="title is-3 is-size-4-mobile">图灵奖：肯·汤普逊（1983）</h1><div class="content"><blockquote>
+<p>图灵奖是计算机界最负盛名的奖项，有“计算机界诺贝尔奖”之称。”图灵奖”系列将介绍历届获奖者。每周二更新，本文为第 22 期。图灵奖：肯·汤普逊（1983）</p>
+</blockquote>
+<blockquote>
+<p>文章来自微信公众号“科文路”，欢迎关注、互动。转发须注明出处。</p>
+</blockquote>
+<blockquote>
+<p>本文来自 <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Ken_Thompson" title="wiki:Ken Thompson">wiki:Ken Thompson</a>，翻译基于 <a target="_blank" rel="noopener" href="https://translate.google.com/" title="谷歌翻译">谷歌翻译</a>.</p>
+</blockquote>
+<p><img src="/kewenlu/images/turing_award/Ken_Thompson.jpg" alt="Ken Thompson"></p>
+<blockquote>
+<p>所有程序员都知道的 K&amp;R</p>
+</blockquote>
+<p>肯尼思·莱恩·汤普森（Kenneth Lane Thompson，1943 年 2 月 4 日出生）是美国计算机科学先驱，他的大部分职业生涯都在贝尔实验室工作。</p>
+<p>他因创建 C 编程语言（名著《K&amp;R》的K）而闻名，并与同事丹尼斯·里奇一起创建了 Unix 操作系统和 B 编程语言。</p>
+<p>除了各种下文中赫赫有名的工作，他还有在计算机国际象棋方面的贡献，包括创建残局表库和国际象棋机器 Belle。 </p>
+<p>他于 1983 年与丹尼斯·里奇一起获得图灵奖。</p>
+<span id="more"></span>
+<p>其图灵奖颁奖词为“与 Dennis M. Ritchie 一起开发了通用操作系统理论并专门用于 UNIX 操作系统的实现”。（With Dennis M. Ritchie, for their development of generic operating systems theory and specifically for the implementation of the UNIX operating system.）</p>
+<h2 id="生平"><a href="#生平" class="headerlink" title="生平"></a>生平</h2><p>Thompson 出生于路易斯安那州的新奥尔良。</p>
+<p>他于 1965 年在加州大学伯克利分校获得了电气工程和计算机科学理学学士学位，并于 1966 年获得了硕士学位。</p>
+<h3 id="UNIX"><a href="#UNIX" class="headerlink" title="UNIX"></a>UNIX</h3><p>Thompson 于 1966 年受聘于贝尔实验室。在 20 世纪 60 年代，在贝尔实验室，Thompson 和 Dennis Ritchie 致力于 Multics 操作系统的开发。</p>
+<p>在编写 Multics 时，Thompson 创建了 Bon 编程语言。后来，贝尔实验室退出了 Multics 项目。为了继续玩游戏，汤普森找到了一台旧的 PDP-7 机器并在上面重写了由他自己开发的视频游戏《太空旅行》。</p>
+<p>最终，Thompson 开发的这些工具成就了 Unix 操作系统，包括由 Thompson 和 Ritchie 领导的贝尔实验室研究人员团队在 PDP-7 上开发的分层文件系统、计算机进程和设备的概念 文件、命令行解释器、用于轻松进程间通信的管道以及一些小型实用程序。</p>
+<h3 id="B语言"><a href="#B语言" class="headerlink" title="B语言"></a>B语言</h3><p>在对 Unix 进行初步研究后，Thompson 认为 Unix 需要一种系统编程语言并创建了 B，它是 Ritchie 的 C 的前身。</p>
+<h3 id="Go语言"><a href="#Go语言" class="headerlink" title="Go语言"></a>Go语言</h3><p>自 2006 年以来，Thompson 一直在 Google 工作，与他人共同开发了 Go 编程语言。</p>
+<h3 id="UTF-8"><a href="#UTF-8" class="headerlink" title="UTF-8"></a>UTF-8</h3><p>1992年，Thompson与Rob Pike一起开发了UTF-8编码方案。</p>
+<p>UTF-8 编码从此成为万维网的主导字符编码，占 2019 年所有网页的 90% 以上。</p>
+<h3 id="正则表达式"><a href="#正则表达式" class="headerlink" title="正则表达式"></a>正则表达式</h3><p>20 世纪 60 年代，Thompson 也开始研究正则表达式。 Thompson 开发了 QED 编辑器的 CTSS 版本，其中包括用于搜索文本的正则表达式。</p>
+<p>值得一提的是，他是著名搜索指令 <code>grep</code> 的作者。</p>
+<h2 id="贡献"><a href="#贡献" class="headerlink" title="贡献"></a>贡献</h2><ul>
+<li>Multics</li>
+<li>Unix</li>
+<li>B (programming language)</li>
+<li>Belle (chess machine)</li>
+<li>UTF-8</li>
+<li>Plan 9 from Bell Labs</li>
+<li>Inferno (operating system)</li>
+<li>grep</li>
+<li>Endgame tablebase</li>
+<li>Go</li>
+</ul>
+<p>~~</p>
+<p><strong>都看到这儿了，不如关注每日推送的“科文路”、互动起来~</strong></p>
+<p><strong>至少点个赞再走吧~</strong></p>
+<p><strong>觉得还不错？可以在公众号菜单栏找到“赞赏”入口~</strong></p>
+</div><div class="article-licensing box"><div class="licensing-title"><p>图灵奖：肯·汤普逊（1983）</p><p><a href="https://xlindo.com/kewenlu/posts/278b050c/">https://xlindo.com/kewenlu/posts/278b050c/</a></p></div><div class="licensing-meta level is-mobile"><div class="level-left"><div class="level-item is-narrow"><div><h6>Author</h6><p>xlindo</p></div></div><div class="level-item is-narrow"><div><h6>Posted on</h6><p>2023-09-19</p></div></div><div class="level-item is-narrow"><div><h6>Updated on</h6><p>2023-09-19</p></div></div><div class="level-item is-narrow"><div><h6>Licensed under</h6><p><a class="icons" rel="noopener" target="_blank" title="Creative Commons" href="https://creativecommons.org/"><i class="icon fab fa-creative-commons"></i></a><a class="icons" rel="noopener" target="_blank" title="Attribution" href="https://creativecommons.org/licenses/by/4.0/"><i class="icon fab fa-creative-commons-by"></i></a><a class="icons" rel="noopener" target="_blank" title="Noncommercial" href="https://creativecommons.org/licenses/by-nc/4.0/"><i class="icon fab fa-creative-commons-nc"></i></a></p></div></div></div></div></div><div class="article-tags is-size-7 mb-4"><span class="mr-2">#</span><a class="link-muted mr-2" rel="tag" href="/kewenlu/tags/%E7%A7%91%E6%8A%80/">科技</a><a class="link-muted mr-2" rel="tag" href="/kewenlu/tags/%E5%9B%BE%E7%81%B5%E5%A5%96/">图灵奖</a></div><!--!--></article></div><!--!--><nav class="post-navigation mt-4 level is-mobile"><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/kewenlu/posts/75ada63e/"><span class="level-item">2023：一周速览，37</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><div class="card"><div class="card-content"><h3 class="title is-5">Comments</h3><div id="SOHUCS" sid="posts/278b050c/"></div><script charset="utf-8" src="https://changyan.sohu.com/upload/changyan.js"></script><script>window.changyan.api.config({appid: 'cyvmJmMgc',conf: 'e37a55ecf6df7ba6217b8997f4dcd9ab'});</script></div></div></div><div class="column column-left is-4-tablet is-4-desktop is-4-widescreen  order-1"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar" src="/kewenlu/images/avatar-512x512.png" alt="科文路"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">科文路</p><p class="is-size-6 is-block">微信公众号&quot;科文路&quot;今年文章存档</p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">Posts</p><a href="/kewenlu/archives"><p class="title">154</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Categories</p><a href="/kewenlu/categories"><p class="title">2</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Tags</p><a href="/kewenlu/tags"><p class="title">31</p></a></div></div></nav></div></div><div class="card widget" id="toc" data-type="toc"><div class="card-content"><div class="menu"><h3 class="menu-label">Catalogue</h3><ul class="menu-list"><li><a class="level is-mobile" href="#生平"><span class="level-left"><span class="level-item">1</span><span class="level-item">生平</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#UNIX"><span class="level-left"><span class="level-item">1.1</span><span class="level-item">UNIX</span></span></a></li><li><a class="level is-mobile" href="#B语言"><span class="level-left"><span class="level-item">1.2</span><span class="level-item">B语言</span></span></a></li><li><a class="level is-mobile" href="#Go语言"><span class="level-left"><span class="level-item">1.3</span><span class="level-item">Go语言</span></span></a></li><li><a class="level is-mobile" href="#UTF-8"><span class="level-left"><span class="level-item">1.4</span><span class="level-item">UTF-8</span></span></a></li><li><a class="level is-mobile" href="#正则表达式"><span class="level-left"><span class="level-item">1.5</span><span class="level-item">正则表达式</span></span></a></li></ul></li><li><a class="level is-mobile" href="#贡献"><span class="level-left"><span class="level-item">2</span><span class="level-item">贡献</span></span></a></li></ul></div></div><style>#toc .menu-list > li > a.is-active + .menu-list { display: block; }#toc .menu-list > li > a + .menu-list { display: none; }</style><script src="/kewenlu/js/toc.js" defer></script></div><div class="card widget" data-type="links"><div class="card-content"><div class="menu"><h3 class="menu-label">Links</h3><ul class="menu-list"><li><a class="level is-mobile" href="https://xlindo.com/kewenlu2022" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">kewenlu@2022</span></span><span class="level-right"><span class="level-item tag">xlindo.com</span></span></a></li></ul></div></div></div><div class="card widget" data-type="categories"><div class="card-content"><div class="menu"><h3 class="menu-label">Categories</h3><ul class="menu-list"><li><a class="level is-mobile" href="/kewenlu/categories/%E4%BA%BA%E6%96%87/"><span class="level-start"><span class="level-item">人文</span></span><span class="level-end"><span class="level-item tag">112</span></span></a></li><li><a class="level is-mobile" href="/kewenlu/categories/%E7%A7%91%E6%8A%80/"><span class="level-start"><span class="level-item">科技</span></span><span class="level-end"><span class="level-item tag">42</span></span></a></li></ul></div></div></div><div class="card widget" data-type="recent-posts"><div class="card-content"><h3 class="menu-label">Recents</h3><article class="media"><div class="media-content"><p class="date"><time dateTime="2023-09-19T02:45:17.000Z">2023-09-19</time></p><p class="title"><a href="/kewenlu/posts/278b050c/">图灵奖：肯·汤普逊（1983）</a></p><p class="categories"><a href="/kewenlu/categories/%E7%A7%91%E6%8A%80/">科技</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2023-09-15T21:30:01.000Z">2023-09-16</time></p><p class="title"><a href="/kewenlu/posts/75ada63e/">2023：一周速览，37</a></p><p class="categories"><a href="/kewenlu/categories/%E4%BA%BA%E6%96%87/">人文</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2023-09-15T13:21:22.000Z">2023-09-15</time></p><p class="title"><a href="/kewenlu/posts/eb4b457d/">荐歌：后会无期（邓紫棋）</a></p><p class="categories"><a href="/kewenlu/categories/%E4%BA%BA%E6%96%87/">人文</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2023-09-14T11:34:58.000Z">2023-09-14</time></p><p class="title"><a href="/kewenlu/posts/f7d61342/">贝叶斯：起步（3）</a></p><p class="categories"><a href="/kewenlu/categories/%E7%A7%91%E6%8A%80/">科技</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2023-09-12T08:34:31.000Z">2023-09-12</time></p><p class="title"><a href="/kewenlu/posts/d8f173c6/">图灵奖：丹尼斯·里奇（1983）</a></p><p class="categories"><a href="/kewenlu/categories/%E7%A7%91%E6%8A%80/">科技</a></p></div></article></div></div><div class="card widget" data-type="archives"><div class="card-content"><div class="menu"><h3 class="menu-label">Archives</h3><ul class="menu-list"><li><a class="level is-mobile" href="/kewenlu/archives/2023/"><span class="level-start"><span class="level-item">2023</span></span><span class="level-end"><span class="level-item tag">154</span></span></a></li></ul></div></div></div><div class="card widget" data-type="tags"><div class="card-content"><div class="menu"><h3 class="menu-label">Tags</h3><div class="field is-grouped is-grouped-multiline"><div class="control"><a class="tags has-addons" href="/kewenlu/tags/AI/"><span class="tag">AI</span><span class="tag">5</span></a></div><div class="control"><a class="tags has-addons" href="/kewenlu/tags/C/"><span class="tag">C++</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/kewenlu/tags/GNN/"><span class="tag">GNN</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/kewenlu/tags/LLVM/"><span class="tag">LLVM</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/kewenlu/tags/MLIR/"><span class="tag">MLIR</span><span class="tag">4</span></a></div><div class="control"><a class="tags has-addons" href="/kewenlu/tags/Quora/"><span class="tag">Quora</span><span class="tag">3</span></a></div><div class="control"><a class="tags has-addons" href="/kewenlu/tags/python/"><span class="tag">python</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/kewenlu/tags/%E4%B8%80%E5%91%A8%E9%80%9F%E8%A7%88/"><span class="tag">一周速览</span><span class="tag">28</span></a></div><div class="control"><a class="tags has-addons" href="/kewenlu/tags/%E4%BA%BA%E6%96%87/"><span class="tag">人文</span><span class="tag">112</span></a></div><div class="control"><a class="tags has-addons" href="/kewenlu/tags/%E4%BD%93%E8%82%B2/"><span class="tag">体育</span><span class="tag">5</span></a></div><div class="control"><a class="tags has-addons" href="/kewenlu/tags/%E5%9B%BE%E7%81%B5%E5%A5%96/"><span class="tag">图灵奖</span><span class="tag">22</span></a></div><div class="control"><a class="tags has-addons" href="/kewenlu/tags/%E5%A4%A7%E4%BD%AC/"><span class="tag">大佬</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/kewenlu/tags/%E6%95%B0%E5%AD%A6/"><span class="tag">数学</span><span class="tag">3</span></a></div><div class="control"><a class="tags has-addons" href="/kewenlu/tags/%E6%96%87%E7%89%A9/"><span class="tag">文物</span><span class="tag">6</span></a></div><div class="control"><a class="tags has-addons" href="/kewenlu/tags/%E6%97%85%E8%A1%8C/"><span class="tag">旅行</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/kewenlu/tags/%E6%97%B6%E4%BA%8B/"><span class="tag">时事</span><span class="tag">36</span></a></div><div class="control"><a class="tags has-addons" href="/kewenlu/tags/%E6%B5%B7%E5%A4%96/"><span class="tag">海外</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/kewenlu/tags/%E7%94%9F%E6%B4%BB/"><span class="tag">生活</span><span class="tag">6</span></a></div><div class="control"><a class="tags has-addons" href="/kewenlu/tags/%E7%94%9F%E7%89%A9/"><span class="tag">生物</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/kewenlu/tags/%E7%94%B5%E5%BD%B1/"><span class="tag">电影</span><span class="tag">4</span></a></div><div class="control"><a class="tags has-addons" href="/kewenlu/tags/%E7%99%BE%E7%A7%91/"><span class="tag">百科</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/kewenlu/tags/%E7%9C%81%E9%A6%86%E4%B9%8B%E5%AE%9D/"><span class="tag">省馆之宝</span><span class="tag">6</span></a></div><div class="control"><a class="tags has-addons" href="/kewenlu/tags/%E7%A7%91%E6%8A%80/"><span class="tag">科技</span><span class="tag">42</span></a></div><div class="control"><a class="tags has-addons" href="/kewenlu/tags/%E8%80%81%E5%A4%96/"><span class="tag">老外</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/kewenlu/tags/%E8%88%AA%E5%A4%A9/"><span class="tag">航天</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/kewenlu/tags/%E8%8D%90%E6%AD%8C/"><span class="tag">荐歌</span><span class="tag">27</span></a></div><div class="control"><a class="tags has-addons" href="/kewenlu/tags/%E8%B4%9D%E5%8F%B6%E6%96%AF/"><span class="tag">贝叶斯</span><span class="tag">3</span></a></div><div class="control"><a class="tags has-addons" href="/kewenlu/tags/%E8%B6%B3%E7%90%83/"><span class="tag">足球</span><span class="tag">4</span></a></div><div class="control"><a class="tags has-addons" href="/kewenlu/tags/%E9%80%9A%E6%8A%A5/"><span class="tag">通报</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/kewenlu/tags/%E9%80%9B%E7%9F%A5%E4%B9%8E/"><span class="tag">逛知乎</span><span class="tag">23</span></a></div><div class="control"><a class="tags has-addons" href="/kewenlu/tags/%E9%97%B2%E8%81%8A/"><span class="tag">闲聊</span><span class="tag">5</span></a></div></div></div></div></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/kewenlu/"><img src="/kewenlu/images/favicon.ico" alt="科文路" height="28"></a><p class="is-size-7"><span>&copy; 2023 xlindo</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a><br><span id="busuanzi_container_site_uv">Visited by <span id="busuanzi_value_site_uv">0</span> users</span></p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Noncommercial" href="https://creativecommons.org/licenses/by-nc/4.0/"><i class="fab fa-creative-commons-nc"></i></a></p></div></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("en");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script src="/kewenlu/js/column.js"></script><script src="/kewenlu/js/animation.js"></script><a id="back-to-top" title="Back to top" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="/kewenlu/js/back_to_top.js" defer></script><!--!--><!--!--><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.js" defer></script><script>window.addEventListener("load", () => {
+      window.cookieconsent.initialise({
+        type: "info",
+        theme: "edgeless",
+        static: false,
+        position: "bottom-left",
+        content: {
+          message: "This website uses cookies to improve your experience.",
+          dismiss: "Got it!",
+          allow: "Allow cookies",
+          deny: "Decline",
+          link: "Learn more",
+          policy: "Cookie Policy",
+          href: "https://www.cookiesandyou.com/",
+        },
+        palette: {
+          popup: {
+            background: "#edeff5",
+            text: "#838391"
+          },
+          button: {
+            background: "#4b81e8"
+          },
+        },
+      });
+    });</script><script src="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/js/lightgallery.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><!--!--><script type="text/x-mathjax-config">MathJax.Hub.Config({
+            'HTML-CSS': {
+                matchFontHeight: false
+            },
+            SVG: {
+                matchFontHeight: false
+            },
+            CommonHTML: {
+                matchFontHeight: false
+            },
+            tex2jax: {
+                inlineMath: [
+                    ['$','$'],
+                    ['\\(','\\)']
+                ]
+            }
+        });</script><script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.9/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script><!--!--><!--!--><!--!--><script src="/kewenlu/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="Type something..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script src="/kewenlu/js/insight.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/kewenlu/content.json"}, {"hint":"Type something...","untitled":"(Untitled)","posts":"Posts","pages":"Pages","categories":"Categories","tags":"Tags"});
+        });</script></body></html>
