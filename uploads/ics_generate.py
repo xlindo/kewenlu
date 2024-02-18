@@ -37,6 +37,10 @@ lst_rcfc_time = [
     "20241102153000;上海申花;成都蓉城;成都凤凰山体育公园专业足球场",
 ]
 
+lst_cfa_time = [
+    "20240326200000;中国国家男子足球队;新加坡国家男子足球队;天津奥林匹克体育中心体育场",
+]
+
 
 def create_event(summary, location, description, dtstart, dtend):
     event = icalendar.Event()
@@ -77,6 +81,22 @@ if __name__ == "__main__":
         )
         dtend = dtstart + datetime.timedelta(hours=2)
         cal.add_component(create_event(summary, location, description, dtstart, dtend))
+    
+    # 国家队 from 2024
+    for match in lst_cfa_time:
+        lst_match_info = match.split(";")
+        summary = lst_match_info[1]
+        if summary.startswith("中国"):
+            summary = "⚽【主】" + lst_match_info[1] + "vs" + lst_match_info[2]
+        else:
+            summary = "【客】" + lst_match_info[1] + "vs" + lst_match_info[2]
+        description = "抖音【看球去了】和你一起“雄起”！"
+        location = lst_match_info[3]
+        dtstart = pytz.timezone("Asia/Shanghai").localize(
+            datetime.datetime.strptime(lst_match_info[0], "%Y%m%d%H%M%S")
+        )
+        dtend = dtstart + datetime.timedelta(hours=2)
+        cal.add_component(create_event(summary, location, description, dtstart, dtend))
 
-    with open("chuanzu.ics", "wb") as f:
+    with open("/home/xldu/repos/repos_xlindo/blog/kewenlu/source/uploads/chuanzu.ics", "wb") as f:
         f.write(cal.to_ical())
