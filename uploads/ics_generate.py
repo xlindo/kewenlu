@@ -67,7 +67,7 @@ if __name__ == "__main__":
     cal.add("X-WR-CALNAME", "四川球队赛程-抖音“看球去了”")
     cal.add("X-WR-TIMEZONE", "Asia/Shanghai")
 
-    description = "一起雄起！该订阅日历由抖音【看球去了】更新、维护。"
+    description = "一起雄起！\n该订阅日历由抖音【看球去了】更新、维护。"
 
     # 成都蓉城 from 2024
     for match in lst_rcfc_time:
