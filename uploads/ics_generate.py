@@ -67,29 +67,17 @@ if __name__ == "__main__":
     cal.add("X-WR-CALNAME", "四川球队赛程-抖音“看球去了”")
     cal.add("X-WR-TIMEZONE", "Asia/Shanghai")
 
-    # 成都蓉城 2024
+    description = "一起雄起！该订阅日历由抖音【看球去了】更新、维护。"
+
+    # 成都蓉城 from 2024
     for match in lst_rcfc_time:
         lst_match_info = match.split(";")
         if lst_match_info[2].startswith("成都"):
-            summary = f"⚽【主/{lst_match_info[1]}】{lst_match_info[2]}vs{lst_match_info[3]}"
+            summary = (
+                f"⚽【主/{lst_match_info[1]}】{lst_match_info[2]}vs{lst_match_info[3]}"
+            )
         else:
             summary = f"【客/{lst_match_info[1]}】{lst_match_info[2]}vs{lst_match_info[3]}"
-        description = "抖音【看球去了】和你一起“雄起”！"
-        location = lst_match_info[4]
-        dtstart = pytz.timezone("Asia/Shanghai").localize(
-            datetime.datetime.strptime(lst_match_info[0], "%Y%m%d%H%M")
-        )
-        dtend = dtstart + datetime.timedelta(hours=2)
-        cal.add_component(create_event(summary, location, description, dtstart, dtend))
-    
-    # 国家队 from 2024
-    for match in lst_cfa_time:
-        lst_match_info = match.split(";")
-        if lst_match_info[2].startswith("中国"):
-            summary = f"⚽【主/{lst_match_info[1]}】{lst_match_info[2]}vs{lst_match_info[3]}"
-        else:
-            summary = f"【客/{lst_match_info[1]}】{lst_match_info[2]}vs{lst_match_info[3]}"
-        description = "抖音【看球去了】和你一起“雄起”！"
         location = lst_match_info[4]
         dtstart = pytz.timezone("Asia/Shanghai").localize(
             datetime.datetime.strptime(lst_match_info[0], "%Y%m%d%H%M")
@@ -97,5 +85,23 @@ if __name__ == "__main__":
         dtend = dtstart + datetime.timedelta(hours=2)
         cal.add_component(create_event(summary, location, description, dtstart, dtend))
 
-    with open("/home/xldu/repos/repos_xlindo/blog/kewenlu/source/uploads/chuanzu.ics", "wb") as f:
+    # 国家队 from 2024
+    for match in lst_cfa_time:
+        lst_match_info = match.split(";")
+        if lst_match_info[2].startswith("中国"):
+            summary = (
+                f"⚽【主/{lst_match_info[1]}】{lst_match_info[2]}vs{lst_match_info[3]}"
+            )
+        else:
+            summary = f"【客/{lst_match_info[1]}】{lst_match_info[2]}vs{lst_match_info[3]}"
+        location = lst_match_info[4]
+        dtstart = pytz.timezone("Asia/Shanghai").localize(
+            datetime.datetime.strptime(lst_match_info[0], "%Y%m%d%H%M")
+        )
+        dtend = dtstart + datetime.timedelta(hours=2)
+        cal.add_component(create_event(summary, location, description, dtstart, dtend))
+
+    with open(
+        "/home/xldu/repos/repos_xlindo/blog/kewenlu/source/uploads/chuanzu.ics", "wb"
+    ) as f:
         f.write(cal.to_ical())
