@@ -42,6 +42,9 @@ lst_cfa_time = [
     "202403262000;世预;中国国家男子足球队;新加坡国家男子足球队;天津奥林匹克体育中心体育场",
 ]
 
+lst_key_time = [
+    "202402201600;亚冠;川崎前锋;山东泰山;川崎等等力陆上竞技场",
+]
 
 def create_event(summary, location, description, dtstart, dtend):
     event = icalendar.Event()
@@ -101,6 +104,16 @@ if __name__ == "__main__":
         dtend = dtstart + datetime.timedelta(hours=2)
         cal.add_component(create_event(summary, location, description, dtstart, dtend))
 
+    # 关键比赛 from 2024
+    for match in lst_key_time:
+        lst_match_info = match.split(";")
+        summary = f"【{lst_match_info[1]}】{lst_match_info[2]}vs{lst_match_info[3]}"
+        location = lst_match_info[4]
+        dtstart = pytz.timezone("Asia/Shanghai").localize(
+            datetime.datetime.strptime(lst_match_info[0], "%Y%m%d%H%M")
+        )
+        dtend = dtstart + datetime.timedelta(hours=2)
+        cal.add_component(create_event(summary, location, description, dtstart, dtend))
     with open(
         "/home/xldu/repos/repos_xlindo/blog/kewenlu/source/uploads/chuanzu.ics", "wb"
     ) as f:
