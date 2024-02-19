@@ -43,7 +43,7 @@ lst_cfa_time = [
 ]
 
 lst_key_time = [
-    "202402201600;亚冠;川崎前锋;山东泰山;川崎等等力陆上竞技场",
+    "202402201600;亚冠1/8决赛;川崎前锋;山东泰山;川崎等等力陆上竞技场",
 ]
 
 def create_event(summary, location, description, dtstart, dtend):
