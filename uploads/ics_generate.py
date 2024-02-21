@@ -37,6 +37,11 @@ lst_rcfc_time = [
     "202411021530;中超;上海申花;成都蓉城;成都凤凰山体育公园专业足球场",
 ]
 
+lst_cba_time = [
+    "202402221930;2025男篮亚预赛;中国男篮;蒙古国男篮;西安",
+    "202402251300;2025男篮亚预赛;日本男篮;中国男篮;东京",
+]
+
 lst_cfa_time = [
     "202403212030;世预;新加坡国家男子足球队;中国国家男子足球队;新加坡国家体育场",
     "202403262000;世预;中国国家男子足球队;新加坡国家男子足球队;天津奥林匹克体育中心体育场",
@@ -67,7 +72,7 @@ if __name__ == "__main__":
     cal = icalendar.Calendar()
     cal.add("version", "2.0")
     cal.add("X-APPLE-CALENDAR-COLOR", "#FF0000")
-    cal.add("X-WR-CALNAME", "四川球队赛程-抖音“看球去了”")
+    cal.add("X-WR-CALNAME", "一起看球赛历-抖音“看球去了”")
     cal.add("X-WR-TIMEZONE", "Asia/Shanghai")
 
     description = "一起雄起！\n该订阅日历由抖音【看球去了】更新、维护。"
@@ -88,7 +93,23 @@ if __name__ == "__main__":
         dtend = dtstart + datetime.timedelta(hours=2)
         cal.add_component(create_event(summary, location, description, dtstart, dtend))
 
-    # 国家队 from 2024
+    # 男篮国家队 from 2024
+    for match in lst_cba_time:
+        lst_match_info = match.split(";")
+        if lst_match_info[2].startswith("中国"):
+            summary = (
+                f"🏀【主/{lst_match_info[1]}】{lst_match_info[2]}vs{lst_match_info[3]}"
+            )
+        else:
+            summary = f"【客/{lst_match_info[1]}】{lst_match_info[2]}vs{lst_match_info[3]}"
+        location = lst_match_info[4]
+        dtstart = pytz.timezone("Asia/Shanghai").localize(
+            datetime.datetime.strptime(lst_match_info[0], "%Y%m%d%H%M")
+        )
+        dtend = dtstart + datetime.timedelta(hours=2)
+        cal.add_component(create_event(summary, location, description, dtstart, dtend))
+
+    # 男足国家队 from 2024
     for match in lst_cfa_time:
         lst_match_info = match.split(";")
         if lst_match_info[2].startswith("中国"):
