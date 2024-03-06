@@ -2,7 +2,7 @@
 import datetime
 import icalendar
 import pytz
-import uuid
+import uuid6
 
 lst_rcfc_time = [
     "202403021935;中超;成都蓉城;青岛海牛;成都凤凰山体育公园专业足球场",
@@ -49,6 +49,8 @@ lst_cfa_time = [
 
 lst_key_time = [
     "202402201600;亚冠1/8决赛;川崎前锋;山东泰山;川崎等等力陆上竞技场",
+    "202403061800;亚冠1/4决赛;山东泰山;横滨水手;济南奥体中心体育场",
+    "202403131800;亚冠1/4决赛;横滨水手;山东泰山;横滨国际综合竞技场",
 ]
 
 def create_event(summary, location, description, dtstart, dtend):
@@ -63,7 +65,7 @@ def create_event(summary, location, description, dtstart, dtend):
     event.add("description", description)
 
     # uid保证唯一
-    event["uid"] = str(uuid.uuid1()) + "/douyin:chuanzu"
+    event["uid"] = str(uuid6.uuid6()) + "/douyin:chuanzu"
 
     return event
 
