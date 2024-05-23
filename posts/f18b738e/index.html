@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>数据可视化：常见统计量（4，略进阶）（附python代码） - 科文路</title><link rel="manifest" href="/kewenlu/manifest.json"><meta name="application-name" content="科文路"><meta name="msapplication-TileImage" content="/images/favicon.ico"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="科文路"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="数据可视化一直是一个有用却常常被忽视的数据分析方法，本系列借助 gnuplot 或 Python 包以工程师视角介绍常见的图例展示方法。数据可视化：常见统计量（4，略进阶）（附 python 代码）   文章来自微信公众号“科文路”，欢迎关注、互动。转载须注明出处。  前面的章节里，我们从“统计量”（statistic）起步。 这一节先接着说一下其余的常见统计量以及两个常用的概率分布，至此就结束"><meta property="og:type" content="blog"><meta property="og:title" content="数据可视化：常见统计量（4，略进阶）（附python代码）"><meta property="og:url" content="https://xlindo.com/kewenlu/posts/f18b738e/"><meta property="og:site_name" content="科文路"><meta property="og:description" content="数据可视化一直是一个有用却常常被忽视的数据分析方法，本系列借助 gnuplot 或 Python 包以工程师视角介绍常见的图例展示方法。数据可视化：常见统计量（4，略进阶）（附 python 代码）   文章来自微信公众号“科文路”，欢迎关注、互动。转载须注明出处。  前面的章节里，我们从“统计量”（statistic）起步。 这一节先接着说一下其余的常见统计量以及两个常用的概率分布，至此就结束"><meta property="og:locale" content="en_US"><meta property="og:image" content="https://xlindo.com/kewenlu/img/og_image.png"><meta property="article:published_time" content="2024-05-23T14:25:08.000Z"><meta property="article:modified_time" content="2024-05-23T14:25:30.406Z"><meta property="article:author" content="xlindo"><meta property="article:tag" content="科技"><meta property="article:tag" content="数据可视化"><meta property="twitter:card" content="summary"><meta property="twitter:image:src" content="https://xlindo.com/kewenlu/img/og_image.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://xlindo.com/kewenlu/posts/f18b738e/"},"headline":"数据可视化：常见统计量（4，略进阶）（附python代码）","image":["https://xlindo.com/kewenlu/img/og_image.png"],"datePublished":"2024-05-23T14:25:08.000Z","dateModified":"2024-05-23T14:25:30.406Z","author":{"@type":"Person","name":"xlindo"},"publisher":{"@type":"Organization","name":"科文路","logo":{"@type":"ImageObject","url":"https://xlindo.com/images/favicon.ico"}},"description":"数据可视化一直是一个有用却常常被忽视的数据分析方法，本系列借助 gnuplot 或 Python 包以工程师视角介绍常见的图例展示方法。数据可视化：常见统计量（4，略进阶）（附 python 代码）   文章来自微信公众号“科文路”，欢迎关注、互动。转载须注明出处。  前面的章节里，我们从“统计量”（statistic）起步。 这一节先接着说一下其余的常见统计量以及两个常用的概率分布，至此就结束"}</script><link rel="canonical" href="https://xlindo.com/kewenlu/posts/f18b738e/"><link rel="icon" href="/kewenlu/images/favicon.ico"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.0.0/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.loli.net/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link rel="stylesheet" href="/kewenlu/css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><meta name="msvalidate.01" content="043B69617A5E44A2F7CD99A00708FFF3"><script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" defer></script><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css"><!--!--><!--!--><!--!--><style>.pace{-webkit-pointer-events:none;pointer-events:none;-webkit-user-select:none;-moz-user-select:none;user-select:none}.pace-inactive{display:none}.pace .pace-progress{background:#3273dc;position:fixed;z-index:2000;top:0;right:100%;width:100%;height:2px}</style><script src="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/pace.min.js"></script><!--!--><!--!--><script data-ad-client="ca-pub-8385008905803352" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" async></script><!-- hexo injector head_end start --><script>
+  (function () {
+      function switchTab() {
+          if (!location.hash) {
+            return;
+          }
+
+          const id = '#' + CSS.escape(location.hash.substring(1));
+          const $tabMenu = document.querySelector(`.tabs a[href="${id}"]`);
+          if (!$tabMenu) {
+            return;
+          }
+
+          const $tabMenuContainer = $tabMenu.parentElement.parentElement;
+          Array.from($tabMenuContainer.children).forEach($menu => $menu.classList.remove('is-active'));
+          Array.from($tabMenuContainer.querySelectorAll('a'))
+              .map($menu => document.getElementById($menu.getAttribute("href").substring(1)))
+              .forEach($content => $content.classList.add('is-hidden'));
+
+          if ($tabMenu) {
+              $tabMenu.parentElement.classList.add('is-active');
+          }
+          const $activeTab = document.querySelector(id);
+          if ($activeTab) {
+              $activeTab.classList.remove('is-hidden');
+          }
+      }
+      switchTab();
+      window.addEventListener('hashchange', switchTab, false);
+  })();
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/kewenlu/"><img src="/kewenlu/images/favicon.ico" alt="科文路" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/kewenlu/">Home</a><a class="navbar-item" href="/kewenlu/archives">Archives</a><a class="navbar-item" href="/kewenlu/tags">Tags</a><a class="navbar-item" href="/kewenlu/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="2022" href="https://xlindo.com/kewenlu2022"><i class="/images/favicon.ico"></i></a><a class="navbar-item is-hidden-tablet catalogue" title="Catalogue" href="javascript:;"><i class="fas fa-list-ul"></i></a><a class="navbar-item search" title="Search" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2024-05-23T14:25:08.000Z" title="5/23/2024, 10:25:08 PM">2024-05-23</time></span><span class="level-item">Updated&nbsp;<time dateTime="2024-05-23T14:25:30.406Z" title="5/23/2024, 10:25:30 PM">2024-05-23</time></span><span class="level-item"><a class="link-muted" href="/kewenlu/categories/%E7%A7%91%E6%8A%80/">科技</a></span><span class="level-item">10 minutes read (About 1547 words)</span><span class="level-item" id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv">0</span>&nbsp;visits</span></div></div><h1 class="title is-3 is-size-4-mobile">数据可视化：常见统计量（4，略进阶）（附python代码）</h1><div class="content"><blockquote>
+<p><strong>数据可视化</strong>一直是一个有用却常常被忽视的数据分析方法，本系列借助 gnuplot 或 Python 包以工程师视角介绍常见的图例展示方法。数据可视化：常见统计量（4，略进阶）（附 python 代码）</p>
+</blockquote>
+<blockquote>
+<p>文章来自微信公众号“科文路”，欢迎关注、互动。转载须注明出处。</p>
+</blockquote>
+<p>前面的章节里，我们从“统计量”（statistic）<strong>起步</strong>。</p>
+<p>这一节先接着说一下其余的常见统计量以及两个常用的概率分布，至此就结束了基础知识背景的回顾。其实<strong>这方面的内容还有很多</strong>，但局限于时间、精力，如果后续“可视化”的章节里有涉及，我们再补充。</p>
+<p>这篇写的好累，如果你觉得有用还是点个赞吧。</p>
+<h2 id="1-术语表（更新）"><a href="#1-术语表（更新）" class="headerlink" title="1. 术语表（更新）"></a>1. 术语表（更新）</h2><table>
+<thead>
+<tr>
+<th>中文</th>
+<th>英文</th>
+<th>常用符号</th>
+<th>$\LaTeX$</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>均值</td>
+<td>mean</td>
+<td>$\mu$, $\bar{x}$</td>
+<td><code>\mu</code>, <code>\bar&#123;x&#125;</code></td>
+</tr>
+<tr>
+<td>中位数</td>
+<td>median</td>
+<td>$\text{med}$</td>
+<td><code>\text&#123;med&#125;</code></td>
+</tr>
+<tr>
+<td>众数</td>
+<td>mode</td>
+<td>$\text{mode}$</td>
+<td><code>\text&#123;mode&#125;</code></td>
+</tr>
+<tr>
+<td>方差</td>
+<td>variance</td>
+<td>$\sigma^2$</td>
+<td><code>\sigma^2</code></td>
+</tr>
+<tr>
+<td>标准差</td>
+<td>standard deviation</td>
+<td>$\sigma$</td>
+<td><code>\sigma</code></td>
+</tr>
+<tr>
+<td>最大值</td>
+<td>maximum</td>
+<td>$\max$</td>
+<td><code>\max</code></td>
+</tr>
+<tr>
+<td>最小值</td>
+<td>minimum</td>
+<td>$\min$</td>
+<td><code>\min</code></td>
+</tr>
+<tr>
+<td>分位数</td>
+<td>quantile</td>
+<td>$Q$</td>
+<td></td>
+</tr>
+<tr>
+<td>矩</td>
+<td>Moment</td>
+<td>$\mu_{n}$</td>
+<td><code>\mu_&#123;n&#125;</code></td>
+</tr>
+<tr>
+<td>偏度</td>
+<td>skewness</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>峰度</td>
+<td>kurtosis</td>
+<td>$\operatorname {Kurt}[X]$</td>
+<td></td>
+</tr>
+<tr>
+<td>正态分布</td>
+<td>normal distribution</td>
+<td>${X\ \sim \mathcal {N}}(\mu ,\sigma ^{2})$</td>
+<td></td>
+</tr>
+<tr>
+<td>卡方分布</td>
+<td>$\chi^2$-distribution</td>
+<td>$Q\ \sim \ \chi ^{2}(k)$</td>
+<td></td>
+</tr>
+</tbody></table>
+<span id="more"></span>
+
+<h2 id="2-常见统计量（续）"><a href="#2-常见统计量（续）" class="headerlink" title="2. 常见统计量（续）"></a>2. 常见统计量（续）</h2><p>接着来。</p>
+<h3 id="2-7-分位数，四分位数"><a href="#2-7-分位数，四分位数" class="headerlink" title="2.7. 分位数，四分位数"></a>2.7. 分位数，四分位数</h3><p><strong>分位数</strong>常被用来体现一组连续数据里的大小分布情况，通常我们使用<strong>四分位数（quartile）</strong>。</p>
+<p>那么<strong>第二四分位数（$Q_2$）就是中位数</strong>。以此类推，第一四分位数（$Q_1$）就是最小值到中位数的中位数，第三四分位数（$Q_3$）就是中位数到最大值的中位数。</p>
+<p>后面会介绍的箱型图（boxplot）其实就是可视化的四分位数。</p>
+<h4 id="Codes"><a href="#Codes" class="headerlink" title="Codes"></a>Codes</h4><blockquote>
+<p>打印一组数的 3 个四分位数</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> statistics </span><br><span class="line"></span><br><span class="line">s_2 = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">7</span>, <span class="number">7</span>, <span class="number">9</span>]  </span><br><span class="line"></span><br><span class="line">statistics.quantiles(s_2)</span><br><span class="line"><span class="comment"># [2.0, 3.5, 7.0]</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="2-8-矩、峰度、偏度"><a href="#2-8-矩、峰度、偏度" class="headerlink" title="2.8. 矩、峰度、偏度"></a>2.8. 矩、峰度、偏度</h3><p>在数学中，函数的矩是与函数<strong>图的形状有关的定量度量</strong>，其概念来自于物理学</p>
+<p>。我印象中，国内的教学里对“矩”这个概念介绍的很少，但它其实很常用，<strong>可以套下来很多其他统计量</strong>。物理中也有类似定义，感兴趣的可以查一查。</p>
+<p>如果函数是一个概率分布，那么一阶矩是<strong>期望值</strong>，二阶中心矩是<strong>方差</strong>，三阶标准化矩是<strong>偏度</strong>，四阶标准化矩是<strong>峰度</strong>。</p>
+<h4 id="偏度"><a href="#偏度" class="headerlink" title="偏度"></a>偏度</h4><p>偏度是对实值随机变量的概率分布的<strong>不对称性</strong>的度量，定义为，</p>
+<p>$$<br>\gamma <em>{1}:&#x3D;{\tilde {\mu }}</em>{3}&#x3D;\operatorname {E} \left[\left({\frac {X-\mu }{\sigma }}\right)^{3}\right]&#x3D;{\frac {\mu _{3}}{\sigma ^{3}}}&#x3D;{\frac {\operatorname {E} \left[(X-\mu )^{3}\right]}{(\operatorname {E} \left[(X-\mu )^{2}\right])^{3&#x2F;2}}}&#x3D;{\frac {\kappa _{3}}{\kappa _{2}^{3&#x2F;2}}}<br>$$</p>
+<p>该统计量能以数值的形式描述图象形状，正数叫正偏，负数叫负偏，为 0 时叫对称。通过下图可以更直观的感受下，</p>
+<h4 id="峰度"><a href="#峰度" class="headerlink" title="峰度"></a>峰度</h4><p><strong>峰度，不是风度</strong>~顾名思义，可以通过该统计量数值化图形“尖不尖”。</p>
+<p>峰度是实值随机变量概率分布的“尾数（tailedness，尾部特征）”的度量，定义为，</p>
+<p>$$<br>\operatorname {Kurt} [X]&#x3D;\operatorname {E} \left[\left({\frac {X-\mu }{\sigma }}\right)^{4}\right]&#x3D;{\frac {\operatorname {E} \left[(X-\mu )^{4}\right]}{\left(\operatorname {E} \left[(X-\mu )^{2}\right]\right)^{2}}}&#x3D;{\frac {\mu _{4}}{\sigma ^{4}}}<br>$$</p>
+<p>如果峰度为正，称为<strong>高狭峰</strong>（Leptokurtic），更尖；如果峰度为负，称为<strong>低阔峰</strong>（Platykurtic），更扁；为 0 时成为常态峰（Mesokurtic）。<a target="_blank" rel="noopener" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.kurtosis.html" title="scipy.stats.kurtosis">scipy.stats.kurtosis</a> 的例子很灵性，用了 Laplace 分布、正态分布、均匀分布 三种分布展示了不同的峰度，可以看到对应不同的峰度值上图形的不同，</p>
+<h4 id="Codes-1"><a href="#Codes-1" class="headerlink" title="Codes"></a>Codes</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> scipy.stats <span class="keyword">as</span> stats</span><br><span class="line"><span class="keyword">from</span> scipy.stats <span class="keyword">import</span> kurtosis</span><br><span class="line"></span><br><span class="line">x = np.linspace(-<span class="number">5</span>, <span class="number">5</span>, <span class="number">100</span>)</span><br><span class="line">ax = plt.subplot()</span><br><span class="line">distnames = [<span class="string">&#x27;laplace&#x27;</span>, <span class="string">&#x27;norm&#x27;</span>, <span class="string">&#x27;uniform&#x27;</span>]</span><br><span class="line"><span class="keyword">for</span> distname <span class="keyword">in</span> distnames:</span><br><span class="line">    <span class="keyword">if</span> distname == <span class="string">&#x27;uniform&#x27;</span>:</span><br><span class="line">        dist = <span class="built_in">getattr</span>(stats, distname)(loc=-<span class="number">2</span>, scale=<span class="number">4</span>)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        dist = <span class="built_in">getattr</span>(stats, distname)</span><br><span class="line">    data = dist.rvs(size=<span class="number">1000</span>)</span><br><span class="line">    kur = kurtosis(data, fisher=<span class="literal">True</span>)</span><br><span class="line">    y = dist.pdf(x)</span><br><span class="line">    ax.plot(x, y, label=<span class="string">&quot;&#123;&#125;, &#123;&#125;&quot;</span>.<span class="built_in">format</span>(distname, <span class="built_in">round</span>(kur, <span class="number">3</span>)))</span><br><span class="line">    ax.legend()</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="2-9-正态分布"><a href="#2-9-正态分布" class="headerlink" title="2.9. 正态分布"></a>2.9. 正态分布</h3><p>也叫高斯分布，是一种实值随机变量的连续概率分布，它被广泛应用在各行各业的数据建模中。也是我认为的我的知识背景里最牛的一个公式，似乎有一种“日月之行，若出其中；星汉灿烂，若出其里”的奥义。<strong>因为基本上我们会假设任何随机变量都服从某一种正态分布或几种正态分布的组合</strong>。</p>
+<p>它的概率密度函数长这样，</p>
+<p>$$ f(x)&#x3D;{\frac {1}{\sigma {\sqrt {2\pi }}}}e^{-{\frac {1}{2}}\left({\frac {x-\mu }{\sigma }}\right)^{2}}$$</p>
+<p>可以看到，里面其实只有标准差 $\sigma$ 和均值 $\mu$ 两个参数来控制图形的形状，而它的形状永远长这样，只是高矮胖瘦有所不同，读者可以根据后面的 Python 代码来改变参数看看变化。</p>
+<h4 id="Codes-2"><a href="#Codes-2" class="headerlink" title="Codes"></a>Codes</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np </span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt </span><br><span class="line"><span class="keyword">from</span> scipy.stats <span class="keyword">import</span> norm </span><br><span class="line"><span class="keyword">import</span> statistics </span><br><span class="line">  </span><br><span class="line"><span class="comment"># 产生横坐标</span></span><br><span class="line">x_axis = np.arange(-<span class="number">20</span>, <span class="number">20</span>, <span class="number">0.01</span>) </span><br><span class="line">  </span><br><span class="line"><span class="comment"># 计算或随便给两个值看看区别</span></span><br><span class="line">mean = statistics.mean(x_axis) </span><br><span class="line">std = statistics.stdev(x_axis) </span><br><span class="line">  </span><br><span class="line">plt.plot(x_axis, norm.pdf(x_axis, mean, std)) </span><br><span class="line">plt.show() </span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="2-10-卡方分布"><a href="#2-10-卡方分布" class="headerlink" title="2.10. 卡方分布"></a>2.10. 卡方分布</h3><p>这个世界上不止正态分布这一种分布，所以这里介绍一个常见的“其他”分布——卡方分布，想更洋气一点，就读成“开 square”分布。</p>
+<p>卡方分布主要用于<strong>假设检验</strong>，比如<em>卡方检验</em>，<strong>一个常见的应用场景就是看两组数据是否在同一分布</strong>。这里就不展开讲了，它的概率密度函数长这样，</p>
+<p>~~</p>
+<p>下一节开始画图。</p>
+<p>~~</p>
+<p>~~</p>
+<p><strong>都看到这儿了，不如关注每日推送的“科文路”、互动起来~</strong></p>
+<p><strong>至少点个赞再走吧~</strong></p>
+</div><div class="article-licensing box"><div class="licensing-title"><p>数据可视化：常见统计量（4，略进阶）（附python代码）</p><p><a href="https://xlindo.com/kewenlu/posts/f18b738e/">https://xlindo.com/kewenlu/posts/f18b738e/</a></p></div><div class="licensing-meta level is-mobile"><div class="level-left"><div class="level-item is-narrow"><div><h6>Author</h6><p>xlindo</p></div></div><div class="level-item is-narrow"><div><h6>Posted on</h6><p>2024-05-23</p></div></div><div class="level-item is-narrow"><div><h6>Updated on</h6><p>2024-05-23</p></div></div><div class="level-item is-narrow"><div><h6>Licensed under</h6><p><a class="icons" rel="noopener" target="_blank" title="Creative Commons" href="https://creativecommons.org/"><i class="icon fab fa-creative-commons"></i></a><a class="icons" rel="noopener" target="_blank" title="Attribution" href="https://creativecommons.org/licenses/by/4.0/"><i class="icon fab fa-creative-commons-by"></i></a><a class="icons" rel="noopener" target="_blank" title="Noncommercial" href="https://creativecommons.org/licenses/by-nc/4.0/"><i class="icon fab fa-creative-commons-nc"></i></a></p></div></div></div></div></div><div class="article-tags is-size-7 mb-4"><span class="mr-2">#</span><a class="link-muted mr-2" rel="tag" href="/kewenlu/tags/%E7%A7%91%E6%8A%80/">科技</a><a class="link-muted mr-2" rel="tag" href="/kewenlu/tags/%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96/">数据可视化</a></div><!--!--></article></div><!--!--><nav class="post-navigation mt-4 level is-mobile"><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/kewenlu/posts/154368fd/"><span class="level-item">图灵奖：文顿·瑟夫（2004）</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><div class="card"><div class="card-content"><h3 class="title is-5">Comments</h3><div id="SOHUCS" sid="posts/f18b738e/"></div><script charset="utf-8" src="https://changyan.sohu.com/upload/changyan.js"></script><script>window.changyan.api.config({appid: 'cyvmJmMgc',conf: 'e37a55ecf6df7ba6217b8997f4dcd9ab'});</script></div></div></div><div class="column column-left is-4-tablet is-4-desktop is-4-widescreen  order-1"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar" src="/kewenlu/images/avatar-512x512.png" alt="科文路"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">科文路</p><p class="is-size-6 is-block">微信公众号&quot;科文路&quot;今年文章存档</p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">Posts</p><a href="/kewenlu/archives"><p class="title">91</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Categories</p><a href="/kewenlu/categories"><p class="title">2</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Tags</p><a href="/kewenlu/tags"><p class="title">13</p></a></div></div></nav></div></div><div class="card widget" id="toc" data-type="toc"><div class="card-content"><div class="menu"><h3 class="menu-label">Catalogue</h3><ul class="menu-list"><li><a class="level is-mobile" href="#1-术语表（更新）"><span class="level-left"><span class="level-item">1</span><span class="level-item">1. 术语表（更新）</span></span></a></li><li><a class="level is-mobile" href="#2-常见统计量（续）"><span class="level-left"><span class="level-item">2</span><span class="level-item">2. 常见统计量（续）</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#2-7-分位数，四分位数"><span class="level-left"><span class="level-item">2.1</span><span class="level-item">2.7. 分位数，四分位数</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#Codes"><span class="level-left"><span class="level-item">2.1.1</span><span class="level-item">Codes</span></span></a></li></ul></li><li><a class="level is-mobile" href="#2-8-矩、峰度、偏度"><span class="level-left"><span class="level-item">2.2</span><span class="level-item">2.8. 矩、峰度、偏度</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#偏度"><span class="level-left"><span class="level-item">2.2.1</span><span class="level-item">偏度</span></span></a></li><li><a class="level is-mobile" href="#峰度"><span class="level-left"><span class="level-item">2.2.2</span><span class="level-item">峰度</span></span></a></li><li><a class="level is-mobile" href="#Codes-1"><span class="level-left"><span class="level-item">2.2.3</span><span class="level-item">Codes</span></span></a></li></ul></li><li><a class="level is-mobile" href="#2-9-正态分布"><span class="level-left"><span class="level-item">2.3</span><span class="level-item">2.9. 正态分布</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#Codes-2"><span class="level-left"><span class="level-item">2.3.1</span><span class="level-item">Codes</span></span></a></li></ul></li><li><a class="level is-mobile" href="#2-10-卡方分布"><span class="level-left"><span class="level-item">2.4</span><span class="level-item">2.10. 卡方分布</span></span></a></li></ul></li></ul></div></div><style>#toc .menu-list > li > a.is-active + .menu-list { display: block; }#toc .menu-list > li > a + .menu-list { display: none; }</style><script src="/kewenlu/js/toc.js" defer></script></div><div class="card widget" data-type="links"><div class="card-content"><div class="menu"><h3 class="menu-label">Links</h3><ul class="menu-list"><li><a class="level is-mobile" href="https://xlindo.com/kewenlu2022" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">kewenlu@2022</span></span><span class="level-right"><span class="level-item tag">xlindo.com</span></span></a></li><li><a class="level is-mobile" href="https://xlindo.com/kewenlu2023" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">kewenlu@2023</span></span><span class="level-right"><span class="level-item tag">xlindo.com</span></span></a></li></ul></div></div></div><div class="card widget" data-type="categories"><div class="card-content"><div class="menu"><h3 class="menu-label">Categories</h3><ul class="menu-list"><li><a class="level is-mobile" href="/kewenlu/categories/%E4%BA%BA%E6%96%87/"><span class="level-start"><span class="level-item">人文</span></span><span class="level-end"><span class="level-item tag">31</span></span></a></li><li><a class="level is-mobile" href="/kewenlu/categories/%E7%A7%91%E6%8A%80/"><span class="level-start"><span class="level-item">科技</span></span><span class="level-end"><span class="level-item tag">60</span></span></a></li></ul></div></div></div><div class="card widget" data-type="recent-posts"><div class="card-content"><h3 class="menu-label">Recents</h3><article class="media"><div class="media-content"><p class="date"><time dateTime="2024-05-23T14:25:08.000Z">2024-05-23</time></p><p class="title"><a href="/kewenlu/posts/f18b738e/">数据可视化：常见统计量（4，略进阶）（附python代码）</a></p><p class="categories"><a href="/kewenlu/categories/%E7%A7%91%E6%8A%80/">科技</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2024-05-21T10:12:44.000Z">2024-05-21</time></p><p class="title"><a href="/kewenlu/posts/154368fd/">图灵奖：文顿·瑟夫（2004）</a></p><p class="categories"><a href="/kewenlu/categories/%E7%A7%91%E6%8A%80/">科技</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2024-05-14T15:03:28.000Z">2024-05-14</time></p><p class="title"><a href="/kewenlu/posts/fa2aa1b0/">图灵奖：艾伦·凯（2003）</a></p><p class="categories"><a href="/kewenlu/categories/%E7%A7%91%E6%8A%80/">科技</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2024-05-09T12:26:55.000Z">2024-05-09</time></p><p class="title"><a href="/kewenlu/posts/567598cd/">数据可视化：常见统计量（3）（附python代码）</a></p><p class="categories"><a href="/kewenlu/categories/%E7%A7%91%E6%8A%80/">科技</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2024-05-07T13:27:36.000Z">2024-05-07</time></p><p class="title"><a href="/kewenlu/posts/a78f4c32/">图灵奖：阿迪·沙米尔（2002）</a></p><p class="categories"><a href="/kewenlu/categories/%E7%A7%91%E6%8A%80/">科技</a></p></div></article></div></div><div class="card widget" data-type="archives"><div class="card-content"><div class="menu"><h3 class="menu-label">Archives</h3><ul class="menu-list"><li><a class="level is-mobile" href="/kewenlu/archives/2024/"><span class="level-start"><span class="level-item">2024</span></span><span class="level-end"><span class="level-item tag">46</span></span></a></li><li><a class="level is-mobile" href="/kewenlu/archives/2023/"><span class="level-start"><span class="level-item">2023</span></span><span class="level-end"><span class="level-item tag">45</span></span></a></li></ul></div></div></div><div class="card widget" data-type="tags"><div class="card-content"><div class="menu"><h3 class="menu-label">Tags</h3><div class="field is-grouped is-grouped-multiline"><div class="control"><a class="tags has-addons" href="/kewenlu/tags/AI/"><span class="tag">AI</span><span class="tag">3</span></a></div><div class="control"><a class="tags has-addons" href="/kewenlu/tags/GNN/"><span class="tag">GNN</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/kewenlu/tags/%E4%BA%BA%E6%96%87/"><span class="tag">人文</span><span class="tag">31</span></a></div><div class="control"><a class="tags has-addons" href="/kewenlu/tags/%E5%9B%BE%E7%81%B5%E5%A5%96/"><span class="tag">图灵奖</span><span class="tag">48</span></a></div><div class="control"><a class="tags has-addons" href="/kewenlu/tags/%E5%BC%80%E6%BA%90/"><span class="tag">开源</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/kewenlu/tags/%E6%95%B0%E5%AD%A6/"><span class="tag">数学</span><span class="tag">4</span></a></div><div class="control"><a class="tags has-addons" href="/kewenlu/tags/%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96/"><span class="tag">数据可视化</span><span class="tag">4</span></a></div><div class="control"><a class="tags has-addons" href="/kewenlu/tags/%E6%96%87%E7%89%A9/"><span class="tag">文物</span><span class="tag">6</span></a></div><div class="control"><a class="tags has-addons" href="/kewenlu/tags/%E6%97%B6%E4%BA%8B/"><span class="tag">时事</span><span class="tag">16</span></a></div><div class="control"><a class="tags has-addons" href="/kewenlu/tags/%E7%9C%81%E9%A6%86%E4%B9%8B%E5%AE%9D/"><span class="tag">省馆之宝</span><span class="tag">6</span></a></div><div class="control"><a class="tags has-addons" href="/kewenlu/tags/%E7%A7%91%E6%8A%80/"><span class="tag">科技</span><span class="tag">60</span></a></div><div class="control"><a class="tags has-addons" href="/kewenlu/tags/%E8%8D%90%E6%AD%8C/"><span class="tag">荐歌</span><span class="tag">9</span></a></div><div class="control"><a class="tags has-addons" href="/kewenlu/tags/%E8%B4%9D%E5%8F%B6%E6%96%AF/"><span class="tag">贝叶斯</span><span class="tag">4</span></a></div></div></div></div></div><div class="card widget" data-type="adsense"><div class="card-content"><div class="menu"><h3 class="menu-label">Advertisement</h3><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-8385008905803352" data-ad-slot="4147328607" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div></div></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/kewenlu/"><img src="/kewenlu/images/favicon.ico" alt="科文路" height="28"></a><p class="is-size-7"><span>&copy; 2024 xlindo</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a><br><span id="busuanzi_container_site_uv">Visited by <span id="busuanzi_value_site_uv">0</span> users</span></p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Noncommercial" href="https://creativecommons.org/licenses/by-nc/4.0/"><i class="fab fa-creative-commons-nc"></i></a></p></div></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("en");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script src="/kewenlu/js/column.js"></script><script src="/kewenlu/js/animation.js"></script><a id="back-to-top" title="Back to top" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="/kewenlu/js/back_to_top.js" defer></script><!--!--><!--!--><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.js" defer></script><script>window.addEventListener("load", () => {
+      window.cookieconsent.initialise({
+        type: "info",
+        theme: "edgeless",
+        static: false,
+        position: "bottom-left",
+        content: {
+          message: "This website uses cookies to improve your experience.",
+          dismiss: "Got it!",
+          allow: "Allow cookies",
+          deny: "Decline",
+          link: "Learn more",
+          policy: "Cookie Policy",
+          href: "https://www.cookiesandyou.com/",
+        },
+        palette: {
+          popup: {
+            background: "#edeff5",
+            text: "#838391"
+          },
+          button: {
+            background: "#4b81e8"
+          },
+        },
+      });
+    });</script><script src="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/js/lightgallery.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><!--!--><script type="text/x-mathjax-config">MathJax.Hub.Config({
+            'HTML-CSS': {
+                matchFontHeight: false
+            },
+            SVG: {
+                matchFontHeight: false
+            },
+            CommonHTML: {
+                matchFontHeight: false
+            },
+            tex2jax: {
+                inlineMath: [
+                    ['$','$'],
+                    ['\\(','\\)']
+                ]
+            }
+        });</script><script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.9/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script><!--!--><!--!--><!--!--><script src="/kewenlu/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="Type something..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script src="/kewenlu/js/insight.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/kewenlu/content.json"}, {"hint":"Type something...","untitled":"(Untitled)","posts":"Posts","pages":"Pages","categories":"Categories","tags":"Tags"});
+        });</script></body></html>
