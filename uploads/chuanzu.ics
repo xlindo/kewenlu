@@ -7,7 +7,7 @@ BEGIN:VEVENT
 SUMMARY:⚽【主/中超】成都蓉城vs青岛海牛
 DTSTART;TZID=Asia/Shanghai:20240302T193500
 DTEND;TZID=Asia/Shanghai:20240302T213500
-UID:1ef007df-9c26-6b45-b9b4-ef92f02e8fbb/douyin:chuanzu
+UID:1ef23e12-d966-6fd5-9cec-d9b4c690ba65/douyin:chuanzu
 DESCRIPTION:一起雄起！\n该订阅日历由抖音【看球去了】更
  新、维护。
 LOCATION:成都凤凰山体育公园专业足球场
@@ -16,7 +16,7 @@ BEGIN:VEVENT
 SUMMARY:【客/中超】沧州雄狮vs成都蓉城
 DTSTART;TZID=Asia/Shanghai:20240310T153000
 DTEND;TZID=Asia/Shanghai:20240310T173000
-UID:1ef007df-9c27-60d3-8e4f-d029498c5659/douyin:chuanzu
+UID:1ef23e12-d967-63c3-950a-591f4748c2ac/douyin:chuanzu
 DESCRIPTION:一起雄起！\n该订阅日历由抖音【看球去了】更
  新、维护。
 LOCATION:沧州体育场
@@ -25,7 +25,7 @@ BEGIN:VEVENT
 SUMMARY:⚽【主/中超】成都蓉城vs南通支云
 DTSTART;TZID=Asia/Shanghai:20240330T190000
 DTEND;TZID=Asia/Shanghai:20240330T210000
-UID:1ef007df-9c27-6474-8904-986300a67024/douyin:chuanzu
+UID:1ef23e12-d967-6630-af3f-0b8844543a25/douyin:chuanzu
 DESCRIPTION:一起雄起！\n该订阅日历由抖音【看球去了】更
  新、维护。
 LOCATION:成都凤凰山体育公园专业足球场
@@ -34,7 +34,7 @@ BEGIN:VEVENT
 SUMMARY:【客/中超】天津津门虎vs成都蓉城
 DTSTART;TZID=Asia/Shanghai:20240406T153000
 DTEND;TZID=Asia/Shanghai:20240406T173000
-UID:1ef007df-9c27-67bd-8119-8e6ff14c01c8/douyin:chuanzu
+UID:1ef23e12-d967-6883-a74a-da06c7a2631b/douyin:chuanzu
 DESCRIPTION:一起雄起！\n该订阅日历由抖音【看球去了】更
  新、维护。
 LOCATION:天津泰达足球场
@@ -43,7 +43,7 @@ BEGIN:VEVENT
 SUMMARY:⚽【主/中超】成都蓉城vs浙江俱乐部
 DTSTART;TZID=Asia/Shanghai:20240410T193500
 DTEND;TZID=Asia/Shanghai:20240410T213500
-UID:1ef007df-9c27-6af0-85e5-7bc197a35e56/douyin:chuanzu
+UID:1ef23e12-d967-6b45-afdd-cb88bb42b324/douyin:chuanzu
 DESCRIPTION:一起雄起！\n该订阅日历由抖音【看球去了】更
  新、维护。
 LOCATION:成都凤凰山体育公园专业足球场
@@ -52,7 +52,7 @@ BEGIN:VEVENT
 SUMMARY:【客/中超】长春亚泰vs成都蓉城
 DTSTART;TZID=Asia/Shanghai:20240414T153000
 DTEND;TZID=Asia/Shanghai:20240414T173000
-UID:1ef007df-9c27-6e1d-9c7d-3a371862229a/douyin:chuanzu
+UID:1ef23e12-d967-6dcf-90f2-82dc4f424924/douyin:chuanzu
 DESCRIPTION:一起雄起！\n该订阅日历由抖音【看球去了】更
  新、维护。
 LOCATION:长春体育中心体育场
@@ -61,7 +61,7 @@ BEGIN:VEVENT
 SUMMARY:⚽【主/中超】成都蓉城vs深圳新鹏城
 DTSTART;TZID=Asia/Shanghai:20240420T190000
 DTEND;TZID=Asia/Shanghai:20240420T210000
-UID:1ef007df-9c28-6130-9229-878ba750f6d9/douyin:chuanzu
+UID:1ef23e12-d968-6025-9330-b61931423249/douyin:chuanzu
 DESCRIPTION:一起雄起！\n该订阅日历由抖音【看球去了】更
  新、维护。
 LOCATION:成都凤凰山体育公园专业足球场
@@ -70,7 +70,7 @@ BEGIN:VEVENT
 SUMMARY:⚽【主/中超】成都蓉城vs山东泰山
 DTSTART;TZID=Asia/Shanghai:20240426T200000
 DTEND;TZID=Asia/Shanghai:20240426T220000
-UID:1ef007df-9c28-6441-8a2e-f8d3f4a478f6/douyin:chuanzu
+UID:1ef23e12-d968-625a-aa33-546853ad6b95/douyin:chuanzu
 DESCRIPTION:一起雄起！\n该订阅日历由抖音【看球去了】更
  新、维护。
 LOCATION:成都凤凰山体育公园专业足球场
@@ -79,7 +79,7 @@ BEGIN:VEVENT
 SUMMARY:⚽【主/中超】成都蓉城vs武汉三镇
 DTSTART;TZID=Asia/Shanghai:20240501T193500
 DTEND;TZID=Asia/Shanghai:20240501T213500
-UID:1ef007df-9c28-674d-bd45-fc9aa2e30d2e/douyin:chuanzu
+UID:1ef23e12-d968-648c-80eb-4f2a92dad254/douyin:chuanzu
 DESCRIPTION:一起雄起！\n该订阅日历由抖音【看球去了】更
  新、维护。
 LOCATION:成都凤凰山体育公园专业足球场
@@ -88,7 +88,7 @@ BEGIN:VEVENT
 SUMMARY:【客/中超】北京国安vs成都蓉城
 DTSTART;TZID=Asia/Shanghai:20240505T193500
 DTEND;TZID=Asia/Shanghai:20240505T213500
-UID:1ef007df-9c28-6a49-a2a6-fc39c2bb0523/douyin:chuanzu
+UID:1ef23e12-d968-66c7-a21c-cd6ce5617330/douyin:chuanzu
 DESCRIPTION:一起雄起！\n该订阅日历由抖音【看球去了】更
  新、维护。
 LOCATION:北京工人体育场
@@ -97,7 +97,7 @@ BEGIN:VEVENT
 SUMMARY:⚽【主/中超】成都蓉城vs河南俱乐部
 DTSTART;TZID=Asia/Shanghai:20240510T193500
 DTEND;TZID=Asia/Shanghai:20240510T213500
-UID:1ef007df-9c28-6d40-9609-7f6d84f65f36/douyin:chuanzu
+UID:1ef23e12-d968-6a1f-8a65-9a93968d2d60/douyin:chuanzu
 DESCRIPTION:一起雄起！\n该订阅日历由抖音【看球去了】更
  新、维护。
 LOCATION:成都凤凰山体育公园专业足球场
@@ -106,7 +106,7 @@ BEGIN:VEVENT
 SUMMARY:【客/中超】梅州客家vs成都蓉城
 DTSTART;TZID=Asia/Shanghai:20240517T193500
 DTEND;TZID=Asia/Shanghai:20240517T213500
-UID:1ef007df-9c29-6049-b4c2-181d419fbc60/douyin:chuanzu
+UID:1ef23e12-d968-6d52-b137-43dc41951c1e/douyin:chuanzu
 DESCRIPTION:一起雄起！\n该订阅日历由抖音【看球去了】更
  新、维护。
 LOCATION:五华奥体中心惠堂体育场
@@ -115,7 +115,7 @@ BEGIN:VEVENT
 SUMMARY:【客/中超】上海海港vs成都蓉城
 DTSTART;TZID=Asia/Shanghai:20240522T200000
 DTEND;TZID=Asia/Shanghai:20240522T220000
-UID:1ef007df-9c29-6338-9940-bc151a6e3839/douyin:chuanzu
+UID:1ef23e12-d969-6050-8a89-a0c4d0d33b61/douyin:chuanzu
 DESCRIPTION:一起雄起！\n该订阅日历由抖音【看球去了】更
  新、维护。
 LOCATION:上汽浦东足球场
@@ -124,7 +124,7 @@ BEGIN:VEVENT
 SUMMARY:⚽【主/中超】成都蓉城vs青岛西海岸
 DTSTART;TZID=Asia/Shanghai:20240526T193500
 DTEND;TZID=Asia/Shanghai:20240526T213500
-UID:1ef007df-9c29-6619-a2a8-0ca721ff48e1/douyin:chuanzu
+UID:1ef23e12-d969-6361-a3e9-a2db6f286110/douyin:chuanzu
 DESCRIPTION:一起雄起！\n该订阅日历由抖音【看球去了】更
  新、维护。
 LOCATION:成都凤凰山体育公园专业足球场
@@ -133,7 +133,7 @@ BEGIN:VEVENT
 SUMMARY:【客/中超】上海申花vs成都蓉城
 DTSTART;TZID=Asia/Shanghai:20240616T193500
 DTEND;TZID=Asia/Shanghai:20240616T213500
-UID:1ef007df-9c29-6989-8462-e240064f80cc/douyin:chuanzu
+UID:1ef23e12-d969-65b9-b4ab-f0b9bef2f27a/douyin:chuanzu
 DESCRIPTION:一起雄起！\n该订阅日历由抖音【看球去了】更
  新、维护。
 LOCATION:上海体育场
@@ -142,7 +142,7 @@ BEGIN:VEVENT
 SUMMARY:【客/中超】青岛海牛vs成都蓉城
 DTSTART;TZID=Asia/Shanghai:20240626T193500
 DTEND;TZID=Asia/Shanghai:20240626T213500
-UID:1ef007df-9c29-6c63-aab3-59ff47f8b4d3/douyin:chuanzu
+UID:1ef23e12-d969-67e5-bcd1-c5452d5b2a62/douyin:chuanzu
 DESCRIPTION:一起雄起！\n该订阅日历由抖音【看球去了】更
  新、维护。
 LOCATION:青岛青春足球场
@@ -151,7 +151,7 @@ BEGIN:VEVENT
 SUMMARY:⚽【主/中超】成都蓉城vs沧州雄狮
 DTSTART;TZID=Asia/Shanghai:20240630T193500
 DTEND;TZID=Asia/Shanghai:20240630T213500
-UID:1ef007df-9c29-6f4a-b1ba-c7cd9ee86d4f/douyin:chuanzu
+UID:1ef23e12-d969-6a05-8203-3b43fb39693b/douyin:chuanzu
 DESCRIPTION:一起雄起！\n该订阅日历由抖音【看球去了】更
  新、维护。
 LOCATION:成都凤凰山体育公园专业足球场
@@ -160,7 +160,7 @@ BEGIN:VEVENT
 SUMMARY:【客/中超】南通支云vs成都蓉城
 DTSTART;TZID=Asia/Shanghai:20240707T190000
 DTEND;TZID=Asia/Shanghai:20240707T210000
-UID:1ef007df-9c2a-623e-8fe0-547ade8da097/douyin:chuanzu
+UID:1ef23e12-d969-6c24-be26-bd564df23606/douyin:chuanzu
 DESCRIPTION:一起雄起！\n该订阅日历由抖音【看球去了】更
  新、维护。
 LOCATION:如皋奥体中心体育场
@@ -169,7 +169,7 @@ BEGIN:VEVENT
 SUMMARY:⚽【主/中超】成都蓉城vs天津津门虎
 DTSTART;TZID=Asia/Shanghai:20240712T200000
 DTEND;TZID=Asia/Shanghai:20240712T220000
-UID:1ef007df-9c2a-654d-a89b-776f8457686c/douyin:chuanzu
+UID:1ef23e12-d969-6e5c-807f-311ff4b1c37c/douyin:chuanzu
 DESCRIPTION:一起雄起！\n该订阅日历由抖音【看球去了】更
  新、维护。
 LOCATION:成都凤凰山体育公园专业足球场
@@ -178,7 +178,7 @@ BEGIN:VEVENT
 SUMMARY:【客/中超】浙江俱乐部vs成都蓉城
 DTSTART;TZID=Asia/Shanghai:20240728T193500
 DTEND;TZID=Asia/Shanghai:20240728T213500
-UID:1ef007df-9c2a-6868-929c-eeb9acd311dc/douyin:chuanzu
+UID:1ef23e12-d96a-60b2-a31e-6273ed88eea6/douyin:chuanzu
 DESCRIPTION:一起雄起！\n该订阅日历由抖音【看球去了】更
  新、维护。
 LOCATION:浙江省黄龙体育中心体育场
@@ -187,7 +187,7 @@ BEGIN:VEVENT
 SUMMARY:⚽【主/中超】成都蓉城vs长春亚泰
 DTSTART;TZID=Asia/Shanghai:20240803T200000
 DTEND;TZID=Asia/Shanghai:20240803T220000
-UID:1ef007df-9c2a-6b61-a4b8-fa10424c97d8/douyin:chuanzu
+UID:1ef23e12-d96a-62ee-bbbe-7508be88a490/douyin:chuanzu
 DESCRIPTION:一起雄起！\n该订阅日历由抖音【看球去了】更
  新、维护。
 LOCATION:成都凤凰山体育公园专业足球场
@@ -196,7 +196,7 @@ BEGIN:VEVENT
 SUMMARY:【客/中超】深圳新鹏城vs成都蓉城
 DTSTART;TZID=Asia/Shanghai:20240809T193500
 DTEND;TZID=Asia/Shanghai:20240809T213500
-UID:1ef007df-9c2b-61f0-b9fe-478851761a16/douyin:chuanzu
+UID:1ef23e12-d96a-6997-b5a8-15cef5a0caff/douyin:chuanzu
 DESCRIPTION:一起雄起！\n该订阅日历由抖音【看球去了】更
  新、维护。
 LOCATION:深圳宝安体育中心体育场
@@ -205,7 +205,7 @@ BEGIN:VEVENT
 SUMMARY:【客/中超】山东泰山vs成都蓉城
 DTSTART;TZID=Asia/Shanghai:20240817T200000
 DTEND;TZID=Asia/Shanghai:20240817T220000
-UID:1ef007df-9c2b-6513-a576-56d2a1c940fe/douyin:chuanzu
+UID:1ef23e12-d96a-6cf8-8f0c-f42c47161bee/douyin:chuanzu
 DESCRIPTION:一起雄起！\n该订阅日历由抖音【看球去了】更
  新、维护。
 LOCATION:济南奥体中心体育场
@@ -214,7 +214,7 @@ BEGIN:VEVENT
 SUMMARY:【客/中超】武汉三镇vs成都蓉城
 DTSTART;TZID=Asia/Shanghai:20240825T200000
 DTEND;TZID=Asia/Shanghai:20240825T220000
-UID:1ef007df-9c2b-69f3-b84c-4a5b7814bf11/douyin:chuanzu
+UID:1ef23e12-d96a-6f4f-a54b-18562d0d8df4/douyin:chuanzu
 DESCRIPTION:一起雄起！\n该订阅日历由抖音【看球去了】更
  新、维护。
 LOCATION:武汉体育中心体育
@@ -223,7 +223,7 @@ BEGIN:VEVENT
 SUMMARY:⚽【主/中超】成都蓉城vs北京国安
 DTSTART;TZID=Asia/Shanghai:20240914T193500
 DTEND;TZID=Asia/Shanghai:20240914T213500
-UID:1ef007df-9c2b-6f37-a8c0-fe9e2944d6c1/douyin:chuanzu
+UID:1ef23e12-d96b-618c-bbaa-5f524180e43d/douyin:chuanzu
 DESCRIPTION:一起雄起！\n该订阅日历由抖音【看球去了】更
  新、维护。
 LOCATION:成都凤凰山体育公园专业足球场
@@ -232,7 +232,7 @@ BEGIN:VEVENT
 SUMMARY:【客/中超】河南俱乐部vs成都蓉城
 DTSTART;TZID=Asia/Shanghai:20240921T193500
 DTEND;TZID=Asia/Shanghai:20240921T213500
-UID:1ef007df-9c2c-637b-b8ec-92e92968be4f/douyin:chuanzu
+UID:1ef23e12-d96b-63b0-92d5-9cb8d3b0b904/douyin:chuanzu
 DESCRIPTION:一起雄起！\n该订阅日历由抖音【看球去了】更
  新、维护。
 LOCATION:郑州航海体育场
@@ -241,7 +241,7 @@ BEGIN:VEVENT
 SUMMARY:⚽【主/中超】成都蓉城vs梅州客家
 DTSTART;TZID=Asia/Shanghai:20240929T193500
 DTEND;TZID=Asia/Shanghai:20240929T213500
-UID:1ef007df-9c2c-66d4-bd58-6bd72a10d484/douyin:chuanzu
+UID:1ef23e12-d96b-65c7-86d1-0c084de05f51/douyin:chuanzu
 DESCRIPTION:一起雄起！\n该订阅日历由抖音【看球去了】更
  新、维护。
 LOCATION:成都凤凰山体育公园专业足球场
@@ -250,7 +250,7 @@ BEGIN:VEVENT
 SUMMARY:⚽【主/中超】成都蓉城vs上海海港
 DTSTART;TZID=Asia/Shanghai:20241018T200000
 DTEND;TZID=Asia/Shanghai:20241018T220000
-UID:1ef007df-9c2c-6a03-92bd-832313ef96dc/douyin:chuanzu
+UID:1ef23e12-d96b-67f1-818d-dfc1be2717a3/douyin:chuanzu
 DESCRIPTION:一起雄起！\n该订阅日历由抖音【看球去了】更
  新、维护。
 LOCATION:成都凤凰山体育公园专业足球场
@@ -259,7 +259,7 @@ BEGIN:VEVENT
 SUMMARY:【客/中超】青岛西海岸vs成都蓉城
 DTSTART;TZID=Asia/Shanghai:20241027T153000
 DTEND;TZID=Asia/Shanghai:20241027T173000
-UID:1ef007df-9c2c-6e1e-abab-7ee4e54acdea/douyin:chuanzu
+UID:1ef23e12-d96b-6a2e-806d-cdcc6a8f8c3c/douyin:chuanzu
 DESCRIPTION:一起雄起！\n该订阅日历由抖音【看球去了】更
  新、维护。
 LOCATION:青岛西海岸大学城体育场
@@ -268,7 +268,7 @@ BEGIN:VEVENT
 SUMMARY:【客/中超】上海申花vs成都蓉城
 DTSTART;TZID=Asia/Shanghai:20241102T153000
 DTEND;TZID=Asia/Shanghai:20241102T173000
-UID:1ef007df-9c2d-616d-8b7b-b76e435e5b0e/douyin:chuanzu
+UID:1ef23e12-d96b-6c51-b1b7-088540b8c8af/douyin:chuanzu
 DESCRIPTION:一起雄起！\n该订阅日历由抖音【看球去了】更
  新、维护。
 LOCATION:成都凤凰山体育公园专业足球场
@@ -277,7 +277,7 @@ BEGIN:VEVENT
 SUMMARY:🏀【主/2025男篮亚预赛】中国男篮vs蒙古国男篮
 DTSTART;TZID=Asia/Shanghai:20240222T193000
 DTEND;TZID=Asia/Shanghai:20240222T213000
-UID:1ef007df-9c2d-6485-8a83-859d0717403c/douyin:chuanzu
+UID:1ef23e12-d96b-6e91-a8aa-2fa3023021d8/douyin:chuanzu
 DESCRIPTION:一起雄起！\n该订阅日历由抖音【看球去了】更
  新、维护。
 LOCATION:西安
@@ -286,7 +286,7 @@ BEGIN:VEVENT
 SUMMARY:【客/2025男篮亚预赛】日本男篮vs中国男篮
 DTSTART;TZID=Asia/Shanghai:20240225T130000
 DTEND;TZID=Asia/Shanghai:20240225T150000
-UID:1ef007df-9c2d-6798-bf47-2390a2afb9b4/douyin:chuanzu
+UID:1ef23e12-d96c-60ce-8115-3039499d725f/douyin:chuanzu
 DESCRIPTION:一起雄起！\n该订阅日历由抖音【看球去了】更
  新、维护。
 LOCATION:东京
@@ -296,7 +296,7 @@ SUMMARY:【客/2023-2024WCBA总决赛第5场(5局3胜)】内蒙古农信(2
  )vs四川远达美乐(2)
 DTSTART;TZID=Asia/Shanghai:20240422T193000
 DTEND;TZID=Asia/Shanghai:20240422T213000
-UID:1ef007df-9c2d-6ab2-980c-d6db63d3e806/douyin:chuanzu
+UID:1ef23e12-d96c-6305-bc04-7ad94a289470/douyin:chuanzu
 DESCRIPTION:一起雄起！\n该订阅日历由抖音【看球去了】更
  新、维护。
 LOCATION:呼和浩特内蒙古体育馆
@@ -306,7 +306,7 @@ SUMMARY:【客/世预】新加坡国家男子足球队vs中国国家男子
  足球队
 DTSTART;TZID=Asia/Shanghai:20240321T203000
 DTEND;TZID=Asia/Shanghai:20240321T223000
-UID:1ef007df-9c2d-6dd7-a774-8f342a41e29e/douyin:chuanzu
+UID:1ef23e12-d96c-6549-b6ae-537c8bf2b0fe/douyin:chuanzu
 DESCRIPTION:一起雄起！\n该订阅日历由抖音【看球去了】更
  新、维护。
 LOCATION:新加坡国家体育场
@@ -316,16 +316,26 @@ SUMMARY:⚽【主/世预】中国国家男子足球队vs新加坡国家男
  子足球队
 DTSTART;TZID=Asia/Shanghai:20240326T200000
 DTEND;TZID=Asia/Shanghai:20240326T220000
-UID:1ef007df-9c2e-60e7-b9d5-40dd469e2fb2/douyin:chuanzu
+UID:1ef23e12-d96c-6770-bf69-01771dd0f7b1/douyin:chuanzu
 DESCRIPTION:一起雄起！\n该订阅日历由抖音【看球去了】更
  新、维护。
 LOCATION:天津奥林匹克体育中心体育场
 END:VEVENT
 BEGIN:VEVENT
+SUMMARY:⚽【主/世预】中国国家男子足球队vs泰国国家男子
+ 足球队
+DTSTART;TZID=Asia/Shanghai:20240606T200000
+DTEND;TZID=Asia/Shanghai:20240606T220000
+UID:1ef23e12-d96c-6989-ac98-22529fb10572/douyin:chuanzu
+DESCRIPTION:一起雄起！\n该订阅日历由抖音【看球去了】更
+ 新、维护。
+LOCATION:沈阳奥林匹克体育中心场
+END:VEVENT
+BEGIN:VEVENT
 SUMMARY:【亚冠1/8决赛】川崎前锋vs山东泰山
 DTSTART;TZID=Asia/Shanghai:20240220T160000
 DTEND;TZID=Asia/Shanghai:20240220T180000
-UID:1ef007df-9c2e-640a-80ad-0c7178a6ec8e/douyin:chuanzu
+UID:1ef23e12-d96c-6bcd-927a-0bb161e7ab58/douyin:chuanzu
 DESCRIPTION:一起雄起！\n该订阅日历由抖音【看球去了】更
  新、维护。
 LOCATION:川崎等等力陆上竞技场
@@ -334,7 +344,7 @@ BEGIN:VEVENT
 SUMMARY:【亚冠1/4决赛】山东泰山vs横滨水手
 DTSTART;TZID=Asia/Shanghai:20240306T180000
 DTEND;TZID=Asia/Shanghai:20240306T200000
-UID:1ef007df-9c2e-671c-9505-a674ecdec054/douyin:chuanzu
+UID:1ef23e12-d96c-6e08-9b5f-c8af9acbff1f/douyin:chuanzu
 DESCRIPTION:一起雄起！\n该订阅日历由抖音【看球去了】更
  新、维护。
 LOCATION:济南奥体中心体育场
@@ -343,7 +353,7 @@ BEGIN:VEVENT
 SUMMARY:【亚冠1/4决赛】横滨水手vs山东泰山
 DTSTART;TZID=Asia/Shanghai:20240313T180000
 DTEND;TZID=Asia/Shanghai:20240313T200000
-UID:1ef007df-9c2e-6bbf-b0cc-e16bbea58355/douyin:chuanzu
+UID:1ef23e12-d96d-6022-a162-5a73a96d0432/douyin:chuanzu
 DESCRIPTION:一起雄起！\n该订阅日历由抖音【看球去了】更
  新、维护。
 LOCATION:横滨国际综合竞技场

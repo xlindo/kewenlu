@@ -46,6 +46,7 @@ lst_cba_time = [
 lst_cfa_time = [
     "202403212030;世预;新加坡国家男子足球队;中国国家男子足球队;新加坡国家体育场",
     "202403262000;世预;中国国家男子足球队;新加坡国家男子足球队;天津奥林匹克体育中心体育场",
+    "202406062000;世预;中国国家男子足球队;泰国国家男子足球队;沈阳奥林匹克体育中心场",
 ]
 
 lst_key_time = [
@@ -53,6 +54,7 @@ lst_key_time = [
     "202403061800;亚冠1/4决赛;山东泰山;横滨水手;济南奥体中心体育场",
     "202403131800;亚冠1/4决赛;横滨水手;山东泰山;横滨国际综合竞技场",
 ]
+
 
 def create_event(summary, location, description, dtstart, dtend):
     event = icalendar.Event()
@@ -88,7 +90,9 @@ if __name__ == "__main__":
                 f"⚽【主/{lst_match_info[1]}】{lst_match_info[2]}vs{lst_match_info[3]}"
             )
         else:
-            summary = f"【客/{lst_match_info[1]}】{lst_match_info[2]}vs{lst_match_info[3]}"
+            summary = (
+                f"【客/{lst_match_info[1]}】{lst_match_info[2]}vs{lst_match_info[3]}"
+            )
         location = lst_match_info[4]
         dtstart = pytz.timezone("Asia/Shanghai").localize(
             datetime.datetime.strptime(lst_match_info[0], "%Y%m%d%H%M")
@@ -104,7 +108,9 @@ if __name__ == "__main__":
                 f"🏀【主/{lst_match_info[1]}】{lst_match_info[2]}vs{lst_match_info[3]}"
             )
         else:
-            summary = f"【客/{lst_match_info[1]}】{lst_match_info[2]}vs{lst_match_info[3]}"
+            summary = (
+                f"【客/{lst_match_info[1]}】{lst_match_info[2]}vs{lst_match_info[3]}"
+            )
         location = lst_match_info[4]
         dtstart = pytz.timezone("Asia/Shanghai").localize(
             datetime.datetime.strptime(lst_match_info[0], "%Y%m%d%H%M")
@@ -120,7 +126,9 @@ if __name__ == "__main__":
                 f"⚽【主/{lst_match_info[1]}】{lst_match_info[2]}vs{lst_match_info[3]}"
             )
         else:
-            summary = f"【客/{lst_match_info[1]}】{lst_match_info[2]}vs{lst_match_info[3]}"
+            summary = (
+                f"【客/{lst_match_info[1]}】{lst_match_info[2]}vs{lst_match_info[3]}"
+            )
         location = lst_match_info[4]
         dtstart = pytz.timezone("Asia/Shanghai").localize(
             datetime.datetime.strptime(lst_match_info[0], "%Y%m%d%H%M")
