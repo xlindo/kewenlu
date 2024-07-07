@@ -7,7 +7,7 @@ BEGIN:VEVENT
 SUMMARY:⚽【主/中超】成都蓉城vs青岛海牛
 DTSTART;TZID=Asia/Shanghai:20240302T193500
 DTEND;TZID=Asia/Shanghai:20240302T213500
-UID:1ef38e87-c031-6c04-93b4-71b6bca5c680/douyin:chuanzu
+UID:1ef3c78d-ea6b-6c4a-ac44-c6ed78008f40/douyin:chuanzu
 DESCRIPTION:一起雄起！\n该订阅日历由抖音【看球去了】更
  新、维护。
 LOCATION:成都凤凰山体育公园专业足球场
@@ -16,7 +16,7 @@ BEGIN:VEVENT
 SUMMARY:【客/中超】沧州雄狮vs成都蓉城
 DTSTART;TZID=Asia/Shanghai:20240310T153000
 DTEND;TZID=Asia/Shanghai:20240310T173000
-UID:1ef38e87-c032-6836-b78b-a05fac81518f/douyin:chuanzu
+UID:1ef3c78d-ea6b-6ff3-ba57-c1879ce1ff2f/douyin:chuanzu
 DESCRIPTION:一起雄起！\n该订阅日历由抖音【看球去了】更
  新、维护。
 LOCATION:沧州体育场
@@ -25,7 +25,7 @@ BEGIN:VEVENT
 SUMMARY:⚽【主/中超】成都蓉城vs南通支云
 DTSTART;TZID=Asia/Shanghai:20240330T190000
 DTEND;TZID=Asia/Shanghai:20240330T210000
-UID:1ef38e87-c033-6058-85f7-b9e2b19f9675/douyin:chuanzu
+UID:1ef3c78d-ea6c-6280-bf25-33e9fdd6718f/douyin:chuanzu
 DESCRIPTION:一起雄起！\n该订阅日历由抖音【看球去了】更
  新、维护。
 LOCATION:成都凤凰山体育公园专业足球场
@@ -34,7 +34,7 @@ BEGIN:VEVENT
 SUMMARY:【客/中超】天津津门虎vs成都蓉城
 DTSTART;TZID=Asia/Shanghai:20240406T153000
 DTEND;TZID=Asia/Shanghai:20240406T173000
-UID:1ef38e87-c033-66cf-99d6-edcb12c95fbc/douyin:chuanzu
+UID:1ef3c78d-ea6c-64ca-b3b0-e4d2e9598de4/douyin:chuanzu
 DESCRIPTION:一起雄起！\n该订阅日历由抖音【看球去了】更
  新、维护。
 LOCATION:天津泰达足球场
@@ -43,7 +43,7 @@ BEGIN:VEVENT
 SUMMARY:⚽【主/中超】成都蓉城vs浙江俱乐部
 DTSTART;TZID=Asia/Shanghai:20240410T193500
 DTEND;TZID=Asia/Shanghai:20240410T213500
-UID:1ef38e87-c033-6eca-8bba-e575ee4e1e8a/douyin:chuanzu
+UID:1ef3c78d-ea6c-66ef-a58e-17f07e2eea06/douyin:chuanzu
 DESCRIPTION:一起雄起！\n该订阅日历由抖音【看球去了】更
  新、维护。
 LOCATION:成都凤凰山体育公园专业足球场
@@ -52,7 +52,7 @@ BEGIN:VEVENT
 SUMMARY:【客/中超】长春亚泰vs成都蓉城
 DTSTART;TZID=Asia/Shanghai:20240414T153000
 DTEND;TZID=Asia/Shanghai:20240414T173000
-UID:1ef38e87-c034-6748-b0c6-8a36b1e297ed/douyin:chuanzu
+UID:1ef3c78d-ea6c-6926-88ae-5d4cfd0a87a9/douyin:chuanzu
 DESCRIPTION:一起雄起！\n该订阅日历由抖音【看球去了】更
  新、维护。
 LOCATION:长春体育中心体育场
@@ -61,7 +61,7 @@ BEGIN:VEVENT
 SUMMARY:⚽【主/中超】成都蓉城vs深圳新鹏城
 DTSTART;TZID=Asia/Shanghai:20240420T190000
 DTEND;TZID=Asia/Shanghai:20240420T210000
-UID:1ef38e87-c035-63dc-b19c-1dde7c51213e/douyin:chuanzu
+UID:1ef3c78d-ea6c-6b51-aaca-0923273be85d/douyin:chuanzu
 DESCRIPTION:一起雄起！\n该订阅日历由抖音【看球去了】更
  新、维护。
 LOCATION:成都凤凰山体育公园专业足球场
@@ -70,7 +70,7 @@ BEGIN:VEVENT
 SUMMARY:⚽【主/中超】成都蓉城vs山东泰山
 DTSTART;TZID=Asia/Shanghai:20240426T200000
 DTEND;TZID=Asia/Shanghai:20240426T220000
-UID:1ef38e87-c035-6adf-8389-56131cc0a4be/douyin:chuanzu
+UID:1ef3c78d-ea6c-6d63-9641-1a50e97c5162/douyin:chuanzu
 DESCRIPTION:一起雄起！\n该订阅日历由抖音【看球去了】更
  新、维护。
 LOCATION:成都凤凰山体育公园专业足球场
@@ -79,7 +79,7 @@ BEGIN:VEVENT
 SUMMARY:⚽【主/中超】成都蓉城vs武汉三镇
 DTSTART;TZID=Asia/Shanghai:20240501T193500
 DTEND;TZID=Asia/Shanghai:20240501T213500
-UID:1ef38e87-c036-6055-9a3c-cb395c4432d1/douyin:chuanzu
+UID:1ef3c78d-ea6c-6f86-ae3c-73ef0b74c49c/douyin:chuanzu
 DESCRIPTION:一起雄起！\n该订阅日历由抖音【看球去了】更
  新、维护。
 LOCATION:成都凤凰山体育公园专业足球场
@@ -88,7 +88,7 @@ BEGIN:VEVENT
 SUMMARY:【客/中超】北京国安vs成都蓉城
 DTSTART;TZID=Asia/Shanghai:20240505T193500
 DTEND;TZID=Asia/Shanghai:20240505T213500
-UID:1ef38e87-c036-65ef-9c55-1511740c4531/douyin:chuanzu
+UID:1ef3c78d-ea6d-61a9-8a9e-63969a423bd2/douyin:chuanzu
 DESCRIPTION:一起雄起！\n该订阅日历由抖音【看球去了】更
  新、维护。
 LOCATION:北京工人体育场
@@ -97,7 +97,7 @@ BEGIN:VEVENT
 SUMMARY:⚽【主/中超】成都蓉城vs河南俱乐部
 DTSTART;TZID=Asia/Shanghai:20240510T193500
 DTEND;TZID=Asia/Shanghai:20240510T213500
-UID:1ef38e87-c036-6c0d-b202-dbe3af8dbc85/douyin:chuanzu
+UID:1ef3c78d-ea6d-63c5-8839-22b17d80aa50/douyin:chuanzu
 DESCRIPTION:一起雄起！\n该订阅日历由抖音【看球去了】更
  新、维护。
 LOCATION:成都凤凰山体育公园专业足球场
@@ -106,7 +106,7 @@ BEGIN:VEVENT
 SUMMARY:【客/中超】梅州客家vs成都蓉城
 DTSTART;TZID=Asia/Shanghai:20240517T193500
 DTEND;TZID=Asia/Shanghai:20240517T213500
-UID:1ef38e87-c037-612e-ac69-79bcefa9d5ce/douyin:chuanzu
+UID:1ef3c78d-ea6d-65e3-b99c-eb5067d5259a/douyin:chuanzu
 DESCRIPTION:一起雄起！\n该订阅日历由抖音【看球去了】更
  新、维护。
 LOCATION:五华奥体中心惠堂体育场
@@ -115,7 +115,7 @@ BEGIN:VEVENT
 SUMMARY:【客/中超】上海海港vs成都蓉城
 DTSTART;TZID=Asia/Shanghai:20240522T200000
 DTEND;TZID=Asia/Shanghai:20240522T220000
-UID:1ef38e87-c037-666b-997a-1526076f351f/douyin:chuanzu
+UID:1ef3c78d-ea6d-67f3-a20e-5007790d50d2/douyin:chuanzu
 DESCRIPTION:一起雄起！\n该订阅日历由抖音【看球去了】更
  新、维护。
 LOCATION:上汽浦东足球场
@@ -124,7 +124,7 @@ BEGIN:VEVENT
 SUMMARY:⚽【主/中超】成都蓉城vs青岛西海岸
 DTSTART;TZID=Asia/Shanghai:20240526T193500
 DTEND;TZID=Asia/Shanghai:20240526T213500
-UID:1ef38e87-c037-6be8-b482-04d39bb4b7bb/douyin:chuanzu
+UID:1ef3c78d-ea6d-69fe-b866-632c8d39afce/douyin:chuanzu
 DESCRIPTION:一起雄起！\n该订阅日历由抖音【看球去了】更
  新、维护。
 LOCATION:成都凤凰山体育公园专业足球场
@@ -133,7 +133,7 @@ BEGIN:VEVENT
 SUMMARY:【客/中超】上海申花vs成都蓉城
 DTSTART;TZID=Asia/Shanghai:20240616T193500
 DTEND;TZID=Asia/Shanghai:20240616T213500
-UID:1ef38e87-c038-610c-982b-b84ab0dbcbd1/douyin:chuanzu
+UID:1ef3c78d-ea6d-6c34-86e5-ef74e61e2ac5/douyin:chuanzu
 DESCRIPTION:一起雄起！\n该订阅日历由抖音【看球去了】更
  新、维护。
 LOCATION:上海体育场
@@ -142,7 +142,7 @@ BEGIN:VEVENT
 SUMMARY:【客/足协杯】上海三菱重工vs成都蓉城
 DTSTART;TZID=Asia/Shanghai:20240621T160000
 DTEND;TZID=Asia/Shanghai:20240621T180000
-UID:1ef38e87-c038-66ee-b11c-d2b993aafc7a/douyin:chuanzu
+UID:1ef3c78d-ea6e-61b4-b67c-5be3577db3c4/douyin:chuanzu
 DESCRIPTION:一起雄起！\n该订阅日历由抖音【看球去了】更
  新、维护。
 LOCATION:上海体育场
@@ -151,7 +151,7 @@ BEGIN:VEVENT
 SUMMARY:【客/中超】青岛海牛vs成都蓉城
 DTSTART;TZID=Asia/Shanghai:20240626T193500
 DTEND;TZID=Asia/Shanghai:20240626T213500
-UID:1ef38e87-c038-6bff-ae58-97ddafca7b61/douyin:chuanzu
+UID:1ef3c78d-ea6e-6446-a5d9-2591bf7b4334/douyin:chuanzu
 DESCRIPTION:一起雄起！\n该订阅日历由抖音【看球去了】更
  新、维护。
 LOCATION:青岛青春足球场
@@ -160,7 +160,7 @@ BEGIN:VEVENT
 SUMMARY:⚽【主/中超】成都蓉城vs沧州雄狮
 DTSTART;TZID=Asia/Shanghai:20240630T193500
 DTEND;TZID=Asia/Shanghai:20240630T213500
-UID:1ef38e87-c039-6184-9345-d93c6ed85fde/douyin:chuanzu
+UID:1ef3c78d-ea6e-669a-b91f-04114ad6d687/douyin:chuanzu
 DESCRIPTION:一起雄起！\n该订阅日历由抖音【看球去了】更
  新、维护。
 LOCATION:成都凤凰山体育公园专业足球场
@@ -169,7 +169,7 @@ BEGIN:VEVENT
 SUMMARY:【客/中超】南通支云vs成都蓉城
 DTSTART;TZID=Asia/Shanghai:20240707T190000
 DTEND;TZID=Asia/Shanghai:20240707T210000
-UID:1ef38e87-c039-66e1-8daa-c0260db3165d/douyin:chuanzu
+UID:1ef3c78d-ea6e-68f1-8f6b-2d5f23aaffca/douyin:chuanzu
 DESCRIPTION:一起雄起！\n该订阅日历由抖音【看球去了】更
  新、维护。
 LOCATION:如皋奥体中心体育场
@@ -178,16 +178,16 @@ BEGIN:VEVENT
 SUMMARY:⚽【主/中超】成都蓉城vs天津津门虎
 DTSTART;TZID=Asia/Shanghai:20240712T200000
 DTEND;TZID=Asia/Shanghai:20240712T220000
-UID:1ef38e87-c039-6c8d-b953-b889ef218108/douyin:chuanzu
+UID:1ef3c78d-ea6e-6b12-ae92-65ecf9d9d0da/douyin:chuanzu
 DESCRIPTION:一起雄起！\n该订阅日历由抖音【看球去了】更
  新、维护。
 LOCATION:成都凤凰山体育公园专业足球场
 END:VEVENT
 BEGIN:VEVENT
 SUMMARY:⚽【主/🏆足协杯】成都蓉城vs南通支云
-DTSTART;TZID=Asia/Shanghai:20240715T190000
-DTEND;TZID=Asia/Shanghai:20240715T210000
-UID:1ef38e87-c03a-6b60-ae4b-65a3052f6083/douyin:chuanzu
+DTSTART;TZID=Asia/Shanghai:20240716T193500
+DTEND;TZID=Asia/Shanghai:20240716T213500
+UID:1ef3c78d-ea6e-6d84-9d56-da425f26663d/douyin:chuanzu
 DESCRIPTION:一起雄起！\n该订阅日历由抖音【看球去了】更
  新、维护。
 LOCATION:成都凤凰山体育公园专业足球场
@@ -196,7 +196,7 @@ BEGIN:VEVENT
 SUMMARY:【客/中超】浙江俱乐部vs成都蓉城
 DTSTART;TZID=Asia/Shanghai:20240728T193500
 DTEND;TZID=Asia/Shanghai:20240728T213500
-UID:1ef38e87-c03b-612f-8ea1-24861a4cab46/douyin:chuanzu
+UID:1ef3c78d-ea6e-6fad-bb09-f945178b70a7/douyin:chuanzu
 DESCRIPTION:一起雄起！\n该订阅日历由抖音【看球去了】更
  新、维护。
 LOCATION:浙江省黄龙体育中心体育场
@@ -205,7 +205,7 @@ BEGIN:VEVENT
 SUMMARY:⚽【主/中超】成都蓉城vs长春亚泰
 DTSTART;TZID=Asia/Shanghai:20240803T200000
 DTEND;TZID=Asia/Shanghai:20240803T220000
-UID:1ef38e87-c03b-6667-bc49-767e35ffc291/douyin:chuanzu
+UID:1ef3c78d-ea6f-61c8-a8c8-71965cfd1e26/douyin:chuanzu
 DESCRIPTION:一起雄起！\n该订阅日历由抖音【看球去了】更
  新、维护。
 LOCATION:成都凤凰山体育公园专业足球场
@@ -214,7 +214,7 @@ BEGIN:VEVENT
 SUMMARY:【客/中超】深圳新鹏城vs成都蓉城
 DTSTART;TZID=Asia/Shanghai:20240809T193500
 DTEND;TZID=Asia/Shanghai:20240809T213500
-UID:1ef38e87-c03b-6ba3-ab9a-fb90365dc06f/douyin:chuanzu
+UID:1ef3c78d-ea6f-63e5-8b64-94b8aa97e8b2/douyin:chuanzu
 DESCRIPTION:一起雄起！\n该订阅日历由抖音【看球去了】更
  新、维护。
 LOCATION:深圳宝安体育中心体育场
@@ -223,7 +223,7 @@ BEGIN:VEVENT
 SUMMARY:【客/中超】山东泰山vs成都蓉城
 DTSTART;TZID=Asia/Shanghai:20240817T200000
 DTEND;TZID=Asia/Shanghai:20240817T220000
-UID:1ef38e87-c03c-6ccc-8dcc-a83579c7f801/douyin:chuanzu
+UID:1ef3c78d-ea6f-6774-873e-ec56bf5ded15/douyin:chuanzu
 DESCRIPTION:一起雄起！\n该订阅日历由抖音【看球去了】更
  新、维护。
 LOCATION:济南奥体中心体育场
@@ -232,7 +232,7 @@ BEGIN:VEVENT
 SUMMARY:【客/中超】武汉三镇vs成都蓉城
 DTSTART;TZID=Asia/Shanghai:20240825T200000
 DTEND;TZID=Asia/Shanghai:20240825T220000
-UID:1ef38e87-c03d-64ad-8d0d-a511d99c07fc/douyin:chuanzu
+UID:1ef3c78d-ea6f-69f9-92f8-23768c2e59c4/douyin:chuanzu
 DESCRIPTION:一起雄起！\n该订阅日历由抖音【看球去了】更
  新、维护。
 LOCATION:武汉体育中心体育
@@ -241,7 +241,7 @@ BEGIN:VEVENT
 SUMMARY:⚽【主/中超】成都蓉城vs北京国安
 DTSTART;TZID=Asia/Shanghai:20240914T193500
 DTEND;TZID=Asia/Shanghai:20240914T213500
-UID:1ef38e87-c03d-6a17-8d1d-af3be710526d/douyin:chuanzu
+UID:1ef3c78d-ea6f-6c2d-898c-a1055e90e77d/douyin:chuanzu
 DESCRIPTION:一起雄起！\n该订阅日历由抖音【看球去了】更
  新、维护。
 LOCATION:成都凤凰山体育公园专业足球场
@@ -250,7 +250,7 @@ BEGIN:VEVENT
 SUMMARY:【客/中超】河南俱乐部vs成都蓉城
 DTSTART;TZID=Asia/Shanghai:20240921T193500
 DTEND;TZID=Asia/Shanghai:20240921T213500
-UID:1ef38e87-c03d-6f81-bc8e-6b7c449b1188/douyin:chuanzu
+UID:1ef3c78d-ea6f-6e7c-a6ad-039f75a094e0/douyin:chuanzu
 DESCRIPTION:一起雄起！\n该订阅日历由抖音【看球去了】更
  新、维护。
 LOCATION:郑州航海体育场
@@ -259,7 +259,7 @@ BEGIN:VEVENT
 SUMMARY:⚽【主/中超】成都蓉城vs梅州客家
 DTSTART;TZID=Asia/Shanghai:20240929T193500
 DTEND;TZID=Asia/Shanghai:20240929T213500
-UID:1ef38e87-c03e-6508-9da4-8cfddc0fe2a5/douyin:chuanzu
+UID:1ef3c78d-ea70-60aa-897c-e9a93664f25e/douyin:chuanzu
 DESCRIPTION:一起雄起！\n该订阅日历由抖音【看球去了】更
  新、维护。
 LOCATION:成都凤凰山体育公园专业足球场
@@ -268,7 +268,7 @@ BEGIN:VEVENT
 SUMMARY:⚽【主/中超】成都蓉城vs上海海港
 DTSTART;TZID=Asia/Shanghai:20241018T200000
 DTEND;TZID=Asia/Shanghai:20241018T220000
-UID:1ef38e87-c03e-6c5c-919f-cd71020f67a2/douyin:chuanzu
+UID:1ef3c78d-ea70-62db-b639-48fe9aa47723/douyin:chuanzu
 DESCRIPTION:一起雄起！\n该订阅日历由抖音【看球去了】更
  新、维护。
 LOCATION:成都凤凰山体育公园专业足球场
@@ -277,7 +277,7 @@ BEGIN:VEVENT
 SUMMARY:【客/中超】青岛西海岸vs成都蓉城
 DTSTART;TZID=Asia/Shanghai:20241027T153000
 DTEND;TZID=Asia/Shanghai:20241027T173000
-UID:1ef38e87-c03f-61a2-a438-4e237cb80da0/douyin:chuanzu
+UID:1ef3c78d-ea70-64ef-83ae-1e117ae6c3c6/douyin:chuanzu
 DESCRIPTION:一起雄起！\n该订阅日历由抖音【看球去了】更
  新、维护。
 LOCATION:青岛西海岸大学城体育场
@@ -286,7 +286,7 @@ BEGIN:VEVENT
 SUMMARY:【客/中超】上海申花vs成都蓉城
 DTSTART;TZID=Asia/Shanghai:20241102T153000
 DTEND;TZID=Asia/Shanghai:20241102T173000
-UID:1ef38e87-c03f-66be-9619-7367ac8df6a0/douyin:chuanzu
+UID:1ef3c78d-ea70-6719-8ede-b6020cffef55/douyin:chuanzu
 DESCRIPTION:一起雄起！\n该订阅日历由抖音【看球去了】更
  新、维护。
 LOCATION:成都凤凰山体育公园专业足球场
@@ -295,7 +295,7 @@ BEGIN:VEVENT
 SUMMARY:🏀【主/2025男篮亚预赛】中国男篮vs蒙古国男篮
 DTSTART;TZID=Asia/Shanghai:20240222T193000
 DTEND;TZID=Asia/Shanghai:20240222T213000
-UID:1ef38e87-c03f-6bdb-be56-7ed91a7f31b7/douyin:chuanzu
+UID:1ef3c78d-ea70-6945-a53a-701de8d545b4/douyin:chuanzu
 DESCRIPTION:一起雄起！\n该订阅日历由抖音【看球去了】更
  新、维护。
 LOCATION:西安
@@ -304,7 +304,7 @@ BEGIN:VEVENT
 SUMMARY:【客/2025男篮亚预赛】日本男篮vs中国男篮
 DTSTART;TZID=Asia/Shanghai:20240225T130000
 DTEND;TZID=Asia/Shanghai:20240225T150000
-UID:1ef38e87-c040-6193-bab5-370af087a71b/douyin:chuanzu
+UID:1ef3c78d-ea70-6b97-9004-aae65fca7998/douyin:chuanzu
 DESCRIPTION:一起雄起！\n该订阅日历由抖音【看球去了】更
  新、维护。
 LOCATION:东京
@@ -314,7 +314,7 @@ SUMMARY:【客/2023-2024WCBA总决赛第5场(5局3胜)】内蒙古农信(2
  )vs四川远达美乐(2)
 DTSTART;TZID=Asia/Shanghai:20240422T193000
 DTEND;TZID=Asia/Shanghai:20240422T213000
-UID:1ef38e87-c040-670b-bc98-9d633b9a699b/douyin:chuanzu
+UID:1ef3c78d-ea70-6dd1-976e-5e0fda824278/douyin:chuanzu
 DESCRIPTION:一起雄起！\n该订阅日历由抖音【看球去了】更
  新、维护。
 LOCATION:呼和浩特内蒙古体育馆
@@ -324,7 +324,7 @@ SUMMARY:【客/世预】新加坡国家男子足球队vs中国国家男子
  足球队
 DTSTART;TZID=Asia/Shanghai:20240321T203000
 DTEND;TZID=Asia/Shanghai:20240321T223000
-UID:1ef38e87-c040-6e5c-b4be-85c4b3039790/douyin:chuanzu
+UID:1ef3c78d-ea71-6002-9ec3-3415c3257006/douyin:chuanzu
 DESCRIPTION:一起雄起！\n该订阅日历由抖音【看球去了】更
  新、维护。
 LOCATION:新加坡国家体育场
@@ -334,7 +334,7 @@ SUMMARY:⚽【主/世预】中国国家男子足球队vs新加坡国家男
  子足球队
 DTSTART;TZID=Asia/Shanghai:20240326T200000
 DTEND;TZID=Asia/Shanghai:20240326T220000
-UID:1ef38e87-c041-6413-a060-314a484132cc/douyin:chuanzu
+UID:1ef3c78d-ea71-621d-b121-ad29808cbbf8/douyin:chuanzu
 DESCRIPTION:一起雄起！\n该订阅日历由抖音【看球去了】更
  新、维护。
 LOCATION:天津奥林匹克体育中心体育场
@@ -344,7 +344,7 @@ SUMMARY:⚽【主/世预】中国国家男子足球队vs泰国国家男子
  足球队
 DTSTART;TZID=Asia/Shanghai:20240606T200000
 DTEND;TZID=Asia/Shanghai:20240606T220000
-UID:1ef38e87-c041-6963-b771-133e97cf420b/douyin:chuanzu
+UID:1ef3c78d-ea71-644b-9ca5-2aea072ef876/douyin:chuanzu
 DESCRIPTION:一起雄起！\n该订阅日历由抖音【看球去了】更
  新、维护。
 LOCATION:沈阳奥林匹克体育中心场
@@ -354,7 +354,7 @@ SUMMARY:【客/世预】韩国国家男子足球队vs中国国家男子足
  球队
 DTSTART;TZID=Asia/Shanghai:20240611T190000
 DTEND;TZID=Asia/Shanghai:20240611T210000
-UID:1ef38e87-c041-6eab-8add-9426c3301f2c/douyin:chuanzu
+UID:1ef3c78d-ea71-666e-b7fe-affed6b7631e/douyin:chuanzu
 DESCRIPTION:一起雄起！\n该订阅日历由抖音【看球去了】更
  新、维护。
 LOCATION:韩国
@@ -363,7 +363,7 @@ BEGIN:VEVENT
 SUMMARY:【亚冠1/8决赛】川崎前锋vs山东泰山
 DTSTART;TZID=Asia/Shanghai:20240220T160000
 DTEND;TZID=Asia/Shanghai:20240220T180000
-UID:1ef38e87-c042-63ca-8a6d-796e348d76a8/douyin:chuanzu
+UID:1ef3c78d-ea71-688d-96ce-f086db6e4746/douyin:chuanzu
 DESCRIPTION:一起雄起！\n该订阅日历由抖音【看球去了】更
  新、维护。
 LOCATION:川崎等等力陆上竞技场
@@ -372,7 +372,7 @@ BEGIN:VEVENT
 SUMMARY:【亚冠1/4决赛】山东泰山vs横滨水手
 DTSTART;TZID=Asia/Shanghai:20240306T180000
 DTEND;TZID=Asia/Shanghai:20240306T200000
-UID:1ef38e87-c042-68d3-a032-d4c70da8c559/douyin:chuanzu
+UID:1ef3c78d-ea71-6a9c-afbd-350293a16113/douyin:chuanzu
 DESCRIPTION:一起雄起！\n该订阅日历由抖音【看球去了】更
  新、维护。
 LOCATION:济南奥体中心体育场
@@ -381,7 +381,7 @@ BEGIN:VEVENT
 SUMMARY:【亚冠1/4决赛】横滨水手vs山东泰山
 DTSTART;TZID=Asia/Shanghai:20240313T180000
 DTEND;TZID=Asia/Shanghai:20240313T200000
-UID:1ef38e87-c042-6dec-862b-70e7e06ef27c/douyin:chuanzu
+UID:1ef3c78d-ea71-6cc6-8c92-f6d69941bef0/douyin:chuanzu
 DESCRIPTION:一起雄起！\n该订阅日历由抖音【看球去了】更
  新、维护。
 LOCATION:横滨国际综合竞技场
@@ -390,7 +390,7 @@ BEGIN:VEVENT
 SUMMARY:【🍺欧洲杯A组】德国vs英格兰
 DTSTART;TZID=Asia/Shanghai:20240615T030000
 DTEND;TZID=Asia/Shanghai:20240615T050000
-UID:1ef38e87-c043-63c0-837c-603bdac1eae3/douyin:chuanzu
+UID:1ef3c78d-ea71-6ef5-b68f-6f4724eb39c8/douyin:chuanzu
 DESCRIPTION:一起雄起！\n该订阅日历由抖音【看球去了】更
  新、维护。
 LOCATION:德国
@@ -399,7 +399,7 @@ BEGIN:VEVENT
 SUMMARY:【🍺欧洲杯A组】匈牙利vs瑞士
 DTSTART;TZID=Asia/Shanghai:20240615T210000
 DTEND;TZID=Asia/Shanghai:20240615T230000
-UID:1ef38e87-c043-68d1-9a45-684741ec929f/douyin:chuanzu
+UID:1ef3c78d-ea72-610a-8d71-46dbf9abddf2/douyin:chuanzu
 DESCRIPTION:一起雄起！\n该订阅日历由抖音【看球去了】更
  新、维护。
 LOCATION:德国
@@ -408,7 +408,7 @@ BEGIN:VEVENT
 SUMMARY:【🍺欧洲杯B组】西班牙vs克罗地亚
 DTSTART;TZID=Asia/Shanghai:20240616T000000
 DTEND;TZID=Asia/Shanghai:20240616T020000
-UID:1ef38e87-c043-6deb-9e99-c5a0cf3441f1/douyin:chuanzu
+UID:1ef3c78d-ea72-6343-82d1-23c96a2e5f7c/douyin:chuanzu
 DESCRIPTION:一起雄起！\n该订阅日历由抖音【看球去了】更
  新、维护。
 LOCATION:德国
@@ -417,7 +417,7 @@ BEGIN:VEVENT
 SUMMARY:【🍺欧洲杯B组】意大利vs阿尔巴尼亚
 DTSTART;TZID=Asia/Shanghai:20240616T030000
 DTEND;TZID=Asia/Shanghai:20240616T050000
-UID:1ef38e87-c044-631d-b419-5853973e5925/douyin:chuanzu
+UID:1ef3c78d-ea72-655f-99ba-2159d24fe163/douyin:chuanzu
 DESCRIPTION:一起雄起！\n该订阅日历由抖音【看球去了】更
  新、维护。
 LOCATION:德国
@@ -426,7 +426,7 @@ BEGIN:VEVENT
 SUMMARY:【🍺欧洲杯D组】波兰vs荷兰
 DTSTART;TZID=Asia/Shanghai:20240616T210000
 DTEND;TZID=Asia/Shanghai:20240616T230000
-UID:1ef38e87-c044-6a80-9bc3-efc297787099/douyin:chuanzu
+UID:1ef3c78d-ea72-677d-8c3d-dbb8b8135323/douyin:chuanzu
 DESCRIPTION:一起雄起！\n该订阅日历由抖音【看球去了】更
  新、维护。
 LOCATION:德国
@@ -435,7 +435,7 @@ BEGIN:VEVENT
 SUMMARY:【🍺欧洲杯C组】斯洛文尼亚vs丹麦
 DTSTART;TZID=Asia/Shanghai:20240617T000000
 DTEND;TZID=Asia/Shanghai:20240617T020000
-UID:1ef38e87-c045-6019-a310-014ee125db52/douyin:chuanzu
+UID:1ef3c78d-ea72-69a6-9263-448324f0193a/douyin:chuanzu
 DESCRIPTION:一起雄起！\n该订阅日历由抖音【看球去了】更
  新、维护。
 LOCATION:德国
@@ -444,7 +444,7 @@ BEGIN:VEVENT
 SUMMARY:【🍺欧洲杯C组】塞尔维亚vs英格兰
 DTSTART;TZID=Asia/Shanghai:20240617T030000
 DTEND;TZID=Asia/Shanghai:20240617T050000
-UID:1ef38e87-c045-64f1-9573-2320a446ba55/douyin:chuanzu
+UID:1ef3c78d-ea72-6bca-8fb4-775eaa9e12ff/douyin:chuanzu
 DESCRIPTION:一起雄起！\n该订阅日历由抖音【看球去了】更
  新、维护。
 LOCATION:德国
@@ -453,7 +453,7 @@ BEGIN:VEVENT
 SUMMARY:【🍺欧洲杯E组】罗马尼亚vs乌克兰
 DTSTART;TZID=Asia/Shanghai:20240617T210000
 DTEND;TZID=Asia/Shanghai:20240617T230000
-UID:1ef38e87-c045-69cb-8500-6d589d580129/douyin:chuanzu
+UID:1ef3c78d-ea72-6de7-9129-3922a6d907c8/douyin:chuanzu
 DESCRIPTION:一起雄起！\n该订阅日历由抖音【看球去了】更
  新、维护。
 LOCATION:德国
@@ -462,7 +462,7 @@ BEGIN:VEVENT
 SUMMARY:【🍺欧洲杯E组】比利时vs斯洛伐克
 DTSTART;TZID=Asia/Shanghai:20240618T000000
 DTEND;TZID=Asia/Shanghai:20240618T020000
-UID:1ef38e87-c045-6e3e-84d4-87eeae9452b4/douyin:chuanzu
+UID:1ef3c78d-ea72-6ff1-be41-efd4ce4e9dcb/douyin:chuanzu
 DESCRIPTION:一起雄起！\n该订阅日历由抖音【看球去了】更
  新、维护。
 LOCATION:德国
@@ -471,7 +471,7 @@ BEGIN:VEVENT
 SUMMARY:【🍺欧洲杯D组】奥地利vs法国
 DTSTART;TZID=Asia/Shanghai:20240618T030000
 DTEND;TZID=Asia/Shanghai:20240618T050000
-UID:1ef38e87-c046-62a7-a728-17cd558e6472/douyin:chuanzu
+UID:1ef3c78d-ea73-6217-9cb7-f2ec7d2a24f6/douyin:chuanzu
 DESCRIPTION:一起雄起！\n该订阅日历由抖音【看球去了】更
  新、维护。
 LOCATION:德国
@@ -480,7 +480,7 @@ BEGIN:VEVENT
 SUMMARY:【🍺欧洲杯F组】土耳其vs格鲁吉亚
 DTSTART;TZID=Asia/Shanghai:20240619T000000
 DTEND;TZID=Asia/Shanghai:20240619T020000
-UID:1ef38e87-c046-671f-8093-bd45b41af850/douyin:chuanzu
+UID:1ef3c78d-ea73-650c-8d87-fae085548a49/douyin:chuanzu
 DESCRIPTION:一起雄起！\n该订阅日历由抖音【看球去了】更
  新、维护。
 LOCATION:德国
@@ -489,7 +489,7 @@ BEGIN:VEVENT
 SUMMARY:【🍺欧洲杯F组】葡萄牙vs捷克
 DTSTART;TZID=Asia/Shanghai:20240619T030000
 DTEND;TZID=Asia/Shanghai:20240619T050000
-UID:1ef38e87-c046-6b97-87de-95daf57360b7/douyin:chuanzu
+UID:1ef3c78d-ea73-672c-b632-53fb2c9e5b16/douyin:chuanzu
 DESCRIPTION:一起雄起！\n该订阅日历由抖音【看球去了】更
  新、维护。
 LOCATION:德国
@@ -498,7 +498,7 @@ BEGIN:VEVENT
 SUMMARY:【🍺欧洲杯B组】克罗地亚vs阿尔巴尼亚
 DTSTART;TZID=Asia/Shanghai:20240619T210000
 DTEND;TZID=Asia/Shanghai:20240619T230000
-UID:1ef38e87-c047-6118-be28-0ce70cfe1c3b/douyin:chuanzu
+UID:1ef3c78d-ea73-694e-81c7-2757e13ca891/douyin:chuanzu
 DESCRIPTION:一起雄起！\n该订阅日历由抖音【看球去了】更
  新、维护。
 LOCATION:德国
@@ -507,7 +507,7 @@ BEGIN:VEVENT
 SUMMARY:【🍺欧洲杯A组】德国vs匈牙利
 DTSTART;TZID=Asia/Shanghai:20240620T000000
 DTEND;TZID=Asia/Shanghai:20240620T020000
-UID:1ef38e87-c047-6648-860f-e956f825b12d/douyin:chuanzu
+UID:1ef3c78d-ea73-6b84-8b64-5e7a0fa37f11/douyin:chuanzu
 DESCRIPTION:一起雄起！\n该订阅日历由抖音【看球去了】更
  新、维护。
 LOCATION:德国
@@ -516,7 +516,7 @@ BEGIN:VEVENT
 SUMMARY:【🍺欧洲杯A组】苏格兰vs瑞士
 DTSTART;TZID=Asia/Shanghai:20240620T030000
 DTEND;TZID=Asia/Shanghai:20240620T050000
-UID:1ef38e87-c047-6b23-91c7-b6d7adde031b/douyin:chuanzu
+UID:1ef3c78d-ea73-6d6a-bf0a-f1e4cfaa758b/douyin:chuanzu
 DESCRIPTION:一起雄起！\n该订阅日历由抖音【看球去了】更
  新、维护。
 LOCATION:德国
@@ -525,7 +525,7 @@ BEGIN:VEVENT
 SUMMARY:【🍺欧洲杯C组】斯洛文尼亚vs塞尔维亚
 DTSTART;TZID=Asia/Shanghai:20240620T210000
 DTEND;TZID=Asia/Shanghai:20240620T230000
-UID:1ef38e87-c048-618a-9be0-a608ff079f44/douyin:chuanzu
+UID:1ef3c78d-ea73-6f5c-8111-632beb9c516d/douyin:chuanzu
 DESCRIPTION:一起雄起！\n该订阅日历由抖音【看球去了】更
  新、维护。
 LOCATION:德国
@@ -534,7 +534,7 @@ BEGIN:VEVENT
 SUMMARY:【🍺欧洲杯C组】丹麦vs苏格兰
 DTSTART;TZID=Asia/Shanghai:20240621T000000
 DTEND;TZID=Asia/Shanghai:20240621T020000
-UID:1ef38e87-c048-65ff-8e31-d478c60f52f6/douyin:chuanzu
+UID:1ef3c78d-ea74-6184-aa51-9eaf98c81873/douyin:chuanzu
 DESCRIPTION:一起雄起！\n该订阅日历由抖音【看球去了】更
  新、维护。
 LOCATION:德国
@@ -543,7 +543,7 @@ BEGIN:VEVENT
 SUMMARY:【🍺欧洲杯B组】西班牙vs意大利
 DTSTART;TZID=Asia/Shanghai:20240621T030000
 DTEND;TZID=Asia/Shanghai:20240621T050000
-UID:1ef38e87-c048-6a56-b8d4-f3ef81c0862b/douyin:chuanzu
+UID:1ef3c78d-ea74-6393-9df7-bd5423b68df0/douyin:chuanzu
 DESCRIPTION:一起雄起！\n该订阅日历由抖音【看球去了】更
  新、维护。
 LOCATION:德国
@@ -552,7 +552,7 @@ BEGIN:VEVENT
 SUMMARY:【🍺欧洲杯E组】斯洛伐克vs乌克兰
 DTSTART;TZID=Asia/Shanghai:20240621T210000
 DTEND;TZID=Asia/Shanghai:20240621T230000
-UID:1ef38e87-c048-6ed3-b114-187f7bbc54db/douyin:chuanzu
+UID:1ef3c78d-ea74-65c3-b590-581206bf7ab5/douyin:chuanzu
 DESCRIPTION:一起雄起！\n该订阅日历由抖音【看球去了】更
  新、维护。
 LOCATION:德国
@@ -561,7 +561,7 @@ BEGIN:VEVENT
 SUMMARY:【🍺欧洲杯D组】波兰vs奥地利
 DTSTART;TZID=Asia/Shanghai:20240622T000000
 DTEND;TZID=Asia/Shanghai:20240622T020000
-UID:1ef38e87-c049-634a-90ce-29fd1469ba3f/douyin:chuanzu
+UID:1ef3c78d-ea74-67d3-93f5-b8d339dc2cc0/douyin:chuanzu
 DESCRIPTION:一起雄起！\n该订阅日历由抖音【看球去了】更
  新、维护。
 LOCATION:德国
@@ -570,7 +570,7 @@ BEGIN:VEVENT
 SUMMARY:【🍺欧洲杯D组】荷兰vs法国
 DTSTART;TZID=Asia/Shanghai:20240622T030000
 DTEND;TZID=Asia/Shanghai:20240622T050000
-UID:1ef38e87-c049-68ca-903b-0ab9cc6d0bd8/douyin:chuanzu
+UID:1ef3c78d-ea74-69c8-9396-f11c4bb6eada/douyin:chuanzu
 DESCRIPTION:一起雄起！\n该订阅日历由抖音【看球去了】更
  新、维护。
 LOCATION:德国
@@ -579,7 +579,7 @@ BEGIN:VEVENT
 SUMMARY:【🍺欧洲杯F组】格鲁吉亚vs捷克
 DTSTART;TZID=Asia/Shanghai:20240622T210000
 DTEND;TZID=Asia/Shanghai:20240622T230000
-UID:1ef38e87-c049-6db8-84dc-267722ec5d7c/douyin:chuanzu
+UID:1ef3c78d-ea74-6ba2-a18f-0dbd89190503/douyin:chuanzu
 DESCRIPTION:一起雄起！\n该订阅日历由抖音【看球去了】更
  新、维护。
 LOCATION:德国
@@ -588,7 +588,7 @@ BEGIN:VEVENT
 SUMMARY:【🍺欧洲杯F组】土耳其vs葡萄牙
 DTSTART;TZID=Asia/Shanghai:20240623T000000
 DTEND;TZID=Asia/Shanghai:20240623T020000
-UID:1ef38e87-c04a-625b-8897-924beab27e30/douyin:chuanzu
+UID:1ef3c78d-ea74-6d8c-ad95-a0ec57225f64/douyin:chuanzu
 DESCRIPTION:一起雄起！\n该订阅日历由抖音【看球去了】更
  新、维护。
 LOCATION:德国
@@ -597,7 +597,7 @@ BEGIN:VEVENT
 SUMMARY:【🍺欧洲杯E组】比利时vs罗马尼亚
 DTSTART;TZID=Asia/Shanghai:20240623T030000
 DTEND;TZID=Asia/Shanghai:20240623T050000
-UID:1ef38e87-c04a-66b1-8bbd-d1132bd9ea7d/douyin:chuanzu
+UID:1ef3c78d-ea74-6f72-856a-b80155a4bf59/douyin:chuanzu
 DESCRIPTION:一起雄起！\n该订阅日历由抖音【看球去了】更
  新、维护。
 LOCATION:德国
@@ -606,7 +606,7 @@ BEGIN:VEVENT
 SUMMARY:【🍺欧洲杯A组】苏格兰vs匈牙利
 DTSTART;TZID=Asia/Shanghai:20240624T030000
 DTEND;TZID=Asia/Shanghai:20240624T050000
-UID:1ef38e87-c04a-6b20-a0dd-25b8df62b396/douyin:chuanzu
+UID:1ef3c78d-ea75-6160-91d6-942f8cc4decb/douyin:chuanzu
 DESCRIPTION:一起雄起！\n该订阅日历由抖音【看球去了】更
  新、维护。
 LOCATION:德国
@@ -615,7 +615,7 @@ BEGIN:VEVENT
 SUMMARY:【🍺欧洲杯A组】瑞士vs德国
 DTSTART;TZID=Asia/Shanghai:20240624T030000
 DTEND;TZID=Asia/Shanghai:20240624T050000
-UID:1ef38e87-c04a-6f72-a681-481752939db8/douyin:chuanzu
+UID:1ef3c78d-ea75-6357-88f9-5fe505d0a2ea/douyin:chuanzu
 DESCRIPTION:一起雄起！\n该订阅日历由抖音【看球去了】更
  新、维护。
 LOCATION:德国
@@ -624,7 +624,7 @@ BEGIN:VEVENT
 SUMMARY:【🍺欧洲杯B组】克罗地亚vs意大利
 DTSTART;TZID=Asia/Shanghai:20240625T030000
 DTEND;TZID=Asia/Shanghai:20240625T050000
-UID:1ef38e87-c04b-63da-af3f-3c0e6c047ddd/douyin:chuanzu
+UID:1ef3c78d-ea75-6540-b946-a1b4dfcd9962/douyin:chuanzu
 DESCRIPTION:一起雄起！\n该订阅日历由抖音【看球去了】更
  新、维护。
 LOCATION:德国
@@ -633,7 +633,7 @@ BEGIN:VEVENT
 SUMMARY:【🍺欧洲杯B组】阿尔巴尼亚vs西班牙
 DTSTART;TZID=Asia/Shanghai:20240625T030000
 DTEND;TZID=Asia/Shanghai:20240625T050000
-UID:1ef38e87-c04b-6889-a380-d3bb47298a75/douyin:chuanzu
+UID:1ef3c78d-ea75-6732-8c2d-7a20c8403852/douyin:chuanzu
 DESCRIPTION:一起雄起！\n该订阅日历由抖音【看球去了】更
  新、维护。
 LOCATION:德国
@@ -642,7 +642,7 @@ BEGIN:VEVENT
 SUMMARY:【🍺欧洲杯D组】法国vs波兰
 DTSTART;TZID=Asia/Shanghai:20240626T000000
 DTEND;TZID=Asia/Shanghai:20240626T020000
-UID:1ef38e87-c04b-6d28-8d69-c2584f449cca/douyin:chuanzu
+UID:1ef3c78d-ea75-6924-82b2-60d15c07dc15/douyin:chuanzu
 DESCRIPTION:一起雄起！\n该订阅日历由抖音【看球去了】更
  新、维护。
 LOCATION:德国
@@ -651,7 +651,7 @@ BEGIN:VEVENT
 SUMMARY:【🍺欧洲杯D组】荷兰vs奥地利
 DTSTART;TZID=Asia/Shanghai:20240626T000000
 DTEND;TZID=Asia/Shanghai:20240626T020000
-UID:1ef38e87-c04c-62c5-b6e1-d3a7dfe33e75/douyin:chuanzu
+UID:1ef3c78d-ea75-6b19-82ad-14a649581d05/douyin:chuanzu
 DESCRIPTION:一起雄起！\n该订阅日历由抖音【看球去了】更
  新、维护。
 LOCATION:德国
@@ -660,7 +660,7 @@ BEGIN:VEVENT
 SUMMARY:【🍺欧洲杯C组】丹麦vs塞尔维亚
 DTSTART;TZID=Asia/Shanghai:20240626T030000
 DTEND;TZID=Asia/Shanghai:20240626T050000
-UID:1ef38e87-c04c-676c-8ce3-b81c47a822f3/douyin:chuanzu
+UID:1ef3c78d-ea75-6cf0-ad65-be3fc7362648/douyin:chuanzu
 DESCRIPTION:一起雄起！\n该订阅日历由抖音【看球去了】更
  新、维护。
 LOCATION:德国
@@ -669,7 +669,7 @@ BEGIN:VEVENT
 SUMMARY:【🍺欧洲杯C组】英格兰vs斯洛文尼亚
 DTSTART;TZID=Asia/Shanghai:20240626T030000
 DTEND;TZID=Asia/Shanghai:20240626T050000
-UID:1ef38e87-c04c-6c24-a26a-c7715869fe2f/douyin:chuanzu
+UID:1ef3c78d-ea75-6ede-951d-3ad419b42de6/douyin:chuanzu
 DESCRIPTION:一起雄起！\n该订阅日历由抖音【看球去了】更
  新、维护。
 LOCATION:德国
@@ -678,7 +678,7 @@ BEGIN:VEVENT
 SUMMARY:【🍺欧洲杯E组】乌克兰vs比利时
 DTSTART;TZID=Asia/Shanghai:20240627T000000
 DTEND;TZID=Asia/Shanghai:20240627T020000
-UID:1ef38e87-c04d-6085-a82e-1747afebf5dd/douyin:chuanzu
+UID:1ef3c78d-ea76-60bd-8be5-ca865d2a376f/douyin:chuanzu
 DESCRIPTION:一起雄起！\n该订阅日历由抖音【看球去了】更
  新、维护。
 LOCATION:德国
@@ -687,7 +687,7 @@ BEGIN:VEVENT
 SUMMARY:【🍺欧洲杯E组】斯洛伐克vs罗马尼亚
 DTSTART;TZID=Asia/Shanghai:20240627T000000
 DTEND;TZID=Asia/Shanghai:20240627T020000
-UID:1ef38e87-c04d-64e1-9284-de4a47408087/douyin:chuanzu
+UID:1ef3c78d-ea76-62a0-81a0-de958fb7e807/douyin:chuanzu
 DESCRIPTION:一起雄起！\n该订阅日历由抖音【看球去了】更
  新、维护。
 LOCATION:德国
@@ -696,7 +696,7 @@ BEGIN:VEVENT
 SUMMARY:【🍺欧洲杯F组】捷克vs土耳其
 DTSTART;TZID=Asia/Shanghai:20240627T030000
 DTEND;TZID=Asia/Shanghai:20240627T050000
-UID:1ef38e87-c04d-6954-b009-a44b2b6c726e/douyin:chuanzu
+UID:1ef3c78d-ea76-6476-a8db-59a077c6eec9/douyin:chuanzu
 DESCRIPTION:一起雄起！\n该订阅日历由抖音【看球去了】更
  新、维护。
 LOCATION:德国
@@ -705,7 +705,7 @@ BEGIN:VEVENT
 SUMMARY:【🍺欧洲杯F组】格鲁吉亚vs葡萄牙
 DTSTART;TZID=Asia/Shanghai:20240627T030000
 DTEND;TZID=Asia/Shanghai:20240627T050000
-UID:1ef38e87-c04d-6da9-b600-c42fc4e15d41/douyin:chuanzu
+UID:1ef3c78d-ea76-665c-b941-8047817b1a3c/douyin:chuanzu
 DESCRIPTION:一起雄起！\n该订阅日历由抖音【看球去了】更
  新、维护。
 LOCATION:德国
@@ -714,7 +714,7 @@ BEGIN:VEVENT
 SUMMARY:【🍺欧洲杯1/8决赛】瑞士vs意大利
 DTSTART;TZID=Asia/Shanghai:20240630T000000
 DTEND;TZID=Asia/Shanghai:20240630T020000
-UID:1ef38e87-c04e-622f-bd98-dd6faa7b83b5/douyin:chuanzu
+UID:1ef3c78d-ea76-6841-b17a-00c1c9524946/douyin:chuanzu
 DESCRIPTION:一起雄起！\n该订阅日历由抖音【看球去了】更
  新、维护。
 LOCATION:德国
@@ -723,7 +723,7 @@ BEGIN:VEVENT
 SUMMARY:【🍺欧洲杯1/8决赛】德国vs丹麦
 DTSTART;TZID=Asia/Shanghai:20240630T030000
 DTEND;TZID=Asia/Shanghai:20240630T050000
-UID:1ef38e87-c04e-6785-b1a4-8524f3f14e4a/douyin:chuanzu
+UID:1ef3c78d-ea76-6a29-8115-0d24ec10f7ed/douyin:chuanzu
 DESCRIPTION:一起雄起！\n该订阅日历由抖音【看球去了】更
  新、维护。
 LOCATION:德国
@@ -732,7 +732,7 @@ BEGIN:VEVENT
 SUMMARY:【🍺欧洲杯1/8决赛】英格兰vs斯洛伐克
 DTSTART;TZID=Asia/Shanghai:20240701T000000
 DTEND;TZID=Asia/Shanghai:20240701T020000
-UID:1ef38e87-c04e-6ca8-b595-84ec72bf2b49/douyin:chuanzu
+UID:1ef3c78d-ea76-6c6b-8980-0423a9511061/douyin:chuanzu
 DESCRIPTION:一起雄起！\n该订阅日历由抖音【看球去了】更
  新、维护。
 LOCATION:德国
@@ -741,7 +741,7 @@ BEGIN:VEVENT
 SUMMARY:【🍺欧洲杯1/8决赛】西班牙vs格鲁吉亚
 DTSTART;TZID=Asia/Shanghai:20240701T030000
 DTEND;TZID=Asia/Shanghai:20240701T050000
-UID:1ef38e87-c04f-610f-a0d5-2fced3d3c52f/douyin:chuanzu
+UID:1ef3c78d-ea76-6e8c-b91c-c2235b0a3a66/douyin:chuanzu
 DESCRIPTION:一起雄起！\n该订阅日历由抖音【看球去了】更
  新、维护。
 LOCATION:德国
@@ -750,7 +750,7 @@ BEGIN:VEVENT
 SUMMARY:【🍺欧洲杯1/8决赛】法国vs比利时
 DTSTART;TZID=Asia/Shanghai:20240702T000000
 DTEND;TZID=Asia/Shanghai:20240702T020000
-UID:1ef38e87-c04f-6594-8aac-540175eda19e/douyin:chuanzu
+UID:1ef3c78d-ea77-6083-9005-c9096d38cad8/douyin:chuanzu
 DESCRIPTION:一起雄起！\n该订阅日历由抖音【看球去了】更
  新、维护。
 LOCATION:德国
@@ -759,7 +759,7 @@ BEGIN:VEVENT
 SUMMARY:【🍺欧洲杯1/8决赛】葡萄牙vs斯洛文尼亚
 DTSTART;TZID=Asia/Shanghai:20240702T030000
 DTEND;TZID=Asia/Shanghai:20240702T050000
-UID:1ef38e87-c04f-6a16-9117-24e7a57abe87/douyin:chuanzu
+UID:1ef3c78d-ea77-6283-addf-c53be9651eeb/douyin:chuanzu
 DESCRIPTION:一起雄起！\n该订阅日历由抖音【看球去了】更
  新、维护。
 LOCATION:德国
@@ -768,7 +768,7 @@ BEGIN:VEVENT
 SUMMARY:【🍺欧洲杯1/8决赛】罗马尼亚vs荷兰
 DTSTART;TZID=Asia/Shanghai:20240703T000000
 DTEND;TZID=Asia/Shanghai:20240703T020000
-UID:1ef38e87-c04f-6e6f-b225-5120240a3cbc/douyin:chuanzu
+UID:1ef3c78d-ea77-646d-98e5-7b78d321d5e5/douyin:chuanzu
 DESCRIPTION:一起雄起！\n该订阅日历由抖音【看球去了】更
  新、维护。
 LOCATION:德国
@@ -777,7 +777,7 @@ BEGIN:VEVENT
 SUMMARY:【🍺欧洲杯1/8决赛】奥地利vs土耳其
 DTSTART;TZID=Asia/Shanghai:20240703T030000
 DTEND;TZID=Asia/Shanghai:20240703T050000
-UID:1ef38e87-c050-62ba-ac62-dd74c9c70473/douyin:chuanzu
+UID:1ef3c78d-ea77-6646-a00d-151e20b2ca54/douyin:chuanzu
 DESCRIPTION:一起雄起！\n该订阅日历由抖音【看球去了】更
  新、维护。
 LOCATION:德国
@@ -786,7 +786,7 @@ BEGIN:VEVENT
 SUMMARY:【🍺欧洲杯1/4决赛】西班牙vs德国
 DTSTART;TZID=Asia/Shanghai:20240706T000000
 DTEND;TZID=Asia/Shanghai:20240706T020000
-UID:1ef38e87-c050-6724-89ed-9f1c3c5f1f69/douyin:chuanzu
+UID:1ef3c78d-ea77-6826-b1ec-b92aa01e96cf/douyin:chuanzu
 DESCRIPTION:一起雄起！\n该订阅日历由抖音【看球去了】更
  新、维护。
 LOCATION:德国
@@ -795,7 +795,7 @@ BEGIN:VEVENT
 SUMMARY:【🍺欧洲杯1/4决赛】葡萄牙vs法国
 DTSTART;TZID=Asia/Shanghai:20240706T030000
 DTEND;TZID=Asia/Shanghai:20240706T050000
-UID:1ef38e87-c050-6b98-ad75-787317dcd65a/douyin:chuanzu
+UID:1ef3c78d-ea77-6a0a-bc46-95fb69d0dbdd/douyin:chuanzu
 DESCRIPTION:一起雄起！\n该订阅日历由抖音【看球去了】更
  新、维护。
 LOCATION:德国
@@ -804,7 +804,7 @@ BEGIN:VEVENT
 SUMMARY:【🍺欧洲杯1/4决赛】英格兰vs瑞士
 DTSTART;TZID=Asia/Shanghai:20240707T000000
 DTEND;TZID=Asia/Shanghai:20240707T020000
-UID:1ef38e87-c051-6637-8a0b-26978733b1e7/douyin:chuanzu
+UID:1ef3c78d-ea77-6ca6-a9c7-4bb8ec453d38/douyin:chuanzu
 DESCRIPTION:一起雄起！\n该订阅日历由抖音【看球去了】更
  新、维护。
 LOCATION:德国
@@ -813,7 +813,7 @@ BEGIN:VEVENT
 SUMMARY:【🍺欧洲杯1/4决赛】荷兰vs土耳其
 DTSTART;TZID=Asia/Shanghai:20240707T030000
 DTEND;TZID=Asia/Shanghai:20240707T050000
-UID:1ef38e87-c051-6cc9-8113-fe474efcb877/douyin:chuanzu
+UID:1ef3c78d-ea77-6eb5-8e61-3eff4f6359fd/douyin:chuanzu
 DESCRIPTION:一起雄起！\n该订阅日历由抖音【看球去了】更
  新、维护。
 LOCATION:德国
@@ -822,7 +822,7 @@ BEGIN:VEVENT
 SUMMARY:【🍺欧洲杯半决赛】待定vs待定
 DTSTART;TZID=Asia/Shanghai:20240710T030000
 DTEND;TZID=Asia/Shanghai:20240710T050000
-UID:1ef38e87-c052-6217-ac85-d355a3c5106a/douyin:chuanzu
+UID:1ef3c78d-ea78-60a1-949a-f38eaf52ee87/douyin:chuanzu
 DESCRIPTION:一起雄起！\n该订阅日历由抖音【看球去了】更
  新、维护。
 LOCATION:德国
@@ -831,7 +831,7 @@ BEGIN:VEVENT
 SUMMARY:【🍺欧洲杯半决赛】待定vs待定
 DTSTART;TZID=Asia/Shanghai:20240711T030000
 DTEND;TZID=Asia/Shanghai:20240711T050000
-UID:1ef38e87-c052-66b1-a380-cea029b430d2/douyin:chuanzu
+UID:1ef3c78d-ea78-627f-a648-2da3ce3052e5/douyin:chuanzu
 DESCRIPTION:一起雄起！\n该订阅日历由抖音【看球去了】更
  新、维护。
 LOCATION:德国
@@ -840,7 +840,7 @@ BEGIN:VEVENT
 SUMMARY:【🍺欧洲杯决赛】待定vs待定
 DTSTART;TZID=Asia/Shanghai:20240715T030000
 DTEND;TZID=Asia/Shanghai:20240715T050000
-UID:1ef38e87-c052-6b21-a795-560e12dc9641/douyin:chuanzu
+UID:1ef3c78d-ea78-64a3-a1ed-96c50d4d357c/douyin:chuanzu
 DESCRIPTION:一起雄起！\n该订阅日历由抖音【看球去了】更
  新、维护。
 LOCATION:德国
